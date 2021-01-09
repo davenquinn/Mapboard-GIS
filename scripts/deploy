@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+rm -rf dist .parcel-cache
+node_modules/.bin/parcel build ./src/index.html
+
+rclone sync dist/ davenquinn-spaces:davenquinn-sites/projects/mapboard-gis/

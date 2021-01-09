@@ -1,0 +1,23 @@
+{
+  "name": "mapboard-gis-docs",
+  "version": "1.0.0",
+  "description": "Documentation for the Mapboard GIS project",
+  "main": "./src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel --no-cache --public-url ./ ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "deploy": "scripts/deploy"
+  },
+  "author": "Daven Quinn",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1",
+    "posthtml-include": "^1.5.0",
+    "posthtml-md": "^1.1.0",
+    "stylus": "^0.54.8"
+  },
+  "dependencies": {
+    "posthtml-markdown": "^0.1.0"
+  }
+}

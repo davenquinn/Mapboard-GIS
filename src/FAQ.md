@@ -1,0 +1,11 @@
+## Does it replace a GIS system?
+
+As its full name implies, Mapboard internally uses a sophisticated GIS system,
+but it is not a fully realized system for managing geospatial data.
+
+It prioritizes simple input over a fully realized set of tools. It also does not
+have a system for managing feature attributes.
+
+## Why?
+
+Geologic maps are beautiful.
