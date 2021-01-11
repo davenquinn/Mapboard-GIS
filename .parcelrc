@@ -1,6 +1,9 @@
 {
   "extends": ["@parcel/config-default"],
   "transformers": {
-    "*.md": ["parcel-transformer-pandoc"]
+    "*.md": ["parcel-transformer-pandoc"],
+  },
+  "optimizers": {
+    "*.js": ["parcel-optimizer-ssg", "..."]
   }
 }
