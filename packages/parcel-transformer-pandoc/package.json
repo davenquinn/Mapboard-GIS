@@ -1,0 +1,17 @@
+{
+  "name": "parcel-transformer-pandoc",
+  "version": "1.0.0",
+  "description": "An experimental transformer for markdown text using Pandoc",
+  "engines": {
+    "parcel": "2.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/plugin": "^2.0.0-alpha.3"
+  }
+}
