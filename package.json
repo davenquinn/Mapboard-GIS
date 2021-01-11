@@ -2,11 +2,11 @@
   "name": "mapboard-gis-docs",
   "version": "1.0.0",
   "description": "Documentation for the Mapboard GIS project",
-  "main": "./src/index.html",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel --dist-dir dist --public-url ./ ./src/index.html",
-    "build": "parcel build --dist-dir dist ./src/index.html",
+    "dev": "parcel --dist-dir dist --public-url ./ ./src/index.js",
+    "build": "parcel build --dist-dir dist ./src/index.js",
     "deploy": "scripts/deploy"
   },
   "author": "Daven Quinn",
@@ -19,7 +19,9 @@
     "stylus": "^0.54.8"
   },
   "dependencies": {
-    "posthtml-markdown": "^0.1.0"
+    "@macrostrat/hyper": "^1.2.11",
+    "posthtml-markdown": "^0.1.0",
+    "require-from-string": "^2.0.2"
   },
   "workspaces": [
     "packages/*"
