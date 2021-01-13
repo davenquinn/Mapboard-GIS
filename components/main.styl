@@ -3,7 +3,24 @@
   margin 0 auto
 
 *
-  font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family "Merriweather", 'Times New Roman', Times, serif
+
+h1,h2,h3,h4,h5,h6
+  font-family: "Montserrat", Helvetica, sans-serif
+
+header
+  display flex
+  flex-direction row
+  &>*
+    margin-right 2em
+  margin-right -2em
+  nav ul
+    display flex
+    flex-flow: row wrap
+    padding-left 0
+    li
+      margin-right 1em
+      list-style: none
 
 a.link-button
   text-align: center
