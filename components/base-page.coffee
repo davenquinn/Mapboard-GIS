@@ -2,6 +2,7 @@ import h from '@macrostrat/hyper'
 import {Helmet} from 'react-helmet'
 import {Nav, ActiveLink} from "./nav"
 import Image from "next/image"
+import Link from "next/link"
 import "./main.styl"
 
 BasePage = (props)->
@@ -14,7 +15,11 @@ BasePage = (props)->
     ]
     h 'div.wrap', [
       <header>
-        <Image src="/mapboard-icon.png" width={200} height={200} />
+        <div className="header-image">
+          <Link href="/">
+            <Image className="mapboard-logo" src="/mapboard-icon.png" width={140} height={140} />
+          </Link>
+        </div>
         <div className="header-main">
           <ActiveLink href="/">
             <a className="page-title-link"><h1 className="page-title">Mapboard GIS</h1></a>
