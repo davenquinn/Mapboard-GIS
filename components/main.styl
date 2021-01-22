@@ -9,8 +9,6 @@
 h1,h2,h3,h4,h5,h6
   font-family: "Montserrat", Helvetica, sans-serif
 
-
-
 header
   display flex
   flex-direction row
@@ -30,6 +28,15 @@ header
   .header-image
     margin-left -10px
 
+$grid_margin=1em
+
+card()
+  padding:0.35em 1.2em;
+  border:0.1em solid #000000;
+  margin:0 $grid_margin $grid_margin 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+
 a.link-button
   text-align: center
   display:inline-block;
@@ -46,3 +53,24 @@ a.link-button
   &:hover
     color:#000000;
     background-color:#eeeeee;
+
+.callout-panel
+  display grid
+  grid-template-columns 50fr 50fr;
+  margin-right -1*$grid_margin
+
+  video
+    width 380px
+
+.callout
+  card()
+  flex-grow 1
+  font-size 0.9em
+  line-height 1.5em
+  p
+    text-align left
+
+
+// Typography
+p
+  text-align: justify

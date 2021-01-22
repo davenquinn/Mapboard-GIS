@@ -1,37 +1,78 @@
 import BasePage from "../components/base-page"
 
-Mapboard GIS is an application for drawing geologic maps on an iPad tablet
-computer, ideally with an Apple Pencil. It bridges the natural editing
+Mapboard GIS is iPad app for drawing geologic maps, ideally with an Apple Pencil. It bridges the natural editing
 workflow of pen-and-paper mapping with the precision and scale-independence
 of GIS systems. It is designed to allow both beginner and expert mappers to
 produce precise, multiscale, and topologically consistent geologic maps.
 
-## Pen-based editing
+<div className="callout-panel">
+
+<div className="callout">
+
+## Pen-based mapping
 
 Mapboard GIS includes a sophisiticated spatial engine, but hides its power and
 complexity behind simple tools for drawing, erasing, and reshaping features.
 Removing barriers to digitizing allows mapping energy to be concentrated on
 improving features
 
-## Powerful modes for the field and lab
+</div>
 
-Map production does not end in the field, and drawing is still the best way to
-capture lines 
+<video autoPlay loop src="https://static.davenquinn.com/blog-posts/mapboard-gis-d98a328/mapboard-intro.mp4" type="video/mp4" />
+
+<video autoPlay loop src="//static.davenquinn.com/blog-posts/mapboard-gis-d98a328/mapboard-topology.mp4" type="video/mp4" />
+
+<div className="callout">
 
 ## Topology-aware
 
+In typical GIS map workflows, map contacts are fully digitized prior to
+"closing" linework to form unit polygons. The iterative topological
+solver within Mapboard GIS allows consistency to be maintained while
+during active mapping.
+
+</div>
+
+<div className="callout">
+
+## For the field and lab
+
+Map production does not end in the field, and Mapboard GIS can serve as a
+mapping client in *tethered mode*, alongside the PostGIS spatial database,
+allowing work across massive datasets.
+The [PostGIS Geologic Map](https://github.com/davenquinn/PostGIS-Geologic-Map),
+server can maintains topological consistency, even during collaborative
+mapping!
+
+</div>
+
+<video autoPlay loop src="https://static.davenquinn.com/blog-posts/mapboard-gis-d98a328/tethered-mode.mp4" type="video/mp4" /> 
+
+<div className="callout">
+
 ## Open by design
 
-Mapboard GIS is not open-source software
+Mapboard GIS conforms to open standards. It saves data into Spatialite and PostGIS,
+enabling seamless interoperability with a wide range of GIS software.
+The open-source server components for its *tethered mode*
+allow customized integrations with external systems.
+
+</div>
+
+<div className="callout">
 
 ## A focused tool
 
 Mapboard GIS strives to be the best replacement for hand-drawing maps,
-map sheets, vellum, light tables, and all that jazz.
+and all the attendant map sheets, vellum, and light tables.
 Many apps (e.g., StraboSpot, Rockd, FieldMove, and ArcGIS Collector) already provide
 capable digital replacements for the field notebook.
 Going forward, we hope to build integrations so 
 other tools for seamless data-collection experiences.
+
+</div>
+
+</div>
 
 The first public presentation of this work occurred at the virtual GSA 2020.
 Here's [the abstract](https://gsa.confex.com/gsa/2020AM/meetingapp.cgi/Paper/359493).
