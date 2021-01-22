@@ -5,8 +5,9 @@ import classNames from 'classnames'
 import h from '@macrostrat/hyper'
 
 links = [
-  { href: '/faq', label: 'FAQ'},
   { href: '/comparisons', label: 'Comparisons'},
+  { href: '/roadmap', label: 'Roadmap' },
+  { href: '/user-guide', label: 'User guide'},
 ].map (link)->
   link.key = "nav-link-#{link.href}-#{link.label}"
   return link

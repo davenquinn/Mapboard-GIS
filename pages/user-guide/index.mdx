@@ -1,0 +1,43 @@
+import BasePage from "../../components/base-page"
+
+
+**Mapboard GIS** is an iPad mapping system for drawing geospatial
+information into a spatial database. It works both in a standalone,
+field-ready mode and as a tethered client, with a paired desktop or
+laptop handling geospatial operations.
+
+<a className="link-button" href="https://testflight.apple.com/join/0TfVlWyN">Beta test <code>v2.0</code></a>
+
+Field geological mapping can be a data-management headache, and capturing high-quality geospatial
+information over a large mapping project is tricky.
+**Mapboard GIS** allows quick and natural capture of mapping data
+into user-defined line and polygon
+types using the Apple Pencil, with a process flow comparable to working atop a
+paper map. Data are saved to an industry-standard open-source spatial database:
+_Spatialite_ in "field" mode or _PostGIS_ a on networked server in "tethered" mode.
+Both of these data collections can be opened by standard **QGIS** or **ArcGIS**
+desktop GIS software (ArcGIS can only connect to PostGIS in read-only mode); the PostGIS
+backend additionally supports advanced collaborative mapping.
+
+Custom tile layers including `MBTiles` files can be loaded
+for field-accessible basemaps. Multiple projects can be managed on the same device
+and shared with other devices. Mapping can be done in arbitrary spatial reference
+systems.
+
+
+## Does it replace a GIS system?
+
+As its full name implies, Mapboard internally uses a sophisticated GIS system,
+but it is not a fully realized system for managing geospatial data.
+
+It prioritizes simple input over a fully realized set of tools. It also does not
+have a system for managing feature attributes.
+
+## Why?
+
+Geologic maps are beautiful.
+
+## Guiding principles
+
+
+export default BasePage
