@@ -1,9 +1,29 @@
 import BasePage from "../components/base-page"
 
-Mapboard GIS is iPad app for drawing geologic maps, ideally with an Apple Pencil. It bridges the natural editing
-workflow of pen-and-paper mapping with the precision and scale-independence
-of GIS systems. It is designed to allow both beginner and expert mappers to
-produce precise, multiscale, and topologically consistent geologic maps.
+**Mapboard GIS** is iPad app for drawing geologic maps, ideally with an Apple
+Pencil. It bridges the natural editing workflow of pen-and-paper mapping with
+the precision, flexibility, and scale-independence of geospatial information
+systems (GIS). Its forward-looking design allows beginner and expert
+mappers to produce multiscale, topologically consistent geologic
+maps.
+
+<div className="manifesto">
+  <div className="manifesto-text">
+
+  Mapboard GIS presents a strong vision for how mapping _should_ work, in
+  response to the inadequacy of both paper and GIS-based workflows
+  for regional geologic mapping.
+
+  </div>
+  <div class="buttons">
+    <a class="link-button" href="https://davenquinn.com/blog/2020/10/mapboard-gis">
+      <h3>Read the manifesto</h3>
+    </a>
+    <div>or watch the <a href="https://www.youtube.com/watch?v=5TGNi530H5M">recorded GSA 2020 talk</a></div>
+  </div>
+</div>
+
+# Features
 
 <div className="callout-panel">
 
@@ -11,10 +31,10 @@ produce precise, multiscale, and topologically consistent geologic maps.
 
 ## Pen-based mapping
 
-Mapboard GIS includes a sophisiticated spatial engine, but hides its power and
+Although Mapboard GIS includes a sophisiticated spatial engine, it hides its power and
 complexity behind simple tools for drawing, erasing, and reshaping features.
-Removing barriers to digitizing allows mapping energy to be concentrated on
-improving features
+Removing barriers to digitizing allows mappers to iteratively improve their
+
 
 </div>
 
@@ -39,9 +59,9 @@ during active mapping.
 
 Map production does not end in the field, and Mapboard GIS can serve as a
 mapping client in *tethered mode*, alongside the PostGIS spatial database,
-allowing work across massive datasets.
-The [PostGIS Geologic Map](https://github.com/davenquinn/PostGIS-Geologic-Map),
-server can maintains topological consistency, even during collaborative
+allowing work across massive datasets. When combined with the [PostGIS
+Geologic Map](https://github.com/davenquinn/PostGIS-Geologic-Map) project,
+the server can maintain topological consistency even during collaborative
 mapping!
 
 </div>
@@ -52,10 +72,12 @@ mapping!
 
 ## Open by design
 
-Mapboard GIS conforms to open standards. It saves data into Spatialite and PostGIS,
-enabling seamless interoperability with a wide range of GIS software.
-The open-source server components for its *tethered mode*
-allow customized integrations with external systems.
+Mapboard GIS conforms to open standards. It saves data into Spatialite and
+PostGIS databases, which can be seamlessly read with a wide range of GIS
+software. The [server components](https://github.com/davenquinn/mapboard-server)
+that drive its *tethered mode* are
+simple and open-source, allowing
+customized integrations with external GIS systems.
 
 </div>
 
@@ -90,21 +112,5 @@ The planned price of the app is $29.99 per year, which will help defray developm
 The "Full Version" subscription is free in the TestFlight version; just swipe left
 to the settings page and click _Purchase full version_.
 
-
-
-## Upcoming features
-
-- A project initialization user interface that guides the user towards appropriate map projections
-
-### Education-focused features
-
-- Guidance on appropriate map projections
-- Modes to predefine map area and allowed scale range for digitizing
-
-- Integrations with Macrostrat
-- Integrations of better mapping symbology (e.g. patterns)
-
-Possibilities of using https://www.geopackage.org/
-https://www.sqlite.org/appfileformat.html
 
 export default BasePage

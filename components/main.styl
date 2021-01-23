@@ -2,12 +2,26 @@
   max-width 50em
   margin 0 auto
 
+:root
+  --background-color: white
+  --text-color: black
+  --header-font: "Montserrat", Helvetica, sans-serif
+
+@media (prefers-color-scheme: dark)
+  :root
+    --background-color: lighten(#161517, 2%)
+    --text-color: lighten(#354a61, 70%)
+
 *
   font-family "Merriweather", 'Times New Roman', Times, serif
   line-height 2
+  color var(--text-color)
+
+body
+  background-color: var(--background-color)
 
 h1,h2,h3,h4,h5,h6
-  font-family: "Montserrat", Helvetica, sans-serif
+  font-family: var(--header-font)
 
 header
   display flex
@@ -24,7 +38,7 @@ header
       list-style: none
   .header-main a.page-title-link
     text-decoration: none
-    color: black
+    color: var(--text-color)
   .header-image
     margin-left -10px
 
@@ -74,3 +88,16 @@ a.link-button
 // Typography
 p
   text-align: justify
+
+.manifesto
+  card()
+  display flex
+  flex-direction row
+  &>*
+    margin-right 1em
+  margin-right -1em
+  p, em
+    font-family var(--header-font)
+  .buttons
+    min-width 18em
+  
