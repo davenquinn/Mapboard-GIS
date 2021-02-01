@@ -1,18 +1,17 @@
 import BasePage from "../components/base-page"
 
-**Mapboard GIS** is iPad app for drawing geologic maps, ideally with an Apple
-Pencil. It bridges the natural editing workflow of pen-and-paper mapping with
+**Mapboard GIS** is an iPad + Apple Pencil app for drawing geologic maps.
+It combines the natural editing workflow of pen-and-paper mapping with
 the precision, flexibility, and scale-independence of geospatial information
-systems (GIS). Its forward-looking design allows beginner and expert
-mappers to produce multiscale, topologically consistent geologic
+systems (GIS). Its forward-looking design helps beginner and expert
+mappers produce multiscale, topologically consistent geologic
 maps.
 
 <div className="manifesto">
   <div className="manifesto-text">
 
-  Mapboard GIS presents a strong vision for how mapping _should_ work, in
-  response to the inadequacy of both paper and GIS-based workflows
-  for regional geologic mapping.
+  Mapboard GIS presents a strong vision for how regional geologic
+  mapping _should_ work.
 
   </div>
   <div class="buttons">
@@ -31,9 +30,10 @@ maps.
 
 ## Pen-based mapping
 
-Although Mapboard GIS includes a sophisiticated spatial engine, it hides its power and
-complexity behind simple tools for drawing, erasing, and reshaping features.
-Removing barriers to digitizing allows mappers to iteratively improve their
+**Mapboard GIS** hides its sophisiticated spatial engine behind simple
+tools for drawing, erasing, and reshaping features.
+Quicker editing allows mapping time to be spent refining interpretation
+instead of fighting with technical tools.
 
 
 </div>
@@ -46,7 +46,7 @@ Removing barriers to digitizing allows mappers to iteratively improve their
 
 ## Topology-aware
 
-In typical GIS map workflows, map contacts are fully digitized prior to
+In typical GIS mapping workflows, contacts are fully digitized prior to
 "closing" linework to form unit polygons. The iterative topological
 solver within Mapboard GIS allows consistency to be maintained while
 during active mapping.
@@ -57,10 +57,10 @@ during active mapping.
 
 ## For the field and lab
 
-Map production does not end in the field, and Mapboard GIS can serve as a
-mapping client in *tethered mode*, alongside the PostGIS spatial database,
-allowing work across massive datasets. When combined with the [PostGIS
-Geologic Map](https://github.com/davenquinn/PostGIS-Geologic-Map) project,
+**Mapboard GIS** is even more powerful in the office than in the field.
+Its *tethered mode*, backed by a PostGIS spatial database on a networked
+computer, allows work across massive datasets. When combined with [a server-side
+topology solver](https://github.com/davenquinn/PostGIS-Geologic-Map),
 the server can maintain topological consistency even during collaborative
 mapping!
 
@@ -72,7 +72,7 @@ mapping!
 
 ## Open by design
 
-Mapboard GIS conforms to open standards. It saves data into Spatialite and
+Mapboard GIS conforms to open standards. It is backed by Spatialite and
 PostGIS databases, which can be seamlessly read with a wide range of GIS
 software. The [server components](https://github.com/davenquinn/mapboard-server)
 that drive its *tethered mode* are
@@ -89,7 +89,7 @@ Mapboard GIS strives to be the best replacement for hand-drawing maps,
 and all the attendant map sheets, vellum, and light tables.
 Many apps (e.g., StraboSpot, Rockd, FieldMove, and ArcGIS Collector) already provide
 capable digital replacements for the field notebook.
-Going forward, we hope to build integrations so 
+Going forward, we hope to build integrations with
 other tools for seamless data-collection experiences.
 
 </div>
