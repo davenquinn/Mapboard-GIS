@@ -13,6 +13,7 @@ BasePage = (props)->
       <title>Mapboard GIS</title>
       <link href="https://fonts.googleapis.com/css?family=Montserrat,Merriweather&display=swap" rel="stylesheet" />
     ]
+    h 'div.underlay'
     h 'div.wrap', [
       <header>
         <div className="header-image">

@@ -17,11 +17,21 @@
   line-height 2
   color var(--text-color)
 
+$accent-light=#a328b4
+$secondary=#304e68
+$bkg=#261e2d
+
 body
-  background-color: var(--background-color)
+  //background: linear-gradient(120deg, darken(rgba(34,29,38,1),30%) 0%, darken(rgba(52,45,79,1),50%) 100%);
+  background: linear-gradient(120deg, lighten(rgba(34,29,38,1),90%) 0%, lighten(rgba(52,45,79,1),70%) 100%);
+  //background-color: var(--background-color)
+  position relative
+  margin 0
+  padding 0
 
 h1,h2,h3,h4,h5,h6
   font-family: var(--header-font)
+  color lighten($secondary,20%)
 
 header
   display flex
@@ -50,12 +60,20 @@ card()
   margin:0 $grid_margin $grid_margin 0;
   border-radius:0.12em;
   box-sizing: border-box;
+  //background: linear-gradient(95deg, #37445a 0%, #2c556b 100%);
+  background: linear-gradient(95deg, lighten(#37445a, 60%) 0%, lighten(#2c556b,60%) 100%);
+
+  h1,h2,h3,h4,h5,h6
+    &:first-child
+      margin-top 0.2em
+    font-family: var(--header-font)
+    color desaturate(lighten($accent-light, 20%), 40%)
 
 a.link-button
   text-align: center
   display:inline-block;
   padding:0.35em 1.2em;
-  border:0.1em solid #000000;
+  border:0.1em solid #400C4A;
   margin:0 0.3em 0.3em 0;
   border-radius:0.12em;
   box-sizing: border-box;
@@ -90,13 +108,14 @@ p
   text-align: justify
 
 .manifesto
-  card()
-  display flex
-  flex-direction row
+  margin 1em 4em
+  p
+    text-align left
+    font-weight 400
   &>*
     margin-right 1em
   margin-right -1em
-  p, em
+  p, em, b, strong
     font-family var(--header-font)
   .buttons
     min-width 18em
