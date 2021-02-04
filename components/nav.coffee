@@ -3,6 +3,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import h from '@macrostrat/hyper'
+import dynamic from 'next/dynamic'
+
+DarkModeButton = dynamic ->
+  import('@macrostrat/ui-components/lib/cjs/dark-mode').then (mod)->
+    ()->h(mod.DarkModeProvider, null, h(mod.DarkModeButton, {large: true}))
 
 links = [
   { href: '/comparisons', label: 'Comparisons'},
@@ -31,8 +36,11 @@ NavLink = ({key, href, label})->
 
 Nav = ->
   h 'nav', [
-    h 'ul', links.map ({ key, href, label }) ->
-      h NavLink, {key, href, label}
+    h 'ul', [
+      links.map ({ key, href, label }) ->
+        h NavLink, {key, href, label}
+      h 'li', null, h(DarkModeButton)
+    ]
   ]
 
 export {ActiveLink, Nav}

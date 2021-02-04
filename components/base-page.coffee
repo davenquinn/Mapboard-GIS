@@ -3,6 +3,7 @@ import {Helmet} from 'react-helmet'
 import {Nav, ActiveLink} from "./nav"
 import Image from "next/image"
 import Link from "next/link"
+
 import "./main.styl"
 
 BasePage = (props)->
@@ -18,12 +19,12 @@ BasePage = (props)->
       <header>
         <div className="header-image">
           <Link href="/">
-            <Image className="mapboard-logo" src="/mapboard-icon.png" width={140} height={140} />
+            <img className="mapboard-logo" src="/mapboard-icon.png" width={140} height={140} />
           </Link>
         </div>
         <div className="header-main">
           <ActiveLink href="/">
-            <a className="page-title-link"><h1 className="page-title">Mapboard GIS</h1></a>
+            <a className="page-title-link"><h1 className="page-title">Mapboard <span class="dimmer">GIS</span></h1></a>
           </ActiveLink>
           <Nav />
         </div>
