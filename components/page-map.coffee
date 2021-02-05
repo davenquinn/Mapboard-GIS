@@ -23,10 +23,12 @@ navLinks = [
 
 aboutLinks = [
   { href: '/about', label: "Motivation" }
+  { href: '/about/features', label: "Features"}
   { href: '/about/pricing', label: "Pricing + evaluation"}
-  { href: '/about/comparisons', label: "Features + comparisons"}
+  { href: '/about/interop', label: "Openness + interoperability"}
+  { href: '/about/comparisons', label: "Comparisons"}
   { href: '/about/roadmap', label: "Roadmap" }
-  { href: '/about/get-involved', label: "Get involved" }
+  #{ href: '/about/get-involved', label: "Get involved" }
   { href: '/about/contact', label: "Contact"}
 ]
 
@@ -38,8 +40,8 @@ userGuideLinks = [
   { href: "/docs/topology", label: "Topology"}
   { href: "/docs/basemaps", label: "Basemaps"}
   { href: "/docs/tethered-mode", label: "Tethered mode"}
-  { href: "/docs/file-specification", label: "Project file specification"}
-  { href: "/docs/reporting", label: "Reporting bugs"}
+  { href: "/docs/project-file", label: "Project file specification"}
+  { href: "/docs/bugs", label: "Reporting bugs"}
 ]
 
 export {navLinks, GetAppButton, aboutLinks, userGuideLinks}
