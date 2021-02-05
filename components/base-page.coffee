@@ -32,6 +32,11 @@ BasePage = (props)->
       h 'div.main', [
         children
       ]
+      <footer>
+        <p>
+          <strong>Mapboard GIS</strong> was created by <a href="https://davenquinn.com">Daven Quinn</a>, 2018—2021
+        </p>
+      </footer>
     ]
   ]
 

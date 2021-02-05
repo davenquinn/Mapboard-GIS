@@ -4,18 +4,17 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import h from '@macrostrat/hyper'
 import dynamic from 'next/dynamic'
+import {Icon} from "@blueprintjs/core"
 
 DarkModeButton = dynamic ->
   import('@macrostrat/ui-components/lib/cjs/dark-mode').then (mod)->
     ()->h(mod.DarkModeProvider, null, h(mod.DarkModeButton, {large: true}))
 
 links = [
-  { href: '/comparisons', label: 'Comparisons'},
-  { href: '/roadmap', label: 'Roadmap' },
+  { href: '/about', label: 'About'},
   { href: '/user-guide', label: 'User guide'},
-].map (link)->
-  link.key = "nav-link-#{link.href}-#{link.label}"
-  return link
+  { href: 'https://testflight.apple.com/join/0TfVlWyN', label: <span>Get the app<sup><em> beta</em></sup></span>}
+]
 
 
 # Class to make an activeLink
@@ -30,15 +29,20 @@ ActiveLink = ({children, ...props }) ->
 NavLink = ({key, href, label})->
   h 'li', {key}, [
     h ActiveLink, {href}, [
-      h 'a.link-button', label
+      h 'a.link-button', null, label
     ]
   ]
+
+createNavLink = (obj)->
+  if obj.href?
+    obj.key = "nav-link-#{obj.href}"
+    return h NavLink, obj
+  return h 'li', null, obj
 
 Nav = ->
   h 'nav', [
     h 'ul', [
-      links.map ({ key, href, label }) ->
-        h NavLink, {key, href, label}
+      links.map(createNavLink)
       h 'li', null, h(DarkModeButton)
     ]
   ]
