@@ -10,15 +10,14 @@ maps.
 <div className="manifesto">
   <div className="manifesto-text">
 
-  **Mapboard GIS** was born out of frustration with the
-  shortcomings of both paper and GIS-based mapping workflows.
+  **Mapboard GIS** was born out of frustration with <!--the shortcomings of -->both paper– and GIS-based mapping workflows.
 
   </div>
   <div class="buttons">
-    <a class="link-button" href="https://davenquinn.com/blog/2020/10/mapboard-gis">
-      <h3>Read the manifesto</h3>
+    <a class="link-button manifesto-link" href="https://davenquinn.com/blog/2020/10/mapboard-gis">
+      Read the manifesto
     </a>
-    <div>or watch the <a href="https://www.youtube.com/watch?v=5TGNi530H5M">recorded GSA 2020 talk</a></div>
+    <p class="caption">or watch the <a href="https://www.youtube.com/watch?v=5TGNi530H5M">recorded GSA 2020 talk</a></p>
   </div>
 </div>
 
@@ -26,7 +25,9 @@ maps.
 
 <div className="callout-panel">
 
-<div className="callout">
+<div className="callout two-col">
+
+<div>
 
 ## Pen-based mapping
 
@@ -35,14 +36,18 @@ tools for drawing, erasing, and reshaping features.
 Quicker editing allows mapping time to be spent refining interpretations
 instead of fighting with technical tools.
 
-
 </div>
 
 <video autoPlay loop src="//sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-intro.mp4" type="video/mp4" />
 
+
+</div>
+
+<div className="callout two-col">
+
 <video autoPlay loop src="//sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-topology.mp4" type="video/mp4" />
 
-<div className="callout">
+<div>
 
 ## Topology-aware
 
@@ -53,26 +58,33 @@ as mapping progresses.
 
 </div>
 
-<div className="callout">
+</div>
 
-## Scalable map production
+<div className="callout two-col">
 
-**Mapboard GIS** is even more powerful in the office than in the field.
-Its *tethered mode*, backed by a PostGIS spatial database on a networked
-computer, allows work across massive datasets. A companion [server-side
+<div>
+
+## Even better in the office
+
+Field mapping is important, but **Mapboard GIS** is even more powerful alongside a networked computer.
+Its *tethered mode*, backed by a PostGIS spatial database,
+allows work across massive datasets. A companion [server-side
 topology solver](https://github.com/davenquinn/PostGIS-Geologic-Map) can
-even maintain topological consistency during collaborative
+maintain topological consistency during collaborative
 mapping!
 
 </div>
 
 <video autoPlay loop src="//sfo2.digitaloceanspaces.com/mapboard-gis-assets/tethered-mode.mp4" type="video/mp4" /> 
 
+</div>
+
+
 <div className="callout">
 
 ## Open by design
 
-Mapboard GIS conforms to open standards. It is backed by Spatialite and
+**Mapboard GIS** conforms to open standards. It is backed by Spatialite and
 PostGIS databases, which can be seamlessly read with a wide range of GIS
 software. The [server components](https://github.com/davenquinn/mapboard-server)
 that drive its *tethered mode* are
@@ -85,7 +97,7 @@ customized integrations with external GIS systems.
 
 ## A focused tool
 
-Mapboard GIS strives to bring hand-drawn geologic maps into the digital age, replacing
+**Mapboard GIS** strives to bring hand-drawn geologic maps into the digital age, replacing
 its namesake tool.
 [Many other apps](/comparisons) already provide
 capable digital replacements for the field notebook, Brunton compass, and navigational
