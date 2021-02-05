@@ -97,18 +97,21 @@ footer
   font-weight 300
 
 header
-  display flex
+  display grid
+  grid-template-columns: min-content auto
   flex-direction row
   align-items center
   .header-image
+    grid-column 1
     cursor pointer
     img.mapboard-logo
       width 150px
+      margin -10px
     margin-right 2em
-    flex-grow 0
-  .header-main
-    flex-grow 1
-    margin-top -10px
+  a.page-title-link
+    display block
+    grid-column 1 / span 2
+
   h1.page-title
     //font-family: "Helvetica Neue", Helvetica, sans-serif
     color #544679
@@ -119,16 +122,18 @@ header
     span.dimmer
       opacity 0.5
   nav ul
+    grid-column 2
     display flex
     flex-flow: row wrap
     justify-content: left
     padding-left 0
+    margin-top 0
     margin-bottom -1em
     li
       margin-right 1em
       margin-bottom 1em
       list-style: none
-  .header-main a.page-title-link
+  a.page-title-link
     text-decoration: none
     color: var(--text-color)
 
@@ -161,7 +166,6 @@ button.bp3-button
       path
         fill var(--accent-color)
 
-
 a.link-button, button.bp3-button
   cursor pointer
   font-size 17px
@@ -179,12 +183,11 @@ a.link-button, button.bp3-button
   &.active
     background-color: var(--accent-active) !important
   &:hover
-    background-color:var(--accent-background);
+    background-color:var(--accent-background);   
 
 .callout-panel
-  display grid
   grid-template-columns 50fr 50fr;
-  margin-right -1*$grid_margin    
+  margin-right -1*$grid_margin 
 
 .callout
   card()
@@ -193,13 +196,11 @@ a.link-button, button.bp3-button
   font-size 0.9em
   line-height 1.5em
   border-radius 10px
-  h2
-    margin-top 0
 
   &.two-col
     grid-column span 2
     display flex
-    flex-direction row
+    flex-direction: column
     align-items: center
     &>*
       display flex
@@ -219,6 +220,7 @@ a.link-button, button.bp3-button
   margin 1em
   font-size 1.5em
   display flex
+  flex-direction: column
   align-items: center
   .manifesto-text
     flex-grow 1
@@ -231,11 +233,34 @@ a.link-button, button.bp3-button
     font-style italic
   a.manifesto-link
     font-size 1em
-    display block
+    display inline-block
     min-width 300px
   p.caption
-    font-size 17px
+    font-size 16px
     margin-bottom 0
     margin-top 0.5em
   .buttons
     width 24em
+    margin 1em auto
+    text-align center
+    *
+      text-align center
+//@media screen and (max-width 700px)
+
+
+// Larger screen changes
+@media screen and (min-width 700px)
+  .callout-panel
+    display: grid
+
+  .callout.two-col, .manifesto
+    flex-direction row
+
+  nav .spacer
+    width 1em
+
+  header
+    a.page-title-link
+      grid-column 2
+    .header-image
+      grid-row 1 / span 2
