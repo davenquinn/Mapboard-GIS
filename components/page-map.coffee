@@ -4,6 +4,7 @@ import h from '@macrostrat/hyper'
 import dynamic from 'next/dynamic'
 
 DarkModeButton = dynamic ->
+  return Promise.resolve(null) unless window?
   import('@macrostrat/ui-components/lib/cjs/dark-mode').then (mod)->
     ()->h(mod.DarkModeProvider, null, h(mod.DarkModeButton, {large: true}))
 
@@ -21,24 +22,24 @@ navLinks = [
 ]
 
 aboutLinks = [
-  { href: '/', label: "Motivation" }
-  { href: '/pricing', label: "Pricing and evaluation"}
-  { href: '/comparisons', label: "Features and comparisons"}
-  { href: '/roadmap', label: "Roadmap" }
-  { href: '/get-involved', label: "Get involved" }
-  { href: '/contact', label: "Contact"}
+  { href: '/about', label: "Motivation" }
+  { href: '/about/pricing', label: "Pricing + evaluation"}
+  { href: '/about/comparisons', label: "Features + comparisons"}
+  { href: '/about/roadmap', label: "Roadmap" }
+  { href: '/about/get-involved', label: "Get involved" }
+  { href: '/about/contact', label: "Contact"}
 ]
 
 userGuideLinks = [
-  { href: "/", label: "Getting started"}
-  { href: "/project-creation", label: "Project creation"}
-  { href: "/editing-interface", label: "The editing interface"}
-  { href: "/feature-classes", label: "Feature classes"}
-  { href: "/gis-backends", label: "GIS backends"}
-  { href: "/topology", label: "Topology"}
-  { href: "/basemaps", label: "Basemaps"}
-  { href: "/file-specification", label: "Project file specification"}
-  { href: "/reporting", label: "Reporting bugs"}
+  { href: "/docs", label: "Getting started"}
+  { href: "/docs/project-creation", label: "Project creation"}
+  { href: "/docs/editing-interface", label: "Editing interface"}
+  { href: "/docs/feature-classes", label: "Feature classes"}
+  { href: "/docs/topology", label: "Topology"}
+  { href: "/docs/basemaps", label: "Basemaps"}
+  { href: "/docs/tethered-mode", label: "Tethered mode"}
+  { href: "/docs/file-specification", label: "Project file specification"}
+  { href: "/docs/reporting", label: "Reporting bugs"}
 ]
 
 export {navLinks, GetAppButton, aboutLinks, userGuideLinks}

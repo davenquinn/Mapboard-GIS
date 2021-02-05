@@ -4,9 +4,9 @@ import {Nav} from "./nav"
 import {aboutLinks, userGuideLinks} from "./page-map"
 
 NavPage = ({children, links})->
-  h BasePage, [
+  h BasePage, {className: 'section-page'}, [
     h Nav, {className: 'section-nav', links}
-    children
+    h "div.section-content", children
   ]
 
 AboutPage = ({children})->

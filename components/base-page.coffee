@@ -9,8 +9,8 @@ import {navLinks} from "./page-map"
 import "./main.styl"
 
 BasePage = (props)->
-  {children, rest...} = props
-  h 'div.page', rest, [
+  {children, className, rest...} = props
+  h 'div.page', {className}, [
     <Head>
       <meta charSet="utf-8" />
       <title>Mapboard GIS</title>

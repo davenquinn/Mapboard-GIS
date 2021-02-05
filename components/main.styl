@@ -16,7 +16,7 @@ $card-base = lighten(#32536b,40%)
   --text-color: darken(#354a61, 20%)
   --accent-color: $accent
   --accent-background: alpha($accent, 20%)
-  --accent-active: alpha($accent, 30%)
+  --accent-active: alpha($accent, 10%)
   --header-color: $secondary
   --secondary-color: #666666
   --card-background: linear-gradient(120deg, desaturate(lighten($card-base,30%),20%) 0%, $card-base 100%);
@@ -43,7 +43,7 @@ body
     --text-color: lighten(#354a61, 70%)
     --accent-color: $accent-light 
     --accent-background: alpha($accent-light, 20%)
-    --accent-active: alpha($accent-light, 30%)
+    --accent-active: alpha($accent-light, 10%)
     --header-color: lighten(#32536b,20%) //lighten($secondary,40%)
     --card-border: darken(#37445a,30%)
     --background-gradient: linear-gradient(120deg, alpha($gradient-dark,0) 0%, $gradient-dark 100%)
@@ -114,6 +114,7 @@ header
     img.mapboard-logo
       width 150px
       margin -10px
+      margin-bottom -20px
     margin-right 2em
   a.page-title-link
     display block
@@ -143,6 +144,44 @@ header
   a.page-title-link
     text-decoration: none
     color: var(--text-color)
+
+// Section headers
+
+
+
+.section-nav
+  line-height 1
+  ul
+    list-style: none
+    padding-left 0
+    justify-content:  right
+    text-align center
+  li
+    margin-bottom 0.5em
+    margin-right 0.5em
+    display inline-block
+    a.link-button
+      border-width 1px
+      font-size 14px
+
+@media screen and (min-width 700px)
+  .section-page .main
+    display flex
+    flex-direction row
+  .section-nav
+    margin-right 2em
+    margin-top 4em
+    width 140px
+    ul
+      position sticky
+      top 3em
+      text-align right
+    li
+      display block
+      width 100%
+      a.link-button
+        width 100%
+
 
 $grid_margin=1.5em
 
@@ -260,14 +299,21 @@ div.get-app
   a.link-button
     font-size 1.8em
 
-//
+// 404 page
 
 div.mountain-underlay
+  overflow-y hidden
   position fixed
   top 0
   bottom 0
   left 0
+  right 0
   z-index -1
+  .images
+    position absolute
+    top 0
+    left 0
+    height 100vh
   img
     position absolute
     bottom 0
@@ -292,3 +338,5 @@ div.mountain-underlay
       grid-column 2
     .header-image
       grid-row 1 / span 2
+
+    
