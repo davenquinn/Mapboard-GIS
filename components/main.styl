@@ -84,11 +84,18 @@ p.caption
 
 .main
   flex-grow 1
+  padding-bottom 1em
 
 h1,h2,h3,h4,h5,h6
   font-family: var(--header-font)
   color var(--header-color)
   line-height 1
+
+.extra-space
+  margin 1em
+
+.centered
+  text-align: center
 
 footer 
   color var(--secondary-color)
@@ -246,6 +253,27 @@ a.link-button, button.bp3-button
     *
       text-align center
 //@media screen and (max-width 700px)
+
+div.get-app
+  text-align center
+  margin 2em 0
+  a.link-button
+    font-size 1.8em
+
+//
+
+div.mountain-underlay
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  z-index -1
+  img
+    position absolute
+    bottom 0
+    max-width: 100vw
+    //filter: brightness(1.5) saturate(0.8)
+
 
 
 // Larger screen changes

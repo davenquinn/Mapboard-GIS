@@ -7,15 +7,38 @@ DarkModeButton = dynamic ->
   import('@macrostrat/ui-components/lib/cjs/dark-mode').then (mod)->
     ()->h(mod.DarkModeProvider, null, h(mod.DarkModeButton, {large: true}))
 
+GetAppButton = ->
+  h "a.link-button", {
+    href: 'https://testflight.apple.com/join/0TfVlWyN'
+  }, <span>Get the app<sup><em>beta</em></sup></span> 
+
 navLinks = [
   { href: '/about', label: 'About'},
-  { href: '/user-guide', label: 'User guide'},
+  { href: '/docs', label: 'User guide'},
   h("li.spacer")
-  {
-    href: 'https://testflight.apple.com/join/0TfVlWyN',
-    label: <span>Get the app<sup><em>beta</em></sup></span>
-  }
+  h("li", null, h(GetAppButton))
   h("li", null, h(DarkModeButton))
 ]
 
-export {navLinks}
+aboutLinks = [
+  { href: '/', label: "Motivation" }
+  { href: '/pricing', label: "Pricing and evaluation"}
+  { href: '/comparisons', label: "Features and comparisons"}
+  { href: '/roadmap', label: "Roadmap" }
+  { href: '/get-involved', label: "Get involved" }
+  { href: '/contact', label: "Contact"}
+]
+
+userGuideLinks = [
+  { href: "/", label: "Getting started"}
+  { href: "/project-creation", label: "Project creation"}
+  { href: "/editing-interface", label: "The editing interface"}
+  { href: "/feature-classes", label: "Feature classes"}
+  { href: "/gis-backends", label: "GIS backends"}
+  { href: "/topology", label: "Topology"}
+  { href: "/basemaps", label: "Basemaps"}
+  { href: "/file-specification", label: "Project file specification"}
+  { href: "/reporting", label: "Reporting bugs"}
+]
+
+export {navLinks, GetAppButton, aboutLinks, userGuideLinks}

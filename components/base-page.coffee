@@ -25,7 +25,7 @@ BasePage = (props)->
         </ActiveLink>
         <div className="header-image">
           <Link href="/">
-            <img className="mapboard-logo" src="/mapboard-icon.png" width={140} height={140} />
+            <img className="mapboard-logo" src="/img/mapboard-icon.png" width={140} height={140} />
           </Link>
         </div>
         <Nav links={navLinks} />
