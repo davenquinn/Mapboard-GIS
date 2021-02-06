@@ -1,5 +1,47 @@
 import {AboutPage} from "../../components/pages"
 
-Project motivation
+# Openness and Interoperability
+
+Mapboard GIS is designed by and for Earth Science researchers, and we're
+hoping to be good open-science citizens. We want to support
+
+## Integration with other apps
+
+Geologic fieldwork is a complex and multifaceted activity, and one application will
+never fully capture researchers' needs. *Unbundling functionality and thinking carefully
+about boundaries will allow workflows to be composed from multiple focused tools.* Mapboard
+GIS hopes to eventually be part of an ecosystem of interoperable apps for mapping,
+sample, orientation capture, structural analysis, and stratigraphic measurement.
+
+- There are many apps for collection of geologic measurements and 
+
+- In the last few years, iPadOS has markedly improved its file management capabilities.
+  Mapboard GIS and other apps should be able to directly use files (particularly MBTiles basemaps)
+  in each others' application folders or elsewhere on the device.
+ 
+## Should we be open-source software?
+
+**Mapboard GIS** is currently *not* open-source software. We understand
+the value of free software to open science, but we think that keeping our
+work close is a useful precaution at this stage.
+
+Both the [**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map)
+topology watcher (the real foundational advance at the heart of this project)
+and the [server components](https://github.com/davenquinn/Mapboard-Server)
+that connect to **Mapboard GIS** are open-source components.
+This, along with our reliance on [open file formats](/docs/project-file) for
+on-device storage, ensures that
+the app will be at home as part of an open scientific system.
+
+We believe we can serve the goals of open science even as closed-source,
+non-free software. However, we're open to adjusting our pricing model
+and management strategy going forward. We're also maintaining our codebase
+with an eye towards opening it in the future, if it is necessary to keep
+making progress. 
+
+If you have questions, concerns,
+or suggestions about our approach in this regard,
+feel free to [contact me](mailto:dev@davenquinn.com).
+
 
 export default AboutPage

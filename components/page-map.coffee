@@ -34,8 +34,8 @@ aboutLinks = [
 
 userGuideLinks = [
   { href: "/docs", label: "Getting started"}
-  { href: "/docs/project-creation", label: "Project creation"}
-  { href: "/docs/editing-interface", label: "Editing interface"}
+  { href: "/docs/project-management", label: "Project creation"}
+  { href: "/docs/map-interface", label: "Map interface"}
   { href: "/docs/feature-classes", label: "Feature classes"}
   { href: "/docs/topology", label: "Topology"}
   { href: "/docs/basemaps", label: "Basemaps"}
