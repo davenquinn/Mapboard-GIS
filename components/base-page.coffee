@@ -28,7 +28,7 @@ BasePage = (props)->
             <img className="mapboard-logo" src="/img/mapboard-icon.png" width={140} height={140} />
           </Link>
         </div>
-        <Nav links={navLinks} />
+        <Nav links={navLinks} exactLinks={false} />
       </header>
       h 'div.main', [
         children

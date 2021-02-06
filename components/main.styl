@@ -43,7 +43,7 @@ body
     --text-color: lighten(#354a61, 70%)
     --accent-color: $accent-light 
     --accent-background: alpha($accent-light, 20%)
-    --accent-active: alpha($accent-light, 10%)
+    --accent-active: alpha($accent-light, 20%)
     --header-color: lighten(#32536b,20%) //lighten($secondary,40%)
     --card-border: darken(#37445a,30%)
     --background-gradient: linear-gradient(120deg, alpha($gradient-dark,0) 0%, $gradient-dark 100%)
@@ -147,10 +147,14 @@ header
 
 // Section headers
 
-
+.section-main
+  flex-grow 1
+  display flex
+  flex-direction: column
+  .section-content
+    flex-grow 1
 
 .section-nav
-  line-height 1
   ul
     list-style: none
     padding-left 0
@@ -160,9 +164,19 @@ header
     margin-bottom 0.5em
     margin-right 0.5em
     display inline-block
-    a.link-button
-      border-width 1px
-      font-size 14px
+
+ .section-nav, .bottom-links
+  line-height 1
+  a.link-button
+    border-width 1px
+    font-size 14px
+    display block
+
+.bottom-links
+  display flex
+  flex-direction: row
+  .spacer
+    flex-grow 1
 
 @media screen and (min-width 700px)
   .section-page .main
