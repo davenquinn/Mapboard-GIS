@@ -13,6 +13,11 @@ GetAppButton = ->
     href: 'https://testflight.apple.com/join/0TfVlWyN'
   }, <span>Get the app<sup><em>beta</em></sup></span> 
 
+TestFlightButton = ->
+  h "a.link-button", {
+    href: 'https://testflight.apple.com/join/0TfVlWyN'
+  }, <>Join the <em>TestFlight</em> beta</> 
+
 navLinks = [
   { href: '/about', label: 'About'},
   { href: '/docs', label: 'User guide'},
@@ -44,4 +49,4 @@ userGuideLinks = [
   { href: "/docs/bugs", label: "Reporting bugs"}
 ]
 
-export {navLinks, GetAppButton, aboutLinks, userGuideLinks}
+export {navLinks, GetAppButton, TestFlightButton, aboutLinks, userGuideLinks}
