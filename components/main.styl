@@ -22,6 +22,7 @@ $card-base = lighten(#32536b,40%)
   --card-background: linear-gradient(120deg, desaturate(lighten($card-base,30%),20%) 0%, $card-base 100%);
   --card-border: $card-base
   --background-gradient: linear-gradient(120deg, alpha($gradient-light,0) 0%, $gradient-light 100%)
+  --purple-color: #544679
 
 $accent-light=#a328b4
 $purple-color=lighten(#5A13CA,40%)
@@ -85,6 +86,8 @@ p.caption
 .main
   flex-grow 1
   padding 2em 0 0
+  display flex
+  flex-direction: column
 
 h1,h2,h3,h4,h5,h6
   font-family: var(--header-font)
@@ -122,7 +125,7 @@ header
 
   h1.page-title
     //font-family: "Helvetica Neue", Helvetica, sans-serif
-    color #544679
+    color var(--purple-color)
     margin 0em 0 0.2em
     font-weight 400
     font-size 3.5em
@@ -320,21 +323,18 @@ div.get-app
 
 div.mountain-underlay
   overflow-y hidden
-  position fixed
-  top 0
-  bottom 0
-  left 0
-  right 0
-  z-index -1
-  .images
-    position absolute
-    top 0
-    left 0
-    height 100vh
+  border-radius 20px
+  border 4px solid var(--purple-color)
+  flex-grow 1
+  width 100%
+  min-height:400px
+  position relative
+  margin 0
   img
     position absolute
     bottom 0
-    max-width: 100vw
+    left 0
+    width 100%
     //filter: brightness(1.5) saturate(0.8)
 
 
