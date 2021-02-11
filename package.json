@@ -6,13 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
-    "build": "parcel build --dist-dir dist ./src/index.mdx",
-    "deploy": "scripts/deploy"
+    "build": "next build"
   },
   "author": "Daven Quinn",
   "license": "ISC",
   "devDependencies": {
     "@mdx-js/mdx": "^1.6.22",
+    "coffeescript": "^2.5.1",
     "stylus": "^0.54.8"
   },
   "dependencies": {
@@ -21,7 +21,6 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.0.5",
-    "@parcel/config-default": "^2.0.0-beta.1",
     "@zeit/next-stylus": "^1.0.1",
     "babel-plugin-static-fs": "^3.0.0",
     "next": "^10.0.5",
