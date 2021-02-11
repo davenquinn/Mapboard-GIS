@@ -2,48 +2,79 @@ import {AboutPage} from "../../components/pages"
 
 # Openness and interoperability
 
-Mapboard GIS is designed by and for Earth Science researchers, and we're
-hoping to be good open-science citizens. We want to support
+**Mapboard GIS** is designed by and for Earth Science researchers, and we're
+hoping to be good open-science citizens. In improving mapping processes,
+we want to make it as easy as possible to share data between systems.
 
-## Integration with other apps
+## Direct links with desktop GIS
+
+We maintain an open system chiefly by using industry-standard formats for data storage.
+The Spatialite database files that back the app can be directly read by
+standard GIS systems (e.g., ArcGIS and QGIS), and metadata can be edited in
+database browser applications such as [SQLite Browser](https://sqlitebrowser.org/).
+In [tethered mode](/docs/tethered-mode), data streams directly into PostGIS,
+where it can accessed by other systems immediately upon creation.
+
+Since Mapboard works directly with spatial databases, no data import or export is needed.
+This simplifies the app, but makes it less useful without preparation using desktop GIS.
+Producing specific formats like Shapefiles[^1] requires transformation using desktop
+GIS packages. Likewise, to insert your own basemap into Mapboard GIS, you will need
+to provide tiled data yourself.
+
+## Next steps
+
+### Smooth integration with other field apps
 
 Geologic fieldwork is a complex and multifaceted activity, and one application will
-never fully capture researchers' needs. *Unbundling functionality and thinking carefully
-about boundaries will allow workflows to be composed from multiple focused tools.* Mapboard
-GIS hopes to eventually be part of an ecosystem of interoperable apps for mapping,
-sample, orientation capture, structural analysis, and stratigraphic measurement.
+never fully capture researchers' needs.
+There are many apps for capturing point-data measurements and outcrop images,
+for instance, and **Mapboard GIS** gains little from reimplementing that
+aspect of field workflows.
 
-- There are many apps for collection of geologic measurements and 
+*Unbundling functionality and thinking carefully
+about boundaries will allow workflows to be composed from multiple focused tools.*
+Crucially, putting different pieces of workflows in the hands of researchers who care
+the most about specific aspects will allow more attention to detail on creating
+effective and easy-to-use human interfaces.
 
-- In the last few years, iPadOS has markedly improved its file management capabilities.
-  Mapboard GIS and other apps should be able to directly use files (particularly MBTiles basemaps)
-  in each others' application folders or elsewhere on the device.
+Eventually, we hope **Mapboard GIS** will become part of an ecosystem
+of interoperable apps for mapping, sampling, orientation capture,
+structural analysis, and stratigraphic measurement.
+This has been difficult to achieve on mobile platforms so far.
+However, in the last few years, Apple's iPadOS platform has grown up
+somewhat to allow more multitasking capabilities, making the way forward
+a bit easier to imagine. For instance, with the recent opening of the
+iPad's file-management capabilities,
+Mapboard GIS and other apps should be able to directly use
+files (particularly MBTiles basemaps) in each others' application folders or elsewhere on the device.
  
-## Thoughts on open-source
+<h3 id="open-source">Thoughts on open-source</h3>
 
 **Mapboard GIS** is currently *not* open-source software. We understand
 the value of free software to open science, but we think that keeping our
-work close is a useful precaution. Building embedded systems
-is difficult and time-consuming, and there are relatively few iOS apps
-that have successfully built sustainable open-source models at this stage.
+work close is a useful precaution right now. Building embedded systems
+is difficult and time-consuming, and we've seen relatively few iOS apps
+that have successfully built sustainable open-source models at this point.
 
 We believe we can serve the goals of open science even as closed-source,
 subscription-based software. However, we're open to adjusting our pricing model
-and management strategy going forward. We're also maintaining our codebase
+and management strategy going forward, especially if opportunities for code-level
+collaboration arise. We're maintaining our codebase
 with an eye towards opening it in the future, should the requirements or
 our ability to support the project change. 
 
-Both the [**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map)
-topology watcher (the foundational methodological advance that anchors this project)
-and the [server components](https://github.com/davenquinn/Mapboard-Server)
-that connect to **Mapboard GIS** are open-source components.
-This, along with our reliance on [open file formats](/docs/project-file) for
-on-device storage, ensures that
-the app will be at home within open-source workflows.
+The app will be at home within open-source workflows:
+we rely on [open file formats](/docs/project-file) for data storage.
+The [**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map)
+project, the reference implementation for our iterative topology workflow, is open-source.
+The [server components](https://github.com/davenquinn/Mapboard-Server)
+that connect to **Mapboard GIS** are also open-source, allowing customized
+links to other projects.
 
-If you have questions, concerns,
-or suggestions about our approach in this regard,
-feel free to [contact me](mailto:dev@davenquinn.com).
+Feel free to [contact us](mailto:dev@davenquinn.com) with questions, concerns,
+or suggestions about our approach in this regard.
+
+[^1]: Even though you absolutely [shouldn't use Shapefiles](http://switchfromshapefile.org/).
 
 
 export default AboutPage

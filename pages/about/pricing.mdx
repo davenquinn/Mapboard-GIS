@@ -4,8 +4,17 @@ import {TestFlightButton} from "../../components/page-map"
 # Pricing and evaluation
 
 **Mapboard GIS** uses a subscription pricing model. The base application
-is free, but most users will want a **Full Version** subscription which
-costs $29.99 per year[^1], billed through Apple's App Store.
+is free, but most users will want a <u>**Full Version**</u> subscription which
+costs **$29.99 per year** (or your local currency equivalent), billed through Apple's App Store.
+
+## Limitations of the free version
+
+The free version of the app gives access to all functionality, but with a
+limitation to **50 editing operations per day**. On the trial, you can easily
+test drawing features, adding custom basemaps, connecting to remote servers,
+and sharing your results to GIS software. Although data creation is limited,
+it's easy to try out the app and get a sense of whether the workflow will fit
+your needs.
 
 ## Why a subscription?
 
@@ -17,39 +26,54 @@ build a more smoothly functional tool, and our pricing compares well with
 
 Building iOS software, keeping it up-to-date, and sharing it with the
 community requires tons of effort.
-Looking at the experiences of other tools such as 
+The experiences of other tools such as 
 [FieldMove](https://www.petex.com/products/move-suite/digital-field-mapping/),
-free or even one-time purchase software runs the risk of abandonment
+suggest that free or even one-time purchase software risks abandonment
 due to uncompensated effort. Plus, it costs real money to list
 the application with Apple and
 build atop the world-beating [Mapbox](https://mapbox.com)
-mapping stack. The charge will help defray these costs.
+mapping stack. The **Full Version** subscription will help defray these
+costs, and we're confident
+that this project saves enough time to be worth what we're asking. 
 
+<!--
 It remains to be seen whether charging for the use of this product
 will allow its development to be sustained, or whether new approaches
 (e.g., seeking grant funding) will need to be tried. But we're confident
 that this project saves enough time to be worth what we're asking.
-
-
-## Limitations of the demo mode
+-->
 
 
 ## Development and testing
 
-Researcher are encouraged to contribute to the application,
-by working with us to add features or integrate the app into the community.
-We are very interested in supporting the app's use in educational settings and
-professional map production.
-At the very least, such work will be compensated with free access to the software.
+We're excited to work with geoscience researchers to improve and integrate this mapping system.
+There are several pathways to use the app for free if you are collaborating with us.
 
-Testing pre-release versions of the software is a great way to help out.
-Through **TestFlight** you can work with the full version of the application
-at no charge, although builds can be less stable and expire after 90 days.
+### Testing
+
+Testing pre-release versions of the software is a great way to help out with
+development. Through **TestFlight** you can work with the full version of the
+application at no charge, although builds can be less stable and expire after
+90 days. We appreciate feedback on our pre-release code.
 
 <TestFlightButton />
 
+### Integration
 
+The approach taken by this app and [PostGIS Geologic Map](https://github.com/davenquinn/PostGIS-Geologic-Map)
+has the potential to greatly simplify mapping workflows, but building these processes takes
+time and effort. We're excited to support
+the system's use in educational settings and professional map production.
+Please [get in touch](mailto:dev@davenquinn.com) if you'd like to use the app
+in an organized way, and we can make a plan for how to proceed.
 
-[^1]: Or your local currency equivalent.
+### Code-level contributions
+
+If you have feature ideas and are interested in working with us to
+implement them, we're open to giving access to contribute to the app. If this
+discussion arises, we will think about options for
+[open-sourcing](/about/interop#open-source) part or all of the codebase.
+We're also willing to spin out parts of our system as open-source libraries
+if it will contribute concretely to other projects.
 
 export default AboutPage
