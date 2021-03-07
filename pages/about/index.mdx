@@ -5,11 +5,67 @@ import {AboutPage} from "../../components/pages"
 **Mapboard GIS** is an iPad mapping system for drawing geospatial
 information into a spatial database. It works both in a standalone,
 field-ready mode and as a tethered client, with a paired desktop or
-laptop handling geospatial operations.
+laptop handling geospatial operations. It is designed to make
+digitally composing geologic maps a quicker and more human-oriented process.
 
-*More information coming soon*
+## Pen-based mapping
+
+The most important feature of **Mapboard GIS** is its preference for
+pen-based input. "Stream digitizing" is available on other GIS platforms,
+and is reasonably effective when combined with accessories such as Wacom graphics tablets.
+
+Tablet-based computing provides new and richer capabilities for pen-based input.
+**Mapboard GIS** fully utilizes the precision-capture capabilities of Apple's iPad platform 
+to support painless drawing, erasing, and redrafting of linework. This reduces the digital hurdles to making
+a well-designed map that faithfully represents interpretations.
+
+## Balancing power and simplicity
+
+Computers are complex devices that can add a lot of unexpected hurdles to field workflows.
+This is especially true when combined with capable but dense GIS software.
+In addition to streamlined stylus tools, tablet devices (particularly the
+iPad platform) offer a stripped-down user interface that limits user-facing
+complexity. iPads, much like their predecessor smartphones, run in a
+single-app mode with only limited multitasking capabilities.
+
+While openness and configurability are often prized computing features,
+the simplicity of a tablet platform is a major benefit when
+working in the field — a stripped-down digital process is less likely to
+intrude on the real-world task at hand. The user interface and editing tools
+of **Mapboard GIS** are simple enough not to intrude on users' field
+processes. A side benefit of this simplicity, potentially, is easier use of the app in
+educational settings. We plan to explore this aspect further in the future.
+
+## Topology-aware
+
+One of the major hurdles to building a fully defined geologic map is *topology*, the
+part of the mapping process where boundaries are joined to fill space. In traditional
+GIS workflows, this process happens after all linework is added to digitized and finalized.
+Even with the quicker drawing tools provided by **Mapboard GIS**, this is a major technical
+obstacle, as it prevents seeing the output of your mapping until you have finished entering
+the data. Building a process where changes are reflected in topology as soon
+as they are entered, will make it much simpler to see the effects of changes in real time.
+
+**Mapboard GIS** supports an innovative iterative mapping workflow. Its topological
+solver can solve the boundaries of map polygons in real time, showing the output of the
+mapping process in real time. This also reduces the risk that major topological
+errors will be propagated, and eliminates the "data cleaning" that has to be done before
+linework is closed and converted to polygons.
+
+## Field and tethered modes
+
+Field mapping is an important workflow for geologists, but a large amount of
+map production happens back in the office. Both the core data-capture
+workflow and the topological capabilities of the **Mapboard GIS** can be
+powered either by an onboard GIS engine, or by a connection to a spatial
+engine running on a networked computer. Because desktop computers can run
+more powerful database software than tablets, this has benefits for speed,
+data security, and interoperability. Real-time updates can allow editing
+along other **Mapboard GIS** users and desktop GIS software.
 
 <!--
+
+## Building new interactions.
 
 Somewhat weirdly for a geoscientist, my senior year of college, I took
 a class on **INLS 318: Human-Computer Interaction**. This course made a

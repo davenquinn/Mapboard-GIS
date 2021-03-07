@@ -12,19 +12,25 @@ and the iterative topology mapping technique. Stay tuned!
 
 ## Upcoming features
 
-- A project initialization user interface that guides the user towards appropriate map projections
+- A layer for text notes and schematic drawings on the map
+- Ability to capture and edit sample locations  
+  **Note:** This is a potential integration point with other apps.
+- Some sort of GeoPDF basemap support
+- A quicker onboard topology engine
+- Some level of support for the [GeoPackage](https://www.geopackage.org/) format,
+  which is similar to the Spatialite format that currently drives the map
 
 ### Education-focused features
 
-- Guidance on appropriate map projections
+- A project initialization user interface that guides
+  the user towards appropriate map projections
 - Modes to predefine map area and allowed scale range for digitizing
+- A "simple" user-interface mode that hides features for map production
 
+### Integrations with outside systems
 
-- Integrations with Macrostrat (download current mapping as a start)
-- Integrations of better mapping symbology (e.g. patterns)
-
-Possibilities of using https://www.geopackage.org/
-https://www.sqlite.org/appfileformat.html
-
+- Integration with Macrostrat (download current mapping as a starting point)
+- Improved mapping symbology (e.g. patterns)
+- Sharing data between the Spatialite (offline) and PostGIS (tethered) modes
 
 export default AboutPage

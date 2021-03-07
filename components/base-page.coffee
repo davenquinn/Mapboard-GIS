@@ -21,7 +21,7 @@ BasePage = (props)->
     h 'div.wrap', [
       <header>
         <ActiveLink href="/">
-          <a className="page-title-link"><h1 className="page-title">Mapboard <span class="dimmer">GIS</span></h1></a>
+          <a className="page-title-link"><h1 className="page-title">Mapboard <span className="dimmer">GIS</span></h1></a>
         </ActiveLink>
         <div className="header-image">
           <Link href="/">
