@@ -8,6 +8,15 @@ import {navLinks} from "./page-map"
 
 import "./main.styl"
 
+RevisionInfo = ()->
+  h("p.version", [
+    "#{JSON.parse(process.env.NPM_VERSION)} – #{JSON.parse(process.env.COMPILE_DATE)}",
+    " (",
+    h("a", { href: JSON.parse(process.env.GITHUB_REV_LINK) }, JSON.parse(process.env.GIT_COMMIT_HASH)),
+    ")",
+  ])
+
+
 BasePage = (props)->
   {children, className, rest...} = props
   h 'div.page', {className}, [
@@ -37,6 +46,7 @@ BasePage = (props)->
         <p>
           <strong>Mapboard GIS</strong> was created by <a href="https://davenquinn.com">Daven Quinn</a>, 2018—2021
         </p>
+        <RevisionInfo />
       </footer>
     ]
   ]
