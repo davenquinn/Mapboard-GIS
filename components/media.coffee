@@ -1,9 +1,16 @@
 import h from "@macrostrat/hyper"
 
+updateSrc = (src)->
+  if !(src.indexOf('://') > 0 or src.indexOf('//') == 0)
+    src = process.env.MEDIA_PATH + src
+  return src
+
 Video = (props)->
   {src, rest...} = props
-  if !(src.indexOf('://') > 0 or src.indexOf('//') == 0)
-    src = process.env.MEDIA_PREFIX + src
-  h("video", {src, rest...})
+  h("video", {rest..., src: updateSrc(src)})
 
-export {Video}
+Image = (props)->
+  {src, rest...} = props
+  h("img", {rest..., src: updateSrc(src)})
+
+export {Video, Image}
