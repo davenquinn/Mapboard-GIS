@@ -12,6 +12,7 @@ $card-base = lighten(#32536b,40%)
 
 :root
   --header-font: "Montserrat", Helvetica, sans-serif
+  --mono-font: "Source Code Pro", monospace
   --background-color: lighten(#161517, 2%)
   --text-color: darken(#354a61, 20%)
   --accent-color: $accent
@@ -36,6 +37,9 @@ a
 // Typography
 p
   text-align: justify
+
+code, pre 
+  font-family: var(--mono-font)
 
 body
   z-index -10
