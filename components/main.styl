@@ -4,7 +4,7 @@ $bkg=#261e2d
 //$accent=#400C4A
 $accent=darken(#a328b4,40%)
 $gradient-dest=rgb(52,45,79)
-$gradient-light=lighten($gradient-dest,60%)
+$gradient-light=lighten($gradient-dest,70%)
 $gradient-dark=darken($gradient-dest,5%)
 $dark-card-base = darken(#32536b,10%)
 $card-base = lighten(#32536b,40%)
@@ -13,7 +13,7 @@ $card-base = lighten(#32536b,40%)
 :root
   --header-font: "Montserrat", Helvetica, sans-serif
   --mono-font: "Source Code Pro", monospace
-  --background-color: lighten(#161517, 2%)
+  --background-color: lighten(#161517, 10%)
   --text-color: darken(#354a61, 20%)
   --accent-color: $accent
   --accent-background: alpha($accent, 20%)
@@ -103,6 +103,20 @@ h1,h2,h3,h4,h5,h6
 
 .centered
   text-align: center
+
+img
+  &.right
+    float right
+    margin-left: 1em
+    margin-bottom 1em
+  &.left
+    float left
+    margin-right 1em
+    margin-bottom 1em
+
+.section-content
+  h1,h2
+    clear: both
 
 footer 
   color var(--secondary-color)

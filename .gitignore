@@ -2,4 +2,6 @@ dist
 node_modules
 .parcel-cache
 .nextpublic
+.nextdev-media
+dev-media
 .next

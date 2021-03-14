@@ -7,7 +7,9 @@ updateSrc = (src)->
 
 Video = (props)->
   {src, rest...} = props
-  h("video", {rest..., src: updateSrc(src)})
+  h("video", {rest...}, [
+    h("source", {src: updateSrc(src), type: "video/mp4"})
+  ])
 
 Image = (props)->
   {src, rest...} = props

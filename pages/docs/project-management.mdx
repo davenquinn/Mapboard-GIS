@@ -1,11 +1,32 @@
 import {UserGuidePage} from "../../components/pages"
+import {Image} from "../../components/media"
 
 # Project management
 
-## Creating a project
+<Image src="/docs/project-list.jpg" width={300} className="left" />
 
-## Editing existing projects
+New projects are added to the project list and made available as
+[`mapboard-project` files](/docs/project-file) in the **Files** app.
+Project files placed in the **Mapboard GIS** documents folder will appear
+in the list.
 
-## Sharing projects
+<Image src="/docs/project-actions.jpg" width={350} />
+
+## Creating and editing projects
+
+
+<Image src="/docs/new-project.jpg" width={300} />
+
+## Editing and sharing projects
+
+Touching the **Export** button opens a standard iOS "Share Sheet".
+This allows projects to be managed and copied. One common operation
+is to share the files to another device with "AirDrop". This is especially
+useful for quick backups or opening the project in desktop GIS programs.
+
+Project files can also be accessed through the Files app. When attached to a
+computer, the Finder (Mac) or iTunes file sharing (Windows) can also be used
+for file transfers. This is particularly valuable when transferring large
+files such as [basemap imagery](/docs/basemaps).
 
 export default UserGuidePage
