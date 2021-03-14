@@ -104,19 +104,23 @@ h1,h2,h3,h4,h5,h6
 .centered
   text-align: center
 
-img
-  &.right
-    float right
-    margin-left: 1em
-    margin-bottom 1em
-  &.left
-    float left
-    margin-right 1em
-    margin-bottom 1em
-
 .section-content
   h1,h2
     clear: both
+
+  figure
+    &.center
+      margin 0 auto
+    &.right
+      float right
+      margin-left: 1em
+    &.left
+      float left
+      margin-right 1em
+    img, video
+      border-radius 6px
+
+    margin-bottom 1em
 
 footer 
   color var(--secondary-color)
