@@ -1,56 +1,19 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
 import React from "react";
 import Link from "next/link";
 import h from "@macrostrat/hyper";
-import dynamic from "next/dynamic";
+import { DarkModeButton, GetAppButton } from "./buttons";
 
-const DarkModeButton = dynamic(() => {
-  if (typeof window == "undefined") return Promise.resolve(null);
-  return import("@macrostrat/ui-components/lib/cjs/dark-mode").then((mod) => {
-    return () =>
-      h(mod.DarkModeProvider, null, h(mod.DarkModeButton, { large: true }));
-  });
-});
+interface LinkSpec {
+  href: string;
+  label: string;
+  shortLabel?: string;
+  children?: Link[];
+}
 
-const PageLinkButton = (props) => {
-  const { href, children, ...rest } = props;
-  return h(
-    Link,
-    { href },
-    h("a.link-button", rest, [children, " ", <FaArrowRight />])
-  );
-};
+export type Link = LinkSpec | React.ReactNode;
+export type Links = Link[];
 
-const GetAppButton = () =>
-  h(
-    "a.link-button",
-    {
-      href: "https://testflight.apple.com/join/0TfVlWyN",
-    },
-    <span>
-      Get the app
-      <sup>
-        <em>beta</em>
-      </sup>
-    </span>
-  );
-
-const TestFlightButton = () =>
-  h(
-    "a.link-button",
-    {
-      href: "https://testflight.apple.com/join/0TfVlWyN",
-    },
-    <>
-      Join the <em>TestFlight</em> beta
-    </>
-  );
-
-const navLinks = [
+const navLinks: Links = [
   { href: "/about", label: "About" },
   { href: "/docs", label: "User guide" },
   h("li.spacer"),
@@ -58,7 +21,7 @@ const navLinks = [
   h("li", null, h(DarkModeButton)),
 ];
 
-const aboutLinks = [
+const aboutLinks: Links = [
   { href: "/about", label: "Motivation" },
   // { href: '/about/features', label: "Features"}
   { href: "/about/pricing", label: "Pricing + evaluation" },
@@ -69,14 +32,24 @@ const aboutLinks = [
   //{ href: '/about/contact', label: "Contact"}
 ];
 
-const userGuideLinks = [
+const userGuideLinks: Links = [
   { href: "/docs", label: "Getting started" },
   {
     href: "/docs/projects",
     label: "Projects",
+    children: [
+      {
+        href: "/docs/projects/new-project",
+        label: "Project creation options",
+        shortLabel: "Creation options",
+      },
+      {
+        href: "/docs/projects/file-format",
+        label: "Project file format",
+        shortLabel: "File format",
+      },
+    ],
   },
-  { href: "/docs/projects/new-project", label: "New project" },
-  { href: "/docs/projects/file-format", label: "Project file format" },
   { href: "/docs/map-interface", label: "Map interface" },
   { href: "/docs/feature-classes", label: "Feature classes" },
   { href: "/docs/topology", label: "Topology" },
@@ -85,4 +58,4 @@ const userGuideLinks = [
   { href: "/docs/bugs", label: "Reporting bugs" },
 ];
 
-export { navLinks, GetAppButton, TestFlightButton, aboutLinks, userGuideLinks };
+export { navLinks, aboutLinks, userGuideLinks };

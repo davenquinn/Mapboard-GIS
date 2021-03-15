@@ -16,10 +16,23 @@ const ActiveLink = function ({ children, exact = true, ...props }) {
   return h(Link, props, React.cloneElement(child, { className }));
 };
 
-const NavLink = ({ key, href, label, exact }) =>
-  h("li", { key }, [
+const NavLinkItem = ({ key, href, label, exact }: any) => {
+  return h("li", { key }, [
     h(ActiveLink, { href, exact }, [h("a.link-button", null, label)]),
   ]);
+};
+
+const NavLink = ({ children, ...rest }: any) => {
+  if (children != null) {
+    return h("ul", [
+      h(NavLinkItem, { ...rest, exact: true }),
+      children.map((d, i) =>
+        h(NavLinkItem, { ...d, label: d.shortLabel ?? d.label, key: i })
+      ),
+    ]);
+  }
+  return h(NavLinkItem, rest);
+};
 
 const Nav = function (props) {
   const { className, links, exactLinks } = props;

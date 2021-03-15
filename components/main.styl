@@ -215,19 +215,38 @@ a.link-button svg
   ul
     list-style: none
     padding-left 0
-    justify-content:  right
-    text-align center
+    justify-content: right
+    text-align left
+    ul
+      border 1.5px solid var(--accent-color)
+      border-radius 6px
+      margin-bottom 0.5em
+      margin-right 0.5em
+      display inline-block
+      li
+        &:first-child
+          padding-top 0.25em
+          a
+            font-weight bold
+        a.link-button
+          border-color transparent
+          &.active
+            border 1.5px solid var(--accent-color)
+        padding 0.25em
+        padding-top 0
+        margin 0
   li
     margin-bottom 0.5em
     margin-right 0.5em
     display inline-block
     a.link-button
+      text-align left
       padding 0.2em 0.5em
 
  .section-nav, .bottom-links
   line-height 1
   a.link-button
-    border-width 1px
+    border-width 1.5px
     font-size 14px
     display block
 
@@ -251,12 +270,12 @@ a.link-button svg
       position sticky
       top 3em
       text-align right
-    li
-      display block
-      width 100%
+      ul, li
+        display block
+        width 100%
+        margin-right 0
       a.link-button
         width 100%
-
 
 $grid_margin=1.5em
 
@@ -446,6 +465,7 @@ div.mountain-underlay
     .header-image
       grid-row 1 / span 2
 
+@media screen and (min-width 1100px)
   .section-content
     figure
       &.right
