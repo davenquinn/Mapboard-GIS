@@ -1,5 +1,5 @@
-import {AboutPage} from "../../components/pages"
-import {Figure} from "../../components/media"
+import { AboutPage } from "~/pages";
+import { Figure } from "~/media";
 
 # Motivation and design
 
@@ -18,9 +18,9 @@ accessories such as Wacom graphics tablets, but the editing tools are geared
 towards precision rather than fluidity.
 
 <Figure src="/docs/line-drawing.mp4" width={450} className="full">
-  Drawing in <strong>Mapboard GIS</strong> showcases the power of pen-based input.
+  Drawing in <strong>Mapboard GIS</strong> showcases the power of pen-based
+  input.
 </Figure>
-
 
 Tablet-based computing enables new and richer capabilities for pen-based
 input previously unattainable in computing.
@@ -53,13 +53,15 @@ educational settings. We plan to explore this aspect further in the future.
 
 ## Topology-aware
 
-One of the major hurdles to building a fully defined geologic map is *topology*, the
-part of the mapping process where boundaries are joined to fill space. In traditional
-GIS workflows, this process happens after all linework is added to digitized and finalized.
-Even with the quicker drawing tools provided by **Mapboard GIS**, this is a major technical
-obstacle, as it prevents seeing the output of your mapping until you have finished entering
+One of the major hurdles to building a fully defined geologic map is
+_topology_, the part of the mapping process where boundaries are joined to
+fill space. In traditional GIS workflows, this process happens after all
+linework is added to digitized and finalized. Even with the quicker drawing
+tools provided by **Mapboard GIS**, this is a major technical obstacle, as it
+prevents seeing the output of your mapping until you have finished entering
 the data. Building a process where changes are reflected in topology as soon
-as they are entered, will make it much simpler to see the effects of changes in real time.
+as they are entered, will make it much simpler to see the effects of changes
+in real time.
 
 **Mapboard GIS** supports an innovative iterative mapping workflow. Its topological
 engine can solve the boundaries of map polygons in real time, showing the output of the
@@ -85,7 +87,7 @@ along other **Mapboard GIS** users and desktop GIS software.
 Somewhat weirdly for a geoscientist, my senior year of college, I took
 a class on **INLS 318: Human-Computer Interaction**. This course made a
 huge impression on me. Frustrations we have with digital processes are
-often just boil down to poorly designed interfaces between user and machine. 
+often just boil down to poorly designed interfaces between user and machine.
 
 Now when I see an imperfect digital process,
 I have the urge to examine the process and try to find a better way.
@@ -128,4 +130,4 @@ Geologic maps are beautiful.
 
 -->
 
-export default AboutPage
+export default AboutPage;

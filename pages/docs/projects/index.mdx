@@ -1,5 +1,7 @@
-import {UserGuidePage} from "../../components/pages"
-import {Figure} from "../../components/media"
+import { UserGuidePage } from "~/pages";
+import { Figure } from "~/media";
+import { PageLinkButton } from "~/buttons";
+import Link from "next/link";
 
 # Project management
 
@@ -18,8 +20,11 @@ The same set of project files can also be accessed through the **Files** app,
 which allows moving, sharing and archiving projects.
 
 <Figure src="/docs/projects/project-files.png" width={350} className="center">
-  Project files in the <strong>Files</strong> app.
-  Also note the 18 GB <a href="/docs/basemaps"><code>mbtiles</code> cached basemap</a>! 
+  Project files in the <strong>Files</strong> app. Also note the 18 GB{" "}
+  <a href="/docs/basemaps">
+    <code>mbtiles</code> cached basemap
+  </a>
+  !
 </Figure>
 
 When attached to a
@@ -29,77 +34,9 @@ files such as [basemap imagery](/docs/basemaps).
 
 ## Creating new projects
 
-<Figure src="/docs/projects/new-project.jpg" width={300} className="right">
-  The project-creation interface
-</Figure>
-
-The new project interface allows several categories of new information to be
-captured to set up a new mapping project. The top *Project details* section
-manages basic metadata.
-
-The *Backend* section allows the selection of the spatial backend.
-There are three available backends: the standalone *Spatialite* GIS engine, the tethered
-*PostGIS* engine, and the *Image* backend. 
-
-### Choosing a GIS backend
-
-#### Spatialite
-
-The **Spatialite** backend stores geospatial information directly in
-a database on the iPad, for easy use in offline scenarios (especially the field). This
-backend is mostly feature-complete, but many spatial operations
-(especially topology) are relatively slow. This makes it a poor choice for large mapping
-projects. Work is ongoing to remove some of these limitations, especially as the
-capabilities of iOS devices improve.
-
-#### PostGIS
-
-<Figure src="/docs/projects/postgis-backend-panel.png" width={300} className="right">
-  Setting a server connection for the PostGIS backend
-</Figure>
-
-With the **PostGIS** backend, the application talks to a remote server (usually
-on a local network, although in principle internet locations can also be used),
-where all spatial operations are handled. This enables faster processing,
-data security, and collaborative mapping. See the [tethered mode](/docs/tethered-mode)
-documentation for more information.
-
-#### Image
-
-<Figure src="/docs/projects/image-backend-panel.png" width={300} className="right">
-  Selecting an image for non-georeferenced feature drawing
-</Figure>
-
-
-The **Image** backend is a stripped-down version of the
-**Spatialite** mode that supports digitization atop a static image in
-pixel coordinates. This can help with processes such as annotating field
-images.
-
-:::note
-Some aspects of the image mode that are currently unwieldy, such as the restriction to
-a single image per project, may be addressed in future updates.
-[Leave some feedback](/docs/reporting-bugs) if you'd like to suggest improvements.
-:::
-
-
-### Choosing a spatial reference frame
-
-The choice of spatial reference frame is important in all GIS applications, and
-**Mapboard GIS** has full support for the wide variety of spatial reference systems
-in common use. Reference systems prioritize validity and accuracy for
-different use cases and parts of the world (the Spatialite documentation has a good
-[primer](https://www.gaia-gis.it/gaia-sins/spatialite-cookbook/html/srid.html)).
-
-The default spatial reference, [SRID `4326`](https://spatialreference.org/ref/epsg/4326/),
-longitude/latitude relative to the WGS84 datum, is acceptable globally, but using a more
-locally-relevant datum can improve the speed and accuracy of GIS calculations. For
-instance, a [UTM projection](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system)
-is the standard for many regional and local applications.
-
-We are working on a helper to set the "correct" SRID for typical regional mapping projects.
-Currently, if you want a custom spatial reference for a Mapboard project, you must set
-the SRID yourself.
+<PageLinkButton href="/docs/projects/new-project">
+  New project docs
+</PageLinkButton>
 
 ## Editing and sharing projects
 
@@ -110,13 +47,13 @@ actions for editing, deleting, and exporting that project.
   Dragging to show project-management actions
 </Figure>
 
-- The **Export** button opens a standard iOS *Share Sheet*, allowing
+- The **Export** button opens a standard iOS _Share Sheet_, allowing
   projects to be copied outside of the app. One common operation
-  is to transfer the files to another device with *AirDrop*. This is especially
+  is to transfer the files to another device with _AirDrop_. This is especially
   useful for quick backups or opening the project in desktop GIS programs.
 - The **Edit** button opens the project-creation interface for modifying
   metadata for an existing project. The project's backend cannot be modified,
   with one exception: the server
-  URL for a [*PostGIS* tethered backend](/docs/tethered-mode) can be adjusted.
+  URL for a [_PostGIS_ tethered backend](/docs/tethered-mode) can be adjusted.
 
-export default UserGuidePage
+export default UserGuidePage;

@@ -1,7 +1,7 @@
 const withStylus = require("@zeit/next-stylus");
 const admonitions = require("remark-admonitions");
-const slug = require("remark-slug")
-const toc = require("remark-toc")
+const slug = require("remark-slug");
+const toc = require("remark-toc");
 const withMDX = require("@next/mdx")({
   options: {
     remarkPlugins: [admonitions, toc, slug],
@@ -16,7 +16,7 @@ const GITHUB_LINK = "https://github.com/davenquinn/Mapboard-GIS";
 const isProd = process.env.NODE_ENV === "production";
 
 let baseCfg = {
-  pageExtensions: ["js", "jsx", "mdx"],
+  pageExtensions: ["mdx", "ts", "tsx"],
   env: {
     MEDIA_PATH: isProd
       ? "//sfo2.digitaloceanspaces.com/mapboard-gis-assets"

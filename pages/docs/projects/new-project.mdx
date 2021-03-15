@@ -1,0 +1,90 @@
+import { UserGuidePage } from "~/pages";
+import { Figure } from "~/media";
+import { PageLinkButton } from "~/buttons";
+
+# Project creation options
+
+<Figure src="/docs/projects/new-project.jpg" width={300} className="right">
+  The project-creation interface
+</Figure>
+
+The new project interface allows several categories of new information to be
+captured to set up a new mapping project. The top _Project details_ section
+manages basic metadata.
+
+The _Backend_ section allows the selection of the spatial backend.
+There are three available backends: the standalone _Spatialite_ GIS engine, the tethered
+_PostGIS_ engine, and the _Image_ backend.
+
+The default **Spatialite** backend stores geospatial information directly in
+a database on the iPad, for easy use in offline scenarios (especially the field). This
+backend is mostly feature-complete, but many spatial operations
+(especially topology) are relatively slow. This makes it a poor choice for large mapping
+projects. Work is ongoing to remove some of these limitations, especially as the
+capabilities of iOS devices improve.
+
+## Choosing a spatial reference frame
+
+The choice of spatial reference frame is important in all GIS applications, and
+**Mapboard GIS** has full support for the wide variety of spatial reference systems
+in common use. Reference systems prioritize validity and accuracy for
+different use cases and parts of the world (the Spatialite documentation has a good
+[primer](https://www.gaia-gis.it/gaia-sins/spatialite-cookbook/html/srid.html)).
+
+:::note
+We are working on a helper to set the "correct" SRID for typical regional mapping projects.
+However, until this is finished, you must find and set the SRID yourself.
+:::
+
+The default spatial reference, [SRID `4326`](https://spatialreference.org/ref/epsg/4326/),
+longitude/latitude relative to the WGS84 datum, is acceptable globally, but using a more
+locally-relevant datum can improve the speed and accuracy of GIS calculations. For
+instance, a [UTM projection](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system)
+is the standard for many regional and local applications.
+
+## The _PostGIS_ backend
+
+<Figure
+  src="/docs/projects/postgis-backend-panel.png"
+  width={300}
+  className="right"
+>
+  Setting a server connection for the PostGIS backend
+</Figure>
+
+With the **PostGIS** backend, the application talks to a remote server (usually
+on a local network, although in principle internet locations can also be used),
+where all spatial operations are handled. This enables faster processing,
+data security, and collaborative mapping.
+
+<PageLinkButton href="/docs/projects/new-project">
+  <strong>Tethered mode</strong> docs
+</PageLinkButton>
+
+:::note
+In PostGIS mode, spatial reference information and feature classes are managed on the
+server, so they are not configured within the app.
+:::
+
+## The _Image_ backend
+
+<Figure
+  src="/docs/projects/image-backend-panel.png"
+  width={300}
+  className="right"
+>
+  Selecting an image for non-georeferenced feature drawing
+</Figure>
+
+The **Image** backend is a stripped-down version of the
+**Spatialite** mode that supports digitization atop a static image in
+pixel coordinates. This can help support processes such as annotating field
+images for later feature extraction from 3D models.
+
+:::note
+Some presently unwieldy aspects of the image mode, such as the restriction to
+a single image per project, may be addressed in future updates.
+[Leave some feedback](/docs/reporting-bugs) if you'd like to suggest improvements.
+:::
+
+export default UserGuidePage;

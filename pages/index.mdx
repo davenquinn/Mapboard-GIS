@@ -1,6 +1,6 @@
-import BasePage from "../components/base-page"
-import {GetAppButton} from "../components/page-map"
-import {Video} from "../components/media"
+import BasePage from "../components/base-page";
+import { GetAppButton } from "~/buttons";
+import { Video } from "../components/media";
 
 **Mapboard GIS** is an iPad + Apple Pencil app for drawing geologic maps.
 It combines the natural editing workflow of pen-and-paper mapping with
@@ -12,7 +12,7 @@ maps.
 <div className="manifesto">
   <div className="manifesto-text">
 
-  **Mapboard GIS** was born out of frustration with <!--the shortcomings of -->both paper– and GIS-based mapping workflows.
+**Mapboard GIS** was born out of frustration with <!--the shortcomings of -->both paper– and GIS-based mapping workflows.
 
   </div>
   <div class="buttons">
@@ -42,7 +42,6 @@ instead of fighting with technical tools.
 
 <Video autoPlay loop src="/mapboard-intro.mp4" type="video/mp4" />
 
-
 </div>
 
 <div className="callout two-col">
@@ -68,17 +67,16 @@ solver within **Mapboard GIS** painlessly keeps the structure of the map consist
 ## Tether to desktop GIS
 
 Field mapping is important, but **Mapboard GIS** is even more powerful alongside a networked computer.
-Its *tethered mode*, backed by a PostGIS spatial database,
+Its _tethered mode_, backed by a PostGIS spatial database,
 allows work across massive datasets.
 The [**PostGIS Geologic Map** topology solver](https://github.com/davenquinn/PostGIS-Geologic-Map)
 can maintain topological consistency during collaborative mapping!
 
 </div>
 
-<Video autoPlay loop src="/tethered-mode.mp4" type="video/mp4" /> 
+<Video autoPlay loop src="/tethered-mode.mp4" type="video/mp4" />{" "}
 
 </div>
-
 
 <div className="callout">
 
@@ -87,7 +85,7 @@ can maintain topological consistency during collaborative mapping!
 **Mapboard GIS** conforms to open standards. It is backed by Spatialite and
 PostGIS databases, which are seamlessly readable by a wide range of GIS
 software. The [server components](https://github.com/davenquinn/mapboard-server)
-that drive its *tethered mode* are
+that drive its _tethered mode_ are
 simple and open-source, allowing
 customized integrations with external GIS systems.
 
@@ -120,5 +118,4 @@ over time. The demo version is limited to 50 edit operations per day.
   <GetAppButton />
 </div>
 
-
-export default BasePage
+export default BasePage;

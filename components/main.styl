@@ -8,7 +8,8 @@ $gradient-light=lighten($gradient-dest,70%)
 $gradient-dark=darken($gradient-dest,5%)
 $dark-card-base = darken(#32536b,10%)
 $card-base = lighten(#32536b,40%)
-
+$admonition = darken(#64cac1,60%)
+$admonition-dark = darken(desaturate(#64cac1,20%),20%)
 
 :root
   --header-font: "Montserrat", Helvetica, sans-serif
@@ -24,6 +25,9 @@ $card-base = lighten(#32536b,40%)
   --card-border: $card-base
   --background-gradient: linear-gradient(120deg, alpha($gradient-light,0) 0%, $gradient-light 100%)
   --purple-color: #544679
+  --admonition-color: $admonition
+  --admonition-background: alpha($admonition, 10%)
+
 
 $accent-light=#a328b4
 $purple-color=lighten(#5A13CA,40%)
@@ -54,6 +58,8 @@ body
     --background-gradient: linear-gradient(120deg, alpha($gradient-dark,0) 0%, $gradient-dark 100%)
     --card-background: linear-gradient(120deg, desaturate(darken($dark-card-base,30%),20%) 0%, $dark-card-base 100%);
     --card-border: $dark-card-base
+    --admonition-color: $admonition-dark
+    --admonition-background: alpha($admonition-dark, 10%)
     background:  darken(rgba(34,29,38,1),30%) // lighten(#161517, 2%) //
   transition: background 0.2s;
   font-family "Merriweather", 'Times New Roman', Times, serif
@@ -197,6 +203,13 @@ header
       border-radius 6px
       border 2px solid var(--accent-background)
 
+.page-link-button
+  a.link-button
+    font-size 14px
+  margin 0.2em 2em
+
+a.link-button svg
+  margin-bottom -0.1em
 
 .section-nav
   ul
@@ -324,6 +337,40 @@ a.link-button, button.bp3-button
     width 300px
     border-radius 6px
 
+.admonition
+  display flex
+  flex-direction: row
+  align-items: baseline
+  .admonition-heading
+    margin-right 0.5em
+    width 1em
+    margin-top 0.4em
+    .admonition-icon svg
+      display: inline-flex
+      fill var(--admonition-color)
+      align-self baseline
+      margin-bottom -0.3em
+      margin-right 1em
+    h5
+      color transparent
+      margin 0
+      text-transform: uppercase
+  background var(--admonition-background)
+  color var(--admonition-color)
+  clear both
+  border-radius 6px
+  padding 0.2em 1em
+  margin 1.5em 0 2em
+  .admonition-content
+    flex-grow 1
+    font-size 0.8em
+    margin 0.4em 0
+    &>:first-child
+      margin-top 0
+    &>:last-child
+      margin-bottom 0
+    a
+      color: var(--admonition-color)
 
 .manifesto
   margin 1em
