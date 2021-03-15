@@ -1,8 +1,10 @@
 const withStylus = require("@zeit/next-stylus");
 const admonitions = require("remark-admonitions");
+const slug = require("remark-slug")
+const toc = require("remark-toc")
 const withMDX = require("@next/mdx")({
   options: {
-    remarkPlugins: [admonitions],
+    remarkPlugins: [admonitions, toc, slug],
     rehypePlugins: [],
   },
 });

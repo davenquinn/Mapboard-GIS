@@ -64,9 +64,11 @@ body
   padding 0
   color var(--text-color)
 
-p.caption
-  line-height 1
+p.caption, figcaption
+  line-height 1.25em
+  font-size 0.8em
   color var(--secondary-color)
+  font-style italic
 
 .underlay
   position fixed
@@ -96,7 +98,6 @@ p.caption
 h1,h2,h3,h4,h5,h6
   font-family: var(--header-font)
   color var(--header-color)
-  line-height 1
 
 .extra-space
   margin 1em
@@ -108,19 +109,31 @@ h1,h2,h3,h4,h5,h6
   h1,h2
     clear: both
 
+  margin=1.5em
+  // h4,h5,h6
+  //   float: left
+  //   line-height 1
+  //   margin-right margin
+
+  h1:first-child
+    line-height 1
   figure
+    margin-left 0
+    margin-right 0
+    margin-top 0
+    margin-bottom margin !important
     &.center
       margin 0 auto
+      figcaption
+        text-align center
     &.right
       float right
-      margin-left: 1em
+      margin-left: margin
     &.left
       float left
-      margin-right 1em
+      margin-right margin
     img, video
       border-radius 6px
-
-    margin-bottom 1em
 
 footer 
   color var(--secondary-color)
@@ -386,4 +399,7 @@ div.mountain-underlay
     .header-image
       grid-row 1 / span 2
 
-    
+  .section-content
+    figure
+      &.right
+        margin-right -5em
