@@ -8,7 +8,6 @@ const withMDX = require("@next/mdx")({
     rehypePlugins: [],
   },
 });
-const withCoffeescript = require("next-coffeescript");
 const RevisionInfoWebpack = require("@macrostrat/revision-info-webpack");
 const pkg = require("./package.json");
 
@@ -26,4 +25,4 @@ let baseCfg = {
   },
 };
 
-module.exports = withCoffeescript(withStylus(withMDX(baseCfg)));
+module.exports = withStylus(withMDX(baseCfg));
