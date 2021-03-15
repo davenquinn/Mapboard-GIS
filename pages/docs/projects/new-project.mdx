@@ -61,6 +61,11 @@ data security, and collaborative mapping.
   <strong>Tethered mode</strong> docs
 </PageLinkButton>
 
+<Figure src="/docs/postgis-mode-no-sidebar.png">
+  Streaming large mapping datasets from a <strong>PostGIS</strong> server in
+  tethered mode.
+</Figure>
+
 :::note
 In PostGIS mode, spatial reference information and feature classes are managed on the
 server, so they are not configured within the app.
@@ -76,10 +81,14 @@ server, so they are not configured within the app.
   Selecting an image for non-georeferenced feature drawing
 </Figure>
 
-The **Image** backend is a stripped-down version of the
+The **Image** backend is a stripped-down version of
 **Spatialite** mode that supports digitization atop a static image in
 pixel coordinates. This can help support processes such as annotating field
 images for later feature extraction from 3D models.
+
+<Figure src="/docs/image-mode.jpg" width={400} className="center">
+  Editing fluvial bounding surfaces in <strong>Image</strong> mode.
+</Figure>
 
 :::note
 Some presently unwieldy aspects of the image mode, such as the restriction to

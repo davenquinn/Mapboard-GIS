@@ -1,25 +1,145 @@
 import { UserGuidePage } from "../../components/pages";
 import { Figure, Video } from "../../components/media";
+import { PageLinkButton } from "~/buttons";
 
 # Map interface
 
-## View mode
+The map interface is the core of **Mapboard GIS**. When working within
+a project, the map is always available, and interactions with it
+follow the active status of the _Mode switcher_. All tool settings
+and options are adjusted in the _Sidebar_.
 
-<Figure src="/docs/map-interface/editor-settings.png" width={400} />
-<Figure src="/docs/map-interface/show-points.jpg" width={400} />
-<Figure src="/docs/map-interface/sidebar-settings.png" width={400} />
-<Figure src="/docs/map-interface/snapping-panel.png" width={400} />
-<Figure src="/docs/map-interface/topology-panel.png" width={400} />
+## The edit panel
 
-<Figure src="/docs/image-mode.jpg" width={400} />
+<Figure src="/docs/map-interface.jpg">
+  A map interface annotated with functional groupings for the{" "}
+  <strong>Edit</strong> panel
+</Figure>
+
+The edit panel contains settings for the active tools used for drawing,
+erasing, and modifying map data. During map editing, this panel will
+usually be open. The contents of the edit panel change depending on which
+editing mode and feature layer (_Lines_ or _Polygons_) is active.
+
+### _Move_ mode and basic view options
+
+<Figure
+  src="/docs/map-interface/view-options.png"
+  width={300}
+  className="right"
+>
+  The view control panel
+</Figure>
+
+<Figure src="/docs/map-interface/show-points.jpg" width={300} className="right">
+  Linework showing constituents points
+</Figure>
+
+In move mode, map editing is disabled, and _View options_ are
+the only controls available. These allow showing and hiding
+lines and polygons _en masse_. (Showing and hiding individual types is
+handled within the [feature class](/docs/data-types) options.)
+
+The view controls also control an introspection layer for constituent
+points of geometries, which is especially handy for debugging topology
+errors.
+
+### _Draw mode_ options
+
+<Figure
+  src="/docs/map-interface/drawing-options.png"
+  width={300}
+  className="right"
+>
+  Drawing options
+</Figure>
+
+Draw mode allows drawing with a stylus (or a finger, if enabled in
+the [application settings](/docs/getting-started)).
+
+The drawing panel contains controls to select the active feature class as well as
+certainty (which controls the dash pattern for line features).
+For the _Lines_ layer, a panel also controls feature snapping; this is replaced
+by controls for overlapping features for the _Polygons_ layer.
+
+<PageLinkButton href="/docs/data-types">
+  <strong>Data types</strong> docs
+</PageLinkButton>
+
+### _Erase mode_ options
+
+<Figure
+  src="/docs/map-interface/eraser-options.png"
+  width={300}
+  className="right"
+>
+  Erase mode options
+</Figure>
+
+In erase mode, you draw a bounding area which is used to clip
+and/or delete intersecting features.
+The primary option available in _Erase_ mode is whether only the
+active feature type should be impacted by erasing, or all types.
+
+:::caution
+In the _tethered mode_ backed by PostGIS, a _Topological erase_
+tool is also available. This tool extends the eraser's area to the
+next "node" of the topology. **This feature is experimental and should be used with caution!**
+:::
+
+### Selection actions
+
+<Figure
+  src="/docs/map-interface/selection-actions.png"
+  width={280}
+  className="right"
+/>
+
+The _Select mode_ allows features to be gathered using a lasso
+to be operated on by more advanced metadata-management functionality.
+The operations in this mode allow linework and polygons to be
+adjusted after creation.
+
+Many of these operations are experimental and subject to change.
+
+## The settings panel
+
+<Figure
+  src="/docs/map-interface/sidebar-settings.png"
+  width={280}
+  className="right"
+>
+  The settings sidebar panel
+</Figure>
+
+The **Settings panel** is a key view that provides access to a range of project
+settings not directly related to editing operations.
+
+The top segment of the panel shows basic, read-only information about the
+spatial backend, projection information, and topological tolerance of the project.
+The middle segment contains links to settings panels for specific functionality.
+The bottom provides debugging operations.
+
+<PageLinkButton href="/docs/basemaps">
+  <strong>Basemaps</strong> docs
+</PageLinkButton>
+
+<Figure
+  src="/docs/map-interface/editor-settings.png"
+  width={280}
+  className="leftt"
+/>
+
+<Figure
+  src="/docs/map-interface/topology-panel.png"
+  width={280}
+  className="right"
+/>
+
 <Figure src="/docs/main-screen.jpg" width={400} />
 <Figure src="/docs/map-interface.png" width={400} />
 
 ## Advanced and experimental features
-
-### Selection actions
-
-<Figure src="/docs/map-interface/selection-actions.png" width={400} />
 
 ### Reshaping linework
 

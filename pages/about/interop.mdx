@@ -1,4 +1,5 @@
-import {AboutPage} from "../../components/pages"
+import { AboutPage } from "../../components/pages";
+import { PageLinkButton } from "~/buttons";
 
 # Openness and interoperability
 
@@ -14,6 +15,14 @@ standard GIS systems (e.g., ArcGIS and QGIS), and metadata can be edited in
 database browser applications such as [SQLite Browser](https://sqlitebrowser.org/).
 In [tethered mode](/docs/tethered-mode), data streams directly into PostGIS,
 where it can accessed by other systems immediately upon creation.
+
+<PageLinkButton href="/docs/projects/file-format">
+  <em>Project file format</em> docs
+</PageLinkButton>
+
+<PageLinkButton href="/docs/tethered-mode">
+  <em>Tethered mode</em> docs
+</PageLinkButton>
 
 Since Mapboard works directly with spatial databases, no data import or export is needed.
 This simplifies the app, but makes it less useful without preparation using desktop GIS.
@@ -31,8 +40,8 @@ There are many apps for capturing point-data measurements and outcrop images,
 for instance, and **Mapboard GIS** gains little from reimplementing that
 aspect of field workflows.
 
-*Unbundling functionality and thinking carefully
-about boundaries will allow workflows to be composed from multiple focused tools.*
+_Unbundling functionality and thinking carefully
+about boundaries will allow workflows to be composed from multiple focused tools._
 Crucially, putting different pieces of workflows in the hands of researchers who care
 the most about specific aspects will allow more attention to detail on creating
 effective and easy-to-use human interfaces.
@@ -47,10 +56,10 @@ a bit easier to imagine. For instance, with the recent opening of the
 iPad's file-management capabilities,
 Mapboard GIS and other apps should be able to directly use
 files (particularly MBTiles basemaps) in each others' application folders or elsewhere on the device.
- 
+
 <h3 id="open-source">Thoughts on open-source</h3>
 
-**Mapboard GIS** is currently *not* open-source software. We understand
+**Mapboard GIS** is not (currently) open-source software. We understand
 the value of free software to open science, but we think that keeping our
 work close is a useful precaution right now. Building embedded systems
 is difficult and time-consuming, and we've seen relatively few iOS apps
@@ -75,5 +84,4 @@ suggestions about our approach.
 
 [^1]: Even though you absolutely [shouldn't use Shapefiles](http://switchfromshapefile.org/).
 
-
-export default AboutPage
+export default AboutPage;

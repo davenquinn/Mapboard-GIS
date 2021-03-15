@@ -112,7 +112,7 @@ h1,h2,h3,h4,h5,h6
   text-align: center
 
 .section-content
-  h1,h2
+  h1,h2,h3
     clear: both
 
   margin=1.5em
@@ -124,20 +124,20 @@ h1,h2,h3,h4,h5,h6
   h1:first-child
     line-height 1
   figure
-    margin-left 0
-    margin-right 0
-    margin-top 0
+    margin 0
     margin-bottom margin !important
     &.center
-      margin 0 auto
+      margin 0 auto 1.5em
       figcaption
         text-align center
     &.right
       float right
       margin-left: margin
+      clear right
     &.left
       float left
       margin-right margin
+      clear left
     img, video
       border-radius 6px
 
@@ -205,8 +205,9 @@ header
 
 .page-link-button
   a.link-button
+    min-width: 20em
     font-size 14px
-  margin 0.2em 2em
+  margin 0.5em 2em 1em
 
 a.link-button svg
   margin-bottom -0.1em
@@ -323,7 +324,9 @@ a.link-button, button.bp3-button
   &.active
     background-color: var(--accent-active) !important
   &:hover
-    background-color:var(--accent-background);   
+    background-color:var(--accent-background);
+  strong
+    font-weight 600
 
 .callout-panel
   grid-template-columns 50fr 50fr;
@@ -363,7 +366,7 @@ a.link-button, button.bp3-button
   .admonition-heading
     margin-right 0.5em
     width 1em
-    margin-top 0.4em
+    height 1em
     .admonition-icon svg
       display: inline-flex
       fill var(--admonition-color)

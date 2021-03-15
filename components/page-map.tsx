@@ -51,7 +51,7 @@ const userGuideLinks: Links = [
     ],
   },
   { href: "/docs/map-interface", label: "Map interface" },
-  { href: "/docs/feature-classes", label: "Feature classes" },
+  { href: "/docs/data-types", label: "Data types" },
   { href: "/docs/topology", label: "Topology" },
   { href: "/docs/basemaps", label: "Basemaps" },
   { href: "/docs/tethered-mode", label: "Tethered mode" },
