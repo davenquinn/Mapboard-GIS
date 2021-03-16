@@ -3,9 +3,56 @@ import { Figure } from "../../components/media";
 
 # Data types
 
-<Figure src="/docs/feature-classes/contextual-actions.jpg" width={400} />
-<Figure src="/docs/feature-classes/line-types.png" width={400} />
-<Figure src="/docs/feature-classes/new-type.png" width={400} />
-<Figure src="/docs/feature-classes/polygon-types.png" width={400} />
+<Figure
+  src="/docs/feature-classes/line-types.png"
+  width={300}
+  className="right"
+>
+  A few initially defined geological line types
+</Figure>
+
+In **Mapboard GIS**, edited features must be assigned to a data type.
+At the **Data type selector** page, users can select the data type
+to be used for continued mapping. Additionally, new arbitrary data types
+can be created for line and polygon
+features. **Typically, line features are used for contacts and
+boundaries, while polygon features are used for map units.**
+
+:::note
+In **Tethered mode**, line and polygon types are managed directly in the
+PostGIS database, and cannot be controlled from within the app.
+:::
+
+Only a few line types are initially defined, but standard geological
+line definitions or user-defined types can be added easily.
+
+Currently-defined line and polygon types can be controlled by
+pressing the swatch to reveal contextual actions.
+
+At the editing interface,
+line and polygon types can be modified and given map colors.
+The ability to add map patterns is coming soon.
+
+Both line and topology types can participate in topological relationships
+managed by the app's [topology engine](/docs/topology). These "topological"
+data types are denoted by a polygon icon on the right side of the
+swatch.
+
+<div className="figure-panel">
+  <Figure src="/docs/feature-classes/contextual-actions.jpg" width={300}>
+    Long-pressing a data type exposes contextual actions.
+  </Figure>
+  <Figure src="/docs/feature-classes/new-type.png" width={300}>
+    The <strong>Data type</strong> editing interface
+  </Figure>
+  <Figure src="/docs/feature-classes/polygon-types.png" width={300}>
+    A typical list of polygon types corresponding to{" "}
+    <a href="https://macrostrat.org">Macrostrat</a> geologic units
+  </Figure>
+</div>
+
+The ability to add multiple feature types allows mapping to be customized,
+both to the units available within a particular field area and to different
+tasks across the geosciences.
 
 export default UserGuidePage;

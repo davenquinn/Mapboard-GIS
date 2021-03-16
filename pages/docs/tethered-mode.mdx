@@ -1,10 +1,82 @@
 import { UserGuidePage } from "../../components/pages";
 import { Figure } from "../../components/media";
+import { PageLinkButton } from "~/buttons";
 
 # Tethering with PostGIS
 
 <Figure src="/docs/tethered-mode.jpg">
   Working with large datasets in PostGIS
 </Figure>
+
+In _Tethered mode_, **Mapboard GIS** can turn over all spatial processing
+functionality to a centralized [**PostGIS**](https://postgis.net/) database.
+PostGIS is an extremely popular and widespread open-source spatial database
+system that can be used within most modern GIS applications.
+
+<Figure
+  src="/charts/mapboard-postgis.png"
+  width={400}
+  className="center no-border"
+>
+  With its <a href="">server extensions</a>, <strong>Mapboard GIS</strong> can
+  connect to a <strong>PostGIS</strong> database alongside desktop GIS software.
+</Figure>
+
+Offloading spatial operations to a server-side database has several advantages:
+
+- It enables work against much larger datasets than an iPad can handle locally.
+- It allows real-time interoperability with other GIS systems (e.g. drawing in
+  **Mapboard GIS** can be paired with data cleaning in **QGIS**)
+- It allows _collaborative mapping_, with multiple iPads tethered to the same spatial database.
+
+## PostGIS with managed topology
+
+<Figure
+  src="/charts/mapboard-postgis-topology.png"
+  width={400}
+  className="center no-border"
+>
+  <strong>PostGIS Geologic Map</strong> enables iterative topological solving
+  against the server-side data store for <strong>Mapboard GIS</strong> data.
+</Figure>
+
+The most robust way to run a fully featured mapping server for work with
+**Mapboard GIS** is to use the
+[**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map) topology
+watcher. This topology solver is iterative, well-validated, and performant. It
+enables advanced topological operations and bundles the
+[Mapboard server extensions](https://github.com/davenquinn/mapboard-server)
+by default.
+
+<Figure
+  src="/docs/postgis-geologic-map.png"
+  width={300}
+  className="right no-border"
+>
+  Command-line output of the <strong>PostGIS Geologic Map</strong> topology
+  solver (<code>geologic-map serve</code>)
+</Figure>
+
+<PageLinkButton href="https://github.com/davenquinn/PostGIS-Geologic-Map">
+  <strong>PostGIS Geologic Map</strong> project
+</PageLinkButton>
+
+### Core spatial server
+
+Topological functions are not required for a basic connection to PostGIS.
+In its simplest form,
+_Tethered mode_ requires a connection to a networked server running
+[Mapboard's server extensions](https://github.com/davenquinn/mapboard-server),
+or another server implementing the same external interface.
+
+This server relies on a simple schema of four spatial tables
+within a PostGIS database: `linework`, `linework_type`, `polygon`, and `polygon_type`.
+These are the same spatial tables that drive the **Spatialite** backend.
+
+:::note
+The correspondence between **PostGIS** and **Spatialite** table structure will
+eventually be expanded to drive "hybrid" workflows with managed syncing from
+offline mapping back into a broader project.
+:::
 
 export default UserGuidePage;

@@ -15,6 +15,15 @@ and [Global Mapper](https://www.bluemarblegeo.com/knowledgebase/global-mapper-19
 among other geospatial desktop environments. This means that there can always be
 a seamless transition between iPad and desktop mapping.
 
+:::note
+The `.mapboard-project` format is designed to support onboard spatial processing.
+Although the same file format is used for projects operating in
+[_Tethered mode_](/docs/tethered-mode), the GIS capabilities of Spatialite
+are not used. Instead, all spatial information is stored in a remote
+**PostGIS** database. However, the layout of spatial tables
+remains [much the same](https://github.com/davenquinn/mapboard-server/tree/master/db-fixtures/create-tables.sql).
+:::
+
 ## Internal design
 
 Using a SQLite-based format for data storage, including for subsidiary
@@ -45,12 +54,5 @@ The author of the Spatialite library is due a lot of thanks for creating and mai
 the core technology that drives this application. Check out the
 [Spatialite cookbook](http://www.gaia-gis.it/gaia-sins/spatialite-cookbook/index.html)
 to learn more about the library.
-
-## Tethered mode
-
-The [tethered mode](/docs/tethered-mode) requires a connection to a networked server running
-[Mapboard's server extensions](https://github.com/davenquinn/mapboard-server),
-or another server implementing the same external interface. This server is based on several key
-spatial tables for a PostGIS database, which are defined [here](https://github.com/davenquinn/mapboard-server/tree/master/db-fixtures).
 
 export default UserGuidePage;

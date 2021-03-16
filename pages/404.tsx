@@ -3,13 +3,13 @@ import h from "@macrostrat/hyper";
 
 const ErrorPage = () =>
   h(BasePage, [
-    h("div.mountain-underlay", [
-      h("div.images", [
-        <h1 className="centered extra-space">404 — Page not found</h1>,
-        h("img", { src: "/img/rear-mountains.png" }),
-        h("img", { src: "/img/front-mountains.png" }),
-      ]),
-    ]),
+    <h1 className="centered extra-space">404 — Page not found</h1>,
+    // h("div.mountain-underlay", [
+    //   h("div.images", [
+    //     h("img", { src: "/img/rear-mountains.png" }),
+    //     h("img", { src: "/img/front-mountains.png" }),
+    //   ]),
+    // ]),
   ]);
 
 export default ErrorPage;

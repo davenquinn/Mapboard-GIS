@@ -20,14 +20,36 @@ allowing a wide range of map imagery to be used in the application.
 Caching of tiles from Mapbox's servers will be supported a later version of the app.
 :::
 
+## Creating basemaps
+
 <Figure src="/docs/basemaps/new-tile-layer.png" width={280} className="right">
   The form for adding a new tile layer to the map
 </Figure>
 
-`mbtiles` files can be constructed from imagery using outside software such as QGIS.
-Eventually, we may be
+The most common way to get outside imagery into **Mapboard GIS**
+is to convert it to a **MBTiles** basemap.
+MBTiles is a pre-tiled imagery format where imagery for different zoom levels is stored in a SQLite
+database (see [the spec](https://github.com/mapbox/mbtiles-spec/blob/master/1.3/spec.md)).
+It is easy to consume on mobile devices with relatively little overhead. However, because
+it's not a traditional GIS format, it must typically be
+prepared by the user. There are a few options:
 
-Projects like [MapTiler](https://www.maptiler.com/s) can be used to generate MBTiles
-datasets from GeoPDFs (see [this help page](https://support.maptiler.com/i62-geospatial-pdf)).
+- [**QGIS**](https://docs.qgis.org/3.16/en/docs/user_manual/managing_data_source/create_layers.html?highlight=mbtiles#creating-new-layers-from-an-existing-layer)
+  can create `mbtiles` files from existing raster layers.
+- The commercial [MapTiler](https://www.maptiler.com/s) package can be used to generate MBTiles
+  datasets from imagery sources including GeoPDFs (see [this help page](https://support.maptiler.com/i62-geospatial-pdf)).
+- The [RasterIO MBTiles extension](https://github.com/mapbox/rio-mbtiles) allows the creation of
+  MBTiles files from most raster imagery.
+- [**GDAL**](https://gdal.org/drivers/raster/mbtiles.html) can be used to create a MBTiles file using the
+  `gdal_warp`, `gdal_translate`, and `gdaladdo` utilities.
+
+A generic recipe for MBTiles preparation with GDAL:
+
+```sh
+gdal_translate -expand rgba input.tif step1.tif
+gdalwarp -t_srs EPSG:3857 step1.tif step2.tif
+gdal_translate -of mbtiles step2.tif output.mbtiles
+gdaladdo output.mbtiles 2 4 8 16 32 64 128 256
+```
 
 export default UserGuidePage;

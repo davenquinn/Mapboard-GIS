@@ -3,6 +3,47 @@ import { Figure } from "~/media";
 
 # Topology
 
-<Figure src="/mapboard-topology.mp4" width={400} />
+<Figure src="/mapboard-topology.mp4" width={500} className="center">
+  The topological capabilities of <strong>Mapboard GIS</strong> in action
+</Figure>
+
+The topological editing capabilities of **Mapboard GIS** are a major step
+towards iterative geologic mapping. When topological editing is enabled, unit
+definitions snap to their enclosing linework, allowing the structure of the
+map to emerge as mappers focus on capturing data.
+
+In **Spatialite mode** and **Image mode**, the onboard Spatialite engine is used
+to manage topological relationships.
+The reference implementaion of topological editing capabilities
+is the [**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map)
+topology solver operating in [**Tethered mode**](/docs/tethered-mode).
+
+:::caution
+**Spatialite** support for topology is
+slower and more bug-prone than the **PostGIS** reference implementation.
+This underlying algorithms be improved over time. Please [file issues](/docs/reporting-bugs)
+as needed to document unexpected behavior.
+:::
+
+<Figure
+  src="/docs/map-interface/topology-panel.png"
+  width={280}
+  className="right"
+>
+  The <strong>Topology settings</strong> panel
+</Figure>
+
+In both modes, the **Topology settings panel** manages whether topological editing is
+active, and whether filled map faces are shown. During topological editing, each
+change to the map results in a rebuild of the modified area. The **PostGIS Geologic Map**
+engine is good at finding the minimum set of relationships to change, but the
+**Spatialite** backend currently uses a less efficient algorithm.
+
+:::caution
+Onboard topological solving is a complex, battery-draining
+algorithm, and iPads have limited system resources.
+**Care should be taken during intensive field use
+away from stable power sources.**
+:::
 
 export default UserGuidePage;

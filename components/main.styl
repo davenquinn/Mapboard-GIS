@@ -132,6 +132,8 @@ h1,h2,h3,h4,h5,h6
       clear left
     img, video
       border-radius 6px
+    &.no-border img, video
+      border none
 
 footer 
   color var(--secondary-color)
@@ -351,7 +353,11 @@ a.link-button, button.bp3-button
     width 300px
     border-radius 6px
 
-
+.figure-panel
+  column-count 2
+  column-gap 1em
+  //display: grid
+  //grid-template-columns: min-content auto
 
 .manifesto
   margin 1em
