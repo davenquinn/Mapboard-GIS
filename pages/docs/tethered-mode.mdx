@@ -2,9 +2,9 @@ import { UserGuidePage } from "../../components/pages";
 import { Figure } from "../../components/media";
 import { PageLinkButton } from "~/buttons";
 
-# Tethering with PostGIS
+# Tethering to PostGIS
 
-<Figure src="/docs/tethered-mode.jpg">
+<Figure src="/docs/tethered-mode.jpg" className="full">
   Working with large datasets in PostGIS
 </Figure>
 
@@ -29,7 +29,32 @@ Offloading spatial operations to a server-side database has several advantages:
   **Mapboard GIS** can be paired with data cleaning in **QGIS**)
 - It allows _collaborative mapping_, with multiple iPads tethered to the same spatial database.
 
+## The core spatial server
+
+Topological functions are not required for a basic connection to PostGIS.
+In its simplest form,
+_Tethered mode_ requires a connection to a networked server running
+[Mapboard's server extensions](https://github.com/davenquinn/mapboard-server),
+or another server implementing the same external interface.
+
+This server relies on a simple schema of four spatial tables
+within a PostGIS database: `linework`, `linework_type`, `polygon`, and `polygon_type`.
+These are the same core tables that drive the **Spatialite** backend (see [file format docs](/docs/projects/file-format)). These tables
+can be housed in any schema, but we use `map_digitizer` by default.
+
+:::note
+The correspondence between **PostGIS** and **Spatialite** table structure will
+eventually be expanded to drive "hybrid" workflows with managed syncing from
+offline mapping back into a broader project.
+:::
+
 ## PostGIS with managed topology
+
+The most robust way to run a fully featured mapping server for work with
+**Mapboard GIS** is to use the
+[**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map) topology
+watcher. This software manages the topology of a geologic map iteratively,
+**independent of the choice of GIS platform for making edits**.
 
 <Figure
   src="/charts/mapboard-postgis-topology.png"
@@ -40,13 +65,10 @@ Offloading spatial operations to a server-side database has several advantages:
   against the server-side data store for <strong>Mapboard GIS</strong> data.
 </Figure>
 
-The most robust way to run a fully featured mapping server for work with
-**Mapboard GIS** is to use the
-[**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map) topology
-watcher. This topology solver is iterative, well-validated, and performant. It
-enables advanced topological operations and bundles the
-[Mapboard server extensions](https://github.com/davenquinn/mapboard-server)
-by default.
+**PostGIS Geologic Map** is designed to be testable, validated, and performant, and it serves as the
+basis for advanced topological operations within **Mapboard GIS**.
+Although the solver is agnostic to input GIS environment,
+the Mapboard server extensions are bundled by default.
 
 <Figure
   src="/docs/postgis-geologic-map.png"
@@ -61,22 +83,91 @@ by default.
   <strong>PostGIS Geologic Map</strong> project
 </PageLinkButton>
 
-### Core spatial server
-
-Topological functions are not required for a basic connection to PostGIS.
-In its simplest form,
-_Tethered mode_ requires a connection to a networked server running
-[Mapboard's server extensions](https://github.com/davenquinn/mapboard-server),
-or another server implementing the same external interface.
-
-This server relies on a simple schema of four spatial tables
-within a PostGIS database: `linework`, `linework_type`, `polygon`, and `polygon_type`.
-These are the same spatial tables that drive the **Spatialite** backend.
+**PostGIS Geologic Map** adds to the `map_digitizer` schema that tracks core map
+edits with a `map_topology` schema that organizes the solved topological relationships
+that make up the map. This schema can be regenerated at will, but progressively updating
+its tables serves as the basis for the iterative map editing showcased in **Mapboard GIS**.
 
 :::note
-The correspondence between **PostGIS** and **Spatialite** table structure will
-eventually be expanded to drive "hybrid" workflows with managed syncing from
-offline mapping back into a broader project.
+The algorithms that drive **PostGIS Geologic Map** are a key component of a draft manuscript
+that discusses the new methodology being developed here. Updates will come soon!
 :::
+
+### Installing the server components
+
+Since both [**PostGIS Geologic Map**](https://github.com/davenquinn/PostGIS-Geologic-Map) (preferred) and the
+core [Mapboard server extensions](https://github.com/davenquinn/mapboard-server) are server-side software,
+installing and connecting to them can be difficult. Both projects can be built from source by downloading the
+code from GitHub. Both can be installed locally or using [Docker](https://www.docker.com/) to manage the containerized app, including
+the requisite database server.
+
+For **PostGIS Geologic Map**, the preferred server implementation, installation is well-covered in
+[the README](https://github.com/davenquinn/postgis-geologic-map#installation). The gist of creating a Docker-managed build
+(with test data) is as follows:
+
+1. Make sure Docker and `docker-compose` are installed using the
+   [instructions for your platform](https://docs.docker.com/install/).
+2. Modify the `docker-assets/docker-map-config.json` configuration file to suit
+   your needs (typically, this involves changing the `srid` and `tolerance` fields).
+   A better way to configure the application in Docker is forthcoming.
+3. Run `docker-compose up --build`. No need for a local PostgreSQL installation!
+4. Connect to the `geologic_map` database on local port `54321` using your GIS software
+   or database client.
+
+Once you have started the application, the Mapboard server should be running locally on your computer.
+By default, the server is exposed on port `3006`. You can verify this by navigating to `http://localhost:3006/meta` in your
+browser. You should see a REST API response much like the one below:
+
+```json
+{
+  "app": "mapboard-server",
+  "version": "2.0.0",
+  "projection": {
+    "srid": 32733,
+    "auth": "EPSG:32733",
+    "description": "WGS 84 / UTM zone 33S",
+    "projected": true,
+    "proj4": "+proj=utm +zone=33 +south +datum=WGS84 +units=m +no_defs "
+  },
+  "topology": {
+    "name": "map_topology",
+    "srid": 32733,
+    "precision": 0.1
+  },
+  "backend": "PostGIS",
+  "capabilities": [
+    "basic-editing",
+    "reshape",
+    "topology",
+    "select-features",
+    "topological-line-erase"
+  ]
+}
+```
+
+This means you've successfully installed the Mapboard server! If you're using the server without the **PostGIS Geologic Map** extensions,
+the `capabilities` array will contain fewer entries. This tells **Mapboard GIS** to disable the corresponding functionality.
+
+### Connecting
+
+The next step is _connecting_ to the server from **Mapboard GIS**. If you are running the application on a publicly addressable machine,
+the server will be available at `<your-server-address>:3006`. Otherwise you have to find your IP address or local network address.
+On **MacOS** this is done in the **Sharing** panel of **System Preferences**. Alternatively, the raw IP address can be found using
+the command `ipconfig getifaddr en0`
+(on Mac and Linux platforms). Windows users, you're on your own for now, sorry!
+
+<Figure src="/docs/macos-sharing-panel.png">
+  The local network address for my machine is <code>Daven-Quinn.local</code>.
+  This is an alias for IP address <code>192.168.1.100</code>, which changes as
+  my local router allocates IP addresses.
+</Figure>
+
+<Figure src="/docs/mapboard-server-connect.jpg" width={300} className="right">
+  Entering the server information into the <em>Project edit</em> panel
+</Figure>
+
+Once you have the proper connection string (e.g., `Daven-Quinn.local:3006`), you can connect in **Mapboard GIS** at the project
+creation/editing interface. When the project is loaded, the app will begin talking to the server at that address to load linework and
+handle editing.
 
 export default UserGuidePage;

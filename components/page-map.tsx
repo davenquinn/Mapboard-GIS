@@ -55,7 +55,7 @@ const userGuideLinks: Links = [
   { href: "/docs/topology", label: "Topology" },
   { href: "/docs/basemaps", label: "Basemaps" },
   { href: "/docs/tethered-mode", label: "Tethered mode" },
-  { href: "/docs/bugs", label: "Reporting bugs" },
+  { href: "/docs/reporting-bugs", label: "Reporting bugs" },
 ];
 
 export { navLinks, aboutLinks, userGuideLinks };

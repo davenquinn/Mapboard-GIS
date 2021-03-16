@@ -40,8 +40,6 @@ const BottomNav = function (props: { links: Links }) {
   const prevLink = links[ix - 1];
   const nextLink = links[ix + 1];
 
-  console.log(links);
-
   return h("div.bottom-links", [
     h.if(prevLink != null)(PrevLinkButton, prevLink),
     h("div.spacer"),

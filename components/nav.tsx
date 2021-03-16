@@ -16,8 +16,8 @@ const ActiveLink = function ({ children, exact = true, ...props }) {
   return h(Link, props, React.cloneElement(child, { className }));
 };
 
-const NavLinkItem = ({ key, href, label, exact }: any) => {
-  return h("li", { key }, [
+const NavLinkItem = ({ href, label, exact }: any) => {
+  return h("li", [
     h(ActiveLink, { href, exact }, [h("a.link-button", null, label)]),
   ]);
 };

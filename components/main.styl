@@ -187,11 +187,12 @@ header
 // Section headers
 
 .section-main
-  flex-grow 1
+  flex 1
   display flex
   flex-direction: column
   .section-content
-    flex-grow 1
+    flex 1
+    position relative
     img
       max-width 100%
       border-radius 6px
@@ -202,6 +203,10 @@ header
     min-width: 20em
     font-size 14px
   margin 0.5em 2em 1em
+  text-align: center
+  &.big
+    a.link-button
+      font-size inherit
 
 a.link-button svg
   margin-bottom -0.1em
@@ -256,6 +261,7 @@ a.link-button svg
   .section-page .main
     display flex
     flex-direction row
+    position relative
   .section-nav
     margin-right 2em
     margin-top 4em

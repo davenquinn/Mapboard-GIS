@@ -35,7 +35,7 @@ export const PageLinkButton = (props) => {
   const { href, children, ...rest } = props;
   return h(
     "div.page-link-button",
-    null,
+    rest,
     h(NextLinkButton, {
       href,
       label: children,

@@ -1,20 +1,37 @@
-import {AboutPage} from "../../components/pages"
+import { AboutPage } from "../../components/pages";
+import { PageLinkButton } from "~/buttons";
 
 # Roadmap
 
 **Mapboard GIS** is an early-stage project and we are constantly adding new features.
-Head to the [Issue Tracker](https://github.com/davenquinn/Mapboard-GIS) to request a
-new feature or improvement. If you've got a great idea and a plan to implement it,
-we can discuss ways to integrate your effort into the application's codebase.
+Head to the **Issue Tracker** to request a
+new feature or improvement.
 
+<PageLinkButton
+  href="https://github.com/davenquinn/Mapboard-GIS/issues"
+  className="big"
+>
+  <strong>Mapboard GIS</strong> issue tracker
+</PageLinkButton>
+
+<PageLinkButton href="/about/changelog" className="big">
+  <strong>Changelog</strong> for previous versions
+</PageLinkButton>
+
+If you've got a great idea and a plan to implement it,
+we can discuss ways to integrate your effort into the application's codebase.
+Feel free to [contact us directly](mailto:dev@davenquinn.com) as well.
+
+:::note
 We are working on a publication to describe the app, it's companion topological tools,
 and the iterative topology mapping technique. Stay tuned!
+:::
 
-## Upcoming features
+## Potential upcoming features
 
 - A layer for text notes and schematic drawings on the map
 - Ability to capture and edit sample locations  
-  **Note:** This is a potential integration point with other apps.
+  _This is a potential integration point with other apps._
 - Some sort of GeoPDF basemap support
 - A quicker onboard topology engine
 - Some level of support for the [GeoPackage](https://www.geopackage.org/) format,
@@ -33,4 +50,4 @@ and the iterative topology mapping technique. Stay tuned!
 - Improved mapping symbology (e.g. patterns)
 - Sharing data between the Spatialite (offline) and PostGIS (tethered) modes
 
-export default AboutPage
+export default AboutPage;

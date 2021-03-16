@@ -55,3 +55,24 @@ body.bp3-dark
       margin-bottom 0
     a
       color: var(--admonition-color)
+
+pre
+  text-overflow: ellipsis
+  display block
+  overflow: hidden
+  max-width 40em
+  //max-width 35em // GOD this is dumb that we have to do this...
+  font-size 0.9em
+  &>code
+    border none
+
+code, pre
+  admonition(#888888)
+  border-radius 6px
+  background var(--admonition-background)
+  color var(--admonition-color)
+  border 2px solid var(--admonition-border)
+
+code
+  padding 0 0.25em
+  display inline-block
