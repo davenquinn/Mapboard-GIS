@@ -9,7 +9,7 @@ a project, the map is always available, and interactions with it
 follow the active status of the _Mode switcher_. All tool settings
 and options are adjusted in the _Sidebar_.
 
-## The edit panel
+## Editing options
 
 <Figure src="/docs/map-interface.jpg">
   A map interface annotated with functional groupings for the{" "}
@@ -122,6 +122,9 @@ The bottom provides debugging operations.
 
 ### Tile layers
 
+The **Tile layers** panel provides tools to add, switch, and modify the basemap
+layers that anchor the map.
+
 <PageLinkButton href="/docs/basemaps">
   <strong>Basemaps</strong> docs
 </PageLinkButton>
@@ -131,24 +134,60 @@ The bottom provides debugging operations.
 <Figure
   src="/docs/map-interface/editor-settings.png"
   width={280}
-  className="left"
+  className="right"
 />
+
+Some less-important editing settings are
+relegated to this panel.
+
+- **Default line width**: sets the line width
+  used for features missing the `line_width` property (this generally applies to features collected
+  outside of the **Mapboard GIS** environment).
+- **Pen base width**: sets the baseline width for the editing pressure curve of
+  of the Apple Pencil.
+- **Simplify features**: amount of smoothing to apply to captured features (keep low for high precision)
 
 ### Topology management
 
-The **Topology** settings panel provides a way to manage the
+The **Topology** settings panel provides a way to manage the polygon-closing behavior of the map.
 
-## Advanced and experimental features
+<PageLinkButton href="/docs/topology">
+  <strong>Topology</strong> docs
+</PageLinkButton>
+
+## Experimental features
+
+The map interface contains several experimental features that are potentially
+extremely useful for quick, high-fidelity mapping.
 
 ### Reshaping linework
 
-<Figure src="/docs/reshaping.mp4" width={400} className="center" />
+<Figure src="/docs/reshaping.mp4" width={400} className="right">
+  Reshaping linework to fix inaccurate GIS point-clicking
+</Figure>
+
+The **Reshape** edit mode is currently only available using the PostGIS tethered backend.
+It functions similarly to the basic drawing tool, but it attempts to splice new linework
+where it crosses current features. Although this algorithm is fairly complex internally,
+the tool is an elegant and time-saving feature. It will migrate to the Spatialite backend
+once it reaches stability.
 
 ### Geologic symbols
 
 <Figure
   src="/docs/map-interface/experimental-geologic-symbols.png"
-  width={400}
-/>
+  width={300}
+  className="right"
+>
+  A fantastical fold-and-thrust belt that showcases geological line symbols.
+</Figure>
+
+The ability to use context-specific map symbology is one of the key strengths of
+paper-based geological mapping. **Mapboard GIS** is experimenting with support for linework
+symbols that allow expressive maps that are _ready for interpretation right out of the app_.
+
+We are still working on scaling, so arrows and ticks are generally grossly mis-sized. Still,
+you can turn on the experimental symbols in the [application settings panel](/docs). Eventually,
+we will also add [geologic patterns for polygon fills](https://davenquinn.com/projects/geologic-patterns/).
 
 export default UserGuidePage;

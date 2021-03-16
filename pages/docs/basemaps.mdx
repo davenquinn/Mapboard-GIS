@@ -1,16 +1,33 @@
-import {UserGuidePage} from "../../components/pages"
-import {Figure} from "../../components/media"
+import { UserGuidePage } from "../../components/pages";
+import { Figure } from "../../components/media";
 
 # Basemaps
 
-<Figure src="/docs/basemaps/new-tile-layer.png" width={400} />
-<Figure src="/docs/basemaps/tile-layer-selector.png" width={400} />
+<Figure
+  src="/docs/basemaps/tile-layer-selector.png"
+  width={280}
+  className="right"
+>
+  Tile layer selector
+</Figure>
 
-Sparrow supports a full range of raster basemaps.
+**Mapboard GIS** includes a wide variety of [Mapbox basemaps](https://www.mapbox.com/maps)
+to contextualize mapping.
+Additionally, `mbtiles`-formatted basemaps and streaming imagery can be added,
+allowing a wide range of map imagery to be used in the application.
+
+:::note
+Caching of tiles from Mapbox's servers will be supported a later version of the app.
+:::
+
+<Figure src="/docs/basemaps/new-tile-layer.png" width={280} className="right">
+  The form for adding a new tile layer to the map
+</Figure>
 
 `mbtiles` files can be constructed from imagery using outside software such as QGIS.
-Eventually, we may be 
+Eventually, we may be
 
-Projects like [MapTiler](https://www.maptiler.com/s) can be used to generate MBTiles datasets from GeoPDFs (see [this help page](https://support.maptiler.com/i62-geospatial-pdf))
+Projects like [MapTiler](https://www.maptiler.com/s) can be used to generate MBTiles
+datasets from GeoPDFs (see [this help page](https://support.maptiler.com/i62-geospatial-pdf)).
 
-export default UserGuidePage
+export default UserGuidePage;
