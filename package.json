@@ -1,8 +1,9 @@
 {
   "name": "mapboard-gis-docs",
-  "version": "1.0.0",
+  "version": "2.1.2",
   "description": "Documentation for the Mapboard GIS project",
-  "main": "src/index.js",
+  "main": "pages/index.mdx",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
