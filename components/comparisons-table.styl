@@ -1,0 +1,43 @@
+@require "./admonitions"
+
+$danger=#666
+
+:root
+  --success: $admonition
+  --success-background: alpha($admonition, 20%)
+  --caution: $admonition-caution
+  --error: alpha($danger, 20%)
+
+body.bp3-dark
+  --success: $admonition-dark
+  --success-background: alpha($admonition-dark, 20%)
+  --caution: darken($admonition-caution, 30%)
+  --error: alpha(lighten($danger, 70%), 20%)
+
+table.comparisons-table
+  border-spacing: 6px;
+  border-collapse: separate;
+  width 100%
+  line-height 1
+  h3, h4
+    margin-top 0.5em
+    margin-bottom 0
+
+  td
+    height 2.5em
+    border-radius 2px
+    padding 2px
+    width 8em
+    text-align center
+    &.yes
+      border 2px solid var(--success)
+      color: var(--success)
+      background-color: var(--success-background)
+    &.no
+      border 2px solid var(--error)
+    &:first-child
+      text-align left
+  .row-header
+    max-width: 8em
+    padding-right: 1em
+    font-size 14px
