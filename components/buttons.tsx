@@ -16,17 +16,19 @@ export const LinkButton = ({ href, label }) =>
   h(Link, { href }, h("a.link-button", null, label));
 
 export const NextLinkButton = (props) => {
-  const { href, label } = props;
+  const { href, label, ...rest } = props;
   return h(LinkButton, {
     href,
+    ...rest,
     label: h([label, " ", <FaArrowRight />]),
   });
 };
 
 export const PrevLinkButton = (props) => {
-  const { href, label } = props;
+  const { href, label, ...rest } = props;
   return h(LinkButton, {
     href,
+    ...rest,
     label: h([<FaArrowLeft />, " ", label]),
   });
 };

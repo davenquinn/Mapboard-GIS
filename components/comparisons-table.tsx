@@ -103,9 +103,9 @@ const appData = [
 
 function NameRow() {
   return h("tr", [
-    h("td", null, h("h3", "Capabilities")),
+    h("td", null),
     appData.map((d) => {
-      return h("td", null, h("h4.app-name", d.name));
+      return h("td.app-header", null, h("h4.app-name", d.name));
     }),
   ]);
 }

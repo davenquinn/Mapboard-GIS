@@ -7,12 +7,14 @@ $danger=#666
   --success-background: alpha($admonition, 20%)
   --caution: $admonition-caution
   --error: alpha($danger, 20%)
+  --header-bkg: alpha(#e7e4f0, 80%)
 
 body.bp3-dark
   --success: $admonition-dark
   --success-background: alpha($admonition-dark, 20%)
   --caution: darken($admonition-caution, 30%)
   --error: alpha(lighten($danger, 70%), 20%)
+  --header-bkg: alpha(#251e33, 90%)
 
 table.comparisons-table
   border-spacing: 6px;
@@ -23,6 +25,9 @@ table.comparisons-table
     margin-top 0.5em
     margin-bottom 0
 
+  thead
+    position sticky
+    top 0
   td
     height 2.5em
     border-radius 2px
@@ -41,3 +46,9 @@ table.comparisons-table
     max-width: 8em
     padding-right: 1em
     font-size 14px
+  .app-header
+    vertical-align: middle
+    padding 0 0.2em
+    background: var(--header-bkg)
+    h4
+      color: var(--accent-color)

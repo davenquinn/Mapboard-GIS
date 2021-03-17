@@ -12,7 +12,7 @@ $card-base = lighten(#32536b,40%)
 :root
   --header-font: "Montserrat", Helvetica, sans-serif
   --mono-font: "Source Code Pro", monospace
-  --background-color: lighten(#161517, 0%)
+  --background-color: white //lighten(#161517, 0%)
   --text-color: darken(#354a61, 20%)
   --accent-color: $accent
   --accent-background: alpha($accent, 20%)
@@ -48,6 +48,7 @@ body
   z-index -10
   background: white
   &.bp3-dark
+    --background-color: darken(rgba(34,29,38,1),30%) 
     --text-color: lighten(#354a61, 70%)
     --accent-color: $accent-light 
     --accent-background: alpha($accent-light, 20%)
@@ -107,6 +108,12 @@ h1,h2,h3,h4,h5,h6
 
 .centered
   text-align: center
+
+.smaller-text
+  font-size 14px
+  a.link-button
+    font-size 14px
+
 
 .section-content
   h1,h2,h3

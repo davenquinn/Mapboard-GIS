@@ -1,7 +1,22 @@
 import { BasePage } from "../../components/pages";
 import ComparisonsTable from "~/comparisons-table";
+import { PrevLinkButton } from "~/buttons";
+
+<div className="smaller-text">
+  <PrevLinkButton
+    href="/about/features"
+    label={
+      <>
+        Back to <strong>Features</strong> page
+      </>
+    }
+  />
+</div>
 
 # Comparisons table
+
+This table presents some basic comparisons between different field apps.
+Apps are designed for different purposes, so no one app will suit all use cases.
 
 <ComparisonsTable />
 
