@@ -17,6 +17,7 @@ function unnestLinks(links: Links): Links {
   for (const link of links) {
     newLinks.push(link);
     if (link.hasOwnProperty("children")) {
+      // @ts-ignore
       newLinks.push(...(link.children ?? []));
     }
   }
@@ -31,6 +32,7 @@ const BottomNav = function (props: { links: Links }) {
     return null;
   }
 
+  //@ts-ignore
   const ix = links.findIndex((d) => d.href === pathname);
 
   if (ix == null) {

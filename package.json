@@ -25,6 +25,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.0.5",
+    "@types/gtag.js": "^0.0.4",
     "@zeit/next-stylus": "^1.0.1",
     "babel-plugin-static-fs": "^3.0.0",
     "new-github-issue-url": "^0.2.1",

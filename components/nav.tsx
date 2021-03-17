@@ -5,7 +5,7 @@ import classNames from "classnames";
 import h from "@macrostrat/hyper";
 
 // Class to make an activeLink
-const ActiveLink = function ({ children, exact = true, ...props }) {
+const ActiveLink = function ({ children, exact = true, ...props }: any) {
   const router = useRouter();
   const child = Children.only(children);
   let className = child.props.className || "";
