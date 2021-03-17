@@ -1,0 +1,37 @@
+import { AboutPage } from "~/pages";
+
+# Version history
+
+All notable changes to this project will be documented in this file.
+
+## [2.1.0] - 2020-11-27
+
+### Changed
+
+- Added the ability to show vertices and endpoints of the line layer (to diagnose topology problems)
+- Added topology polygon layer that uses the same display interfaces as
+  the line and polygon layers. This takes advances made for the onboard Spatialite
+  backend and generalizes them to work with the PostGIS backend as well.
+  Using this functionality requires shifting to the Version 2 series of
+  the `mapboard-server` project.
+
+## [2.0.1] - 2020-10-29
+
+### Fixed
+
+- Fixed showing and hiding of map layers and data types
+- More functional topology control panel, now accessible
+  directly from the polygons panel.
+
+## [2.0.0] - 2020-10-20
+
+### Added
+
+- New topology mode for Spatialite backend
+
+### Changed
+
+- User interface rewritten in SwiftUI
+- Moved to **Mapbox GL** for mapping backend
+
+export default AboutPage;

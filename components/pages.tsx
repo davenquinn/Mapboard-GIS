@@ -61,4 +61,4 @@ const AboutPage = ({ children }) => h(NavPage, { children, links: aboutLinks });
 const UserGuidePage = ({ children }) =>
   h(NavPage, { children, links: userGuideLinks });
 
-export { BasePage, AboutPage, UserGuidePage };
+export { BasePage, AboutPage, UserGuidePage, unnestLinks };

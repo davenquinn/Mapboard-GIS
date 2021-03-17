@@ -1,12 +1,35 @@
 import h from "@macrostrat/hyper";
-import { Helmet } from "react-helmet";
 import { Nav, ActiveLink } from "./nav";
-import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { navLinks } from "./page-map";
+import newGithubIssueUrl from "new-github-issue-url";
+import { useRouter } from "next/router";
+import { unnestLinks } from "./pages";
+import { aboutLinks, userGuideLinks } from "./page-map";
 
 import "./main.styl";
+
+const allLinks = unnestLinks([...aboutLinks, ...userGuideLinks]);
+
+function PageIssueLink() {
+  const router = useRouter();
+  const activeLink = allLinks.find((d) => d?.href == router.pathname);
+
+  const pageName = activeLink?.label ?? router.pathname;
+
+  const href = newGithubIssueUrl({
+    user: "davenquinn",
+    repo: "Mapboard-GIS",
+    title: `Issue with "${pageName}" page`,
+    labels: ["documentation"],
+  });
+
+  return h("p", [
+    "Found a problem with this page? ",
+    h("a", { target: "_blank", href }, "Create an issue"),
+  ]);
+}
 
 const RevisionInfo = () =>
   h("p.version", [
@@ -58,11 +81,17 @@ const BasePage = function (props) {
       </header>,
       h("div.main", [children]),
       <footer>
-        <p>
-          <strong>Mapboard GIS</strong> was created by{" "}
-          <a href="https://davenquinn.com">Daven Quinn</a>, 2018—2021
-        </p>
-        <RevisionInfo />
+        <div>
+          <p>
+            <strong>Mapboard GIS</strong>
+          </p>
+          <p>
+            2018—2021, <a href="https://davenquinn.com">Daven Quinn</a>
+          </p>
+          <RevisionInfo />
+        </div>
+
+        <PageIssueLink />
       </footer>,
     ]),
   ]);

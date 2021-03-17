@@ -28,7 +28,9 @@ const aboutLinks: Links = [
   { href: "/about/interop", label: "Openness + interoperability" },
   { href: "/about/features", label: "Features + comparisons" },
   { href: "/about/gallery", label: "Gallery" },
+  { href: "/about/changelog", label: "Version history" },
   { href: "/about/roadmap", label: "Roadmap" },
+
   //{ href: '/about/get-involved', label: "Get involved" }
   //{ href: '/about/contact', label: "Contact"}
 ];
