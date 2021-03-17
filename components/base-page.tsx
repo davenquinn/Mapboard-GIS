@@ -62,6 +62,8 @@ const BasePage = function (props) {
         rel="stylesheet"
       />
       {analyticsHeaderScripts()}
+      <link rel="icon" type="image/png" href="/favicon-32x32.png" />
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     </Head>,
     h("div.underlay"),
     h("div.wrap", [
