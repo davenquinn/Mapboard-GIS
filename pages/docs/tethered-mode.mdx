@@ -114,9 +114,7 @@ For **PostGIS Geologic Map**, the preferred server implementation, installation 
 4. Connect to the `geologic_map` database on local port `54321` using your GIS software
    or database client.
 
-Once you have started the application, the Mapboard server should be running locally on your computer.
-By default, the server is exposed on port `3006`. You can verify this by navigating to `http://localhost:3006/meta` in your
-browser. You should see a REST API response much like the one below:
+<figure className="code-figure right">
 
 ```json
 {
@@ -144,6 +142,13 @@ browser. You should see a REST API response much like the one below:
   ]
 }
 ```
+
+  <figcaption>The REST server response from a successful <code>/meta</code> request</figcaption>
+</figure>
+
+Once you've started the application, the Mapboard server should be running locally on your computer.
+By default, the server is exposed on port `3006`. You can verify this by navigating to `http://localhost:3006/meta` in your
+browser. You should see a REST API response much like the one below:
 
 This means you've successfully installed the Mapboard server! If you're using the server without the **PostGIS Geologic Map** extensions,
 the `capabilities` array will contain fewer entries. This tells **Mapboard GIS** to disable the corresponding functionality.

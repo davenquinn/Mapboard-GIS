@@ -1,53 +1,274 @@
-import {AboutPage} from "../../components/pages"
+import { BasePage } from "../../components/pages";
 
-# Comparisons
+# Comparisons table
 
-- ArcGIS and QGIS are the gold standard of GIS systems, but they are only available for
-  desktop-class devices and have poor tools for pen-based editing.
-- TouchGIS provides a ton of capabilities for iPad mapping but is expensive ($299/year).
-  Its editing tools are simpler than desktop GIS systems but still geared towards precision
-  over speed.
-- Procreate and GoodNotes are effective interfaces for drawing and note-taking. Although they
-  lack mapping capabilities, they serve as aspirational models for how a tablet user
-  interface should recede to the background.
+<table>
+  <thead>
+    <tr>
+      <th>Capabilities</th>
+      <th>Touch GIS</th>
+      <th>StraboSpot</th>
+      <th>FieldMove</th>
+      <th>Rockd</th>
+      <th>GMDE Mobile</th>
+      <th>Mapboard GIS</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <h5>Geologic map editing</h5>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Draw lines and polygons</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Feature snapping</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Point-based GIS editing</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Natural spatial editing</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Topological editing</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Interoperability</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>GIS-native file format</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>
+        yes
+        <sup id="fnref-1">
+          <a href="#fn-1" class="footnote-ref">
+            1
+          </a>
+        </sup>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Export to GIS</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>–</td>
+      <td>yes</td>
+      <td>native</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Desktop GIS connectivity</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Outcrop photos</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Point observations</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Structural compass</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Structural analysis</td>
+      <td>—</td>
+      <td>~</td>
+      <td>~</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Geological context</td>
+      <td>—</td>
+      <td>~</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Social features</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Cloud sync</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—*</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Cache basemaps</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>-</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—*</td>
+    </tr>
+    <tr>
+      <td>MBTiles basemaps</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Recent updates</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Native iOS application</td>
+      <td>yes</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>yes</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-It is best used alongside an app like [FieldMove] or [StraboSpot] for capturing point data.
+| Capabilities                  | Touch GIS | StraboSpot | FieldMove | Rockd | GMDE Mobile | Mapboard GIS |
+| ----------------------------- | --------- | ---------- | --------- | ----- | ----------- | ------------ | --- |
+| <h5>Geologic map editing</h5> |
+| Draw lines and polygons       | yes       | yes        | yes       | —     | yes         | yes          |
+| Feature snapping              | no        | no         | no        | no    | yes         | yes          |
+| Point-based GIS editing       | yes       | —          | —         | —     | —           | —            |
+| Natural spatial editing       | —         | —          | —         | —     | —           | yes          |
+| Topological editing           | —         | —          | —         | —     | —           | yes          |
+| Interoperability              |
+| GIS-native file format        | —         | —          | —         | —     | —           | yes[^1]      |
+| Export to GIS                 | yes       | yes        | yes       | –     | yes         | native       |
+| Desktop GIS connectivity      | —         | —          | —         | —     | —           | yes          |
+| Outcrop photos                | yes       | yes        | yes       | yes   | —           | —            |
+| Point observations            | yes       | yes        | yes       | yes   | yes         | —            |
+| Structural compass            | yes       | yes        | yes       | yes   | —           | —            |
+| Structural analysis           | —         | ~          | ~         | —     | yes         | —            |
+| Geological context            | —         | ~          | —         | yes   | —           | —            |
+| Social features               | —         | —          | —         | yes   | —           | —            |
+| Cloud sync                    | —         | yes        | —         | yes   | —           | —\*          |
+| Cache basemaps                | yes       | yes        | yes       | -     | —           | —            | —\* |
+| MBTiles basemaps              | yes       | yes        | yes       | —     | —           | yes          |
+| Recent updates                | yes       | yes        | —         | yes   | yes         | yes          |
+| Native iOS application        | yes       | —          | —         | —     | —           | yes          |
 
-If you need a full GIS solution with feature classes, editing interfaces, etc., check out
-[Touch GIS]()
-
-Capabilities | Touch GIS | StraboSpot | FieldMove | Rockd | GMDE Mobile | Mapboard GIS
--------------|-----------|------------|-----------|-------|-------------|-------------
-<h5>Geologic map editing</h5> |
-Draw lines and polygons | yes | yes | yes | — | yes | yes
-Feature snapping | no | no | no | no | yes | yes
-Point-based GIS editing | yes | — | — | — | — |— 
-Natural spatial editing | — | — | — | — | — | yes
-Topological editing | — | — | — | — | — | yes
-Interoperability |
-GIS-native file format | — | — | — | — | — | yes[^1]
-Export to GIS | yes | yes | yes | – | yes | native 
-Desktop GIS connectivity | — | — | — | — | — | yes
-Outcrop photos | yes | yes | yes | yes | — |— 
-Point observations | yes | yes | yes | yes | yes |— 
-Structural compass | yes | yes | yes | yes | — |— 
-Structural analysis | — | ~ | ~ | — | yes |— 
-Geological context | — | ~ | — | yes | — |— 
-Social features | — | — | — | yes | — |— 
-Cloud sync | — | yes | — | yes | — | —*
-Cache basemaps | yes | yes | yes | - | — | — | —*
-MBTiles basemaps | yes | yes | yes | — | — | yes
-Recent updates | yes | yes | — | yes | yes | yes
-Native iOS application | yes | — | — | — | — | yes
-
-[^1]: Mapboard GIS project files are *Spatialite* databases, so they can
-be opened natively in desktop GIS environments such as ArcGIS or QGIS.
+[^1]:
+    Mapboard GIS project files are _Spatialite_ databases, so they can
+    be opened natively in desktop GIS environments such as ArcGIS or QGIS.
 
 ## Other GIS apps
 
 https://inputapp.io/en/
 https://qfield.org/
 
-
-
-export default AboutPage
+export default BasePage;

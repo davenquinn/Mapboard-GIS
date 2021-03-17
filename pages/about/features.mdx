@@ -1,9 +1,68 @@
-import { AboutPage } from "~/pages";
+import { AboutPage } from "../../components/pages";
+import { PageLinkButton } from "~/buttons";
 
-# Features
+# Features and comparisons
 
-Implements features in a thoughtful way
+**Mapboard GIS** is difficult to measure against other field data-capture
+applications, because it takes a totally different view of itse task.
+As its full name implies, Mapboard relies on a sophisticated spatial engine,
+but it is not a "geographical _information system_" in the traditional sense.
 
-—
+In the spirit of its namesake tool, **Mapboard GIS** prioritizes a natural and
+intuitive human interface for map editing
+over a fully realized set of tools. It does not include precision GIS features such
+as point-based editing operations. However, it has novel tools geared to stylus editing,
+such as erasing and reshaping features. It also has path-breaking iterative topology
+capabilities.
+
+**Mapboard GIS** is cheifly focused on line and polygon data.
+There are already many apps that support field sampling and measurement collection.
+It is best used alongside an app like
+[FieldMove](https://www.petex.com/products/move-suite/digital-field-mapping/),
+[StraboSpot](https://www.strabospot.org/downloadapp),
+[Rockd](https://rockd.org/), or another tool for capturing point data.
+
+:::note
+Right now, there is no way to see collected point data in **Mapboard GIS**.
+We will work towards deepening integrations with outside platforms
+for point data in a later iteration of the app.
+:::
+
+In order to function as a workable mapping application, **Mapboard GIS** supports
+a standard set of baseline capabilities:
+
+- Creation and editing of point and polygon features
+- User-created data types
+- Management of basemaps, including `mbtiles` tilesets
+- Spatialite (onboard) and PostGIS (networked) database support
+
+## Comparisons with other applications
+
+<PageLinkButton href="/about/comparisons" className="big">
+  <strong>Comparisons table</strong>
+</PageLinkButton>
+
+[ArcGIS](https://www.arcgis.com),
+[QGIS](https://www.qgis.org),
+and [Global Mapper](https://www.bluemarblegeo.com/global-mapper/)
+are the gold standard of GIS systems,
+but they are only available for desktop-class devices and have only basic tools for pen-based editing.
+
+If you want a fully featured GIS system for iPad specifically,
+check out [**TouchGIS**](https://touchgis.app),
+which is capable but expensive ($299/year). Its editing tools are simpler than desktop GIS
+systems but still geared towards precision over speed. It lacks the natural drawing
+capabilities of **Mapboard GIS**, but it has a lot of advanced capabilities that are out-of-scope
+for this app (such as managing large collections of arbitrary layers and feature collection forms).
+
+The editing capabilities of pen-centric apps such as [Procreate](https://procreate.art/)
+and [GoodNotes](https://www.goodnotes.com/) serve as inspirations for **Mapboard GIS**.
+These applications are (obviously) not mapping tools, but they serve as aspirational
+models for how a tablet user interface should recede to the background behind strong
+pen- and touch-based editing and simple tools.
+
+Other applications that might be useful for collection of general field information
+are [Input](https://inputapp.io/) and [QField](https://qfield.org/), both of which attempt to
+integrate with QGIS.
 
 export default AboutPage;

@@ -1,50 +1,81 @@
 import { AboutPage } from "../../components/pages";
 import { PageLinkButton } from "~/buttons";
+import { Figure } from "~/media";
 
 # Openness and interoperability
 
 **Mapboard GIS** is designed by and for Earth Science researchers, and we're
-hoping to be good open-science citizens. In improving mapping processes,
-we want to make it as easy as possible to share data between systems.
+hoping to be good open-science citizens. We are trying to build a focused
+tool which fundamentally rethinks one small part of the complex process of
+mapmaking in the geosciences. An important aspect of working on a targeted
+tool is forging strong links with other parts of the process, and
+accordingly, we want to make it as easy as possible to share data between
+systems.
 
-## Direct links with desktop GIS
+<!--
+_Unbundling functionality and thinking carefully
+about boundaries will allow workflows to be composed from multiple focused tools._
+Crucially, putting different pieces of workflows in the hands of researchers who care
+the most about specific aspects will allow more attention to detail on creating
+effective and easy-to-use human interfaces.
+-->
 
-We maintain an open system chiefly by using industry-standard formats for data storage.
-The Spatialite database files that back the app can be directly read by
-standard GIS systems (e.g., ArcGIS and QGIS), and metadata can be edited in
+We support an open system chiefly by using
+industry-standard, open-source formats for data storage
+and maintaining direct links to desktop GIS systems.
+
+## Open spatial database formats
+
+The `.mapboard-project` files that back the app are
+[Spatialite](https://www.gaia-gis.it/fossil/libspatialite/index) databases can be directly read by
+standard GIS systems (e.g., ArcGIS and QGIS). Metadata can be edited in
 database browser applications such as [SQLite Browser](https://sqlitebrowser.org/).
-In [tethered mode](/docs/tethered-mode), data streams directly into PostGIS,
-where it can accessed by other systems immediately upon creation.
+
+<Figure
+  src="/charts/mapboard-spatialite.png"
+  width={400}
+  className="center no-border"
+>
+  The Spatialite extensi
+</Figure>
 
 <PageLinkButton href="/docs/projects/file-format">
   <em>Project file format</em> docs
 </PageLinkButton>
 
+## Direct links to desktop GIS
+
+In [tethered mode](/docs/tethered-mode), data streams directly from **Mapboard GIS**
+into PostGIS, where it can accessed by other systems immediately upon creation.
+
+<Figure
+  src="/charts/mapboard-postgis.png"
+  width={400}
+  className="center no-border"
+>
+  With its <a href="">server extensions</a>, <strong>Mapboard GIS</strong> can
+  connect to a <strong>PostGIS</strong> database alongside desktop GIS software.
+</Figure>
+
 <PageLinkButton href="/docs/tethered-mode">
   <em>Tethered mode</em> docs
 </PageLinkButton>
 
-Since Mapboard works directly with spatial databases, no data import or export is needed.
-This simplifies the app, but makes it less useful without preparation using desktop GIS.
-Producing specific formats like Shapefiles[^1] requires transformation using desktop
-GIS packages. Likewise, to insert your own basemap into Mapboard GIS, you will need
-to provide tiled data yourself.
+Since Mapboard works directly with spatial databases, no data import or export is needed
+for interoperability.
+This simplifies the app and allows it to work smoothly in concert with desktop GIS.
+Conversely, producing specific output formats like Shapefiles[^1] requires
+transformation using desktop GIS packages.
 
 ## Next steps
 
-### Smooth integration with other field apps
+### On-device integration with other field apps
 
 Geologic fieldwork is a complex and multifaceted activity, and one application will
 never fully capture researchers' needs.
 There are many apps for capturing point-data measurements and outcrop images,
 for instance, and **Mapboard GIS** gains little from reimplementing that
 aspect of field workflows.
-
-_Unbundling functionality and thinking carefully
-about boundaries will allow workflows to be composed from multiple focused tools._
-Crucially, putting different pieces of workflows in the hands of researchers who care
-the most about specific aspects will allow more attention to detail on creating
-effective and easy-to-use human interfaces.
 
 Eventually, we hope **Mapboard GIS** will become part of an ecosystem
 of interoperable apps for mapping, sampling, orientation capture,
