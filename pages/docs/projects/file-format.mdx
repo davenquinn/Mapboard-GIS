@@ -43,12 +43,21 @@ and [**SQLite Studio**](https://sqlitestudio.pl/). The [**Spatialite GUI** appli
 can open the spatial tables in the app. The file format can also be read using the
 [`sqlite3` command-line application](https://sqlite.org/cli.html) and libraries for all major programming languages.
 
+<Figure src="/docs/qgis-example.png" width={400} className="right">
+  The <code>linework</code> table open in <strong>QGIS</strong>
+</Figure>
+
 The project file structure is anchored by several key tables:
 `linework`, `linework_type`, `polygon`, and `polygon_type`.
 The `mapboard_config` table holds project configuration. When files are associated with the project
 (currently just the [image mode](/docs/project-management/)), we use the
 [SQLite Archive](https://www.sqlite.org/sqlar.html) format to store them
 within the application database.
+
+:::caution
+It currently isn't possible to open topological tables in QGIS due to library version incompatibility.
+This is a [known bug](https://github.com/davenquinn/Mapboard-GIS/issues/1) that we are working to address.
+:::
 
 The author of the Spatialite library is due a lot of thanks for creating and maintaining
 the core technology that drives this application. Check out the

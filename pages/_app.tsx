@@ -1,6 +1,7 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import App from "next/app";
+import { useGoogleAnalytics } from "~/analytics/client";
 
 // This is really dumb... https://mdxjs.com/guides/syntax-highlighting
 const components = {
@@ -8,6 +9,7 @@ const components = {
 };
 
 function NewApp(props) {
+  useGoogleAnalytics();
   return (
     <MDXProvider components={components}>
       <App {...props}></App>

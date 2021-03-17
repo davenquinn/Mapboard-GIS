@@ -7,6 +7,8 @@ import newGithubIssueUrl from "new-github-issue-url";
 import { useRouter } from "next/router";
 import { unnestLinks } from "./pages";
 import { aboutLinks, userGuideLinks } from "./page-map";
+import { analyticsHeaderScripts } from "./analytics/server";
+const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 import "./main.styl";
 
@@ -47,6 +49,7 @@ const RevisionInfo = () =>
 
 const BasePage = function (props) {
   const { children, className, ...rest } = props;
+
   return h("div.page", { className }, [
     <Head>
       <meta charSet="utf-8" />
@@ -56,6 +59,7 @@ const BasePage = function (props) {
         href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Source+Code+Pro:wght@400;700&display=swap"
         rel="stylesheet"
       />
+      {analyticsHeaderScripts()}
     </Head>,
     h("div.underlay"),
     h("div.wrap", [
