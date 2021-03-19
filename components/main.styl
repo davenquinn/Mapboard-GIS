@@ -117,7 +117,7 @@ h1,h2,h3,h4,h5,h6
 
 
 .section-content
-  h1,h2,h3
+  h1,h2
     clear: both
 
   margin=1.5em
@@ -261,6 +261,16 @@ a.link-button svg
       text-align left
       padding 0.2em 0.5em
 
+  .nav-next-prev
+    display: inline-flex
+    flex-direction: row
+    .spacer
+      flex-grow 1
+    a.link-button
+      width 2.2em
+      border none
+
+
  .section-nav, .bottom-links
   line-height 1
   a.link-button
@@ -285,7 +295,7 @@ a.link-button svg
     margin-top 4em
     width 130px
     min-width 130px
-    ul
+    &>ul
       position sticky
       top 3em
       text-align right

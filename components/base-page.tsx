@@ -5,7 +5,7 @@ import Head from "next/head";
 import { navLinks } from "./page-map";
 import newGithubIssueUrl from "new-github-issue-url";
 import { useRouter } from "next/router";
-import { unnestLinks } from "./pages";
+import { unnestLinks } from "./nav";
 import { aboutLinks, userGuideLinks } from "./page-map";
 import { analyticsHeaderScripts } from "./analytics/server";
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;

@@ -6,52 +6,12 @@
  */
 import BasePage from "./base-page";
 import h from "@macrostrat/hyper";
-import { Nav } from "./nav";
-import { aboutLinks, userGuideLinks, Links } from "./page-map";
-import { useRouter } from "next/router";
-import { NextLinkButton, PrevLinkButton } from "./buttons";
-
-function unnestLinks(links: Links): Links {
-  let newLinks: Links = [];
-
-  for (const link of links) {
-    newLinks.push(link);
-    if (link.hasOwnProperty("children")) {
-      // @ts-ignore
-      newLinks.push(...(link.children ?? []));
-    }
-  }
-
-  return newLinks;
-}
-
-const BottomNav = function (props: { links: Links }) {
-  const links = unnestLinks(props.links);
-  const { pathname } = useRouter() || {};
-  if (pathname == null) {
-    return null;
-  }
-
-  //@ts-ignore
-  const ix = links.findIndex((d) => d.href === pathname);
-
-  if (ix == null) {
-    return null;
-  }
-
-  const prevLink = links[ix - 1];
-  const nextLink = links[ix + 1];
-
-  return h("div.bottom-links", [
-    h.if(prevLink != null)(PrevLinkButton, prevLink),
-    h("div.spacer"),
-    h.if(nextLink != null)(NextLinkButton, nextLink),
-  ]);
-};
+import { Nav, BottomNav } from "./nav";
+import { aboutLinks, userGuideLinks } from "./page-map";
 
 const NavPage = ({ children, links }) =>
   h(BasePage, { className: "section-page" }, [
-    h(Nav, { className: "section-nav", links }),
+    h(Nav, { className: "section-nav", links, showNextPrev: true }),
     h("div.section-main", [
       h("div.section-content", children),
       h(BottomNav, { links }),
@@ -63,4 +23,4 @@ const AboutPage = ({ children }) => h(NavPage, { children, links: aboutLinks });
 const UserGuidePage = ({ children }) =>
   h(NavPage, { children, links: userGuideLinks });
 
-export { BasePage, AboutPage, UserGuidePage, unnestLinks };
+export { BasePage, AboutPage, UserGuidePage };

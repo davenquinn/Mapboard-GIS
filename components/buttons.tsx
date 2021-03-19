@@ -17,19 +17,27 @@ export const LinkButton = ({ href, label }) =>
 
 export const NextLinkButton = (props) => {
   const { href, label, ...rest } = props;
+  let children: React.ReactNode = <FaArrowRight />;
+  if (label != null) {
+    children = h([label, " ", children]);
+  }
   return h(LinkButton, {
     href,
     ...rest,
-    label: h([label, " ", <FaArrowRight />]),
+    label: children,
   });
 };
 
 export const PrevLinkButton = (props) => {
   const { href, label, ...rest } = props;
+  let children: React.ReactNode = <FaArrowLeft />;
+  if (label != null) {
+    children = h([<FaArrowLeft />, " ", label]);
+  }
   return h(LinkButton, {
     href,
     ...rest,
-    label: h([<FaArrowLeft />, " ", label]),
+    label: children,
   });
 };
 
@@ -69,3 +77,6 @@ export const TestFlightButton = () =>
       Join the <em>TestFlight</em> beta
     </>
   );
+
+export const NextButton = ({ label, ...rest }) => h(NextLinkButton, rest);
+export const PrevButton = ({ label, ...rest }) => h(PrevLinkButton, rest);
