@@ -45,7 +45,7 @@ const NavLinkItem = ({ href, label, exact }: any) => {
 const NavLink = ({ children, ...rest }: any) => {
   if (children != null) {
     return h("ul", [
-      h(NavLinkItem, { ...rest, exact: true }),
+      h(NavLinkItem, { ...rest, exact: true, key: "a" }),
       children.map((d, i) =>
         h(NavLinkItem, { ...d, label: d.shortLabel ?? d.label, key: i })
       ),
