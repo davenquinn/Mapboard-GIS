@@ -65,7 +65,10 @@ const BasePage = function (props) {
       <link rel="icon" type="image/png" href="/favicon-32x32.png" />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
       <meta property="og:title" content="Mapboard GIS" />
-      <meta property="og:description" content="Back to the drawing board." />
+      <meta
+        property="og:description"
+        content="Draw your geologic maps again."
+      />
       <meta
         property="og:image"
         content="https://sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-splash.png"
@@ -73,7 +76,10 @@ const BasePage = function (props) {
       <meta name="twitter:title" content="Mapboard GIS" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@davenquinn" />
-      <meta name="twitter:description" content="Back to the drawing board." />
+      <meta
+        name="twitter:description"
+        content="Draw your geologic maps again."
+      />
       <meta
         name="twitter:image"
         content="https://sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-splash.png"
