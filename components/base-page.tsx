@@ -64,6 +64,25 @@ const BasePage = function (props) {
       {analyticsHeaderScripts()}
       <link rel="icon" type="image/png" href="/favicon-32x32.png" />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+      <meta property="og:title" content="Mapboard GIS" />
+      <meta
+        property="og:description"
+        content="Draw your geologic maps again."
+      />
+      <meta
+        property="og:image"
+        content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png"
+      />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="Mapboard GIS" />
+      <meta
+        name="twitter:description"
+        content="Draw your geologic maps again."
+      />
+      <meta
+        name="twitter:image"
+        content="//sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-splash.png"
+      />
     </Head>,
     h("div.underlay"),
     h("div.wrap", [
