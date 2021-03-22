@@ -71,7 +71,7 @@ const BasePage = function (props) {
       />
       <meta
         property="og:image"
-        content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png"
+        content="https://sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-splash.png"
       />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content="Mapboard GIS" />
@@ -81,7 +81,7 @@ const BasePage = function (props) {
       />
       <meta
         name="twitter:image"
-        content="//sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-splash.png"
+        content="https://sfo2.digitaloceanspaces.com/mapboard-gis-assets/mapboard-splash.png"
       />
     </Head>,
     h("div.underlay"),
