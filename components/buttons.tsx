@@ -57,14 +57,9 @@ export const GetAppButton = () =>
   h(
     "a.link-button",
     {
-      href: "https://testflight.apple.com/join/0TfVlWyN",
+      href: "https://apps.apple.com/us/app/mapboard-gis/id1446188315",
     },
-    <span>
-      Get the app
-      <sup>
-        <em>beta</em>
-      </sup>
-    </span>
+    <span>Get the app!</span>
   );
 
 export const TestFlightButton = () =>

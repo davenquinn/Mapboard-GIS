@@ -88,6 +88,7 @@ const appData = [
     cloud: true,
     cacheBasemaps: true,
     recentUpdates: true,
+    gisExport: true,
   },
   {
     name: "GMDE Mobile",
@@ -111,11 +112,13 @@ function NameRow() {
 }
 
 function Cell({ enabled }) {
-  return h(
-    "td",
-    { className: enabled ? "yes" : "no" },
-    enabled ? h(FaCheck) : ""
-  );
+  if (enabled === "~") {
+    return h("td.maybe", "~");
+  }
+  if (enabled) {
+    return h("td.yes", null, h(FaCheck));
+  }
+  return h("td.no");
 }
 
 function Row({ children, item }: any) {

@@ -6,6 +6,7 @@ $danger=#666
   --success: $admonition
   --success-background: alpha($admonition, 20%)
   --caution: $admonition-caution
+  --caution-background: alpha($admonition-caution, 20%) 
   --error: alpha($danger, 20%)
   --header-bkg: alpha(#e7e4f0, 80%)
 
@@ -13,6 +14,7 @@ body.bp3-dark
   --success: $admonition-dark
   --success-background: alpha($admonition-dark, 20%)
   --caution: darken($admonition-caution, 30%)
+  --caution-background: alpha($admonition-caution, 20%) 
   --error: alpha(lighten($danger, 70%), 20%)
   --header-bkg: alpha(#251e33, 90%)
 
@@ -38,6 +40,10 @@ table.comparisons-table
       border 2px solid var(--success)
       color: var(--success)
       background-color: var(--success-background)
+    &.maybe
+      border 2px solid var(--caution)
+      color: var(--caution)
+      background-color: var(--caution-background)
     &.no
       border 2px solid var(--error)
     &:first-child
