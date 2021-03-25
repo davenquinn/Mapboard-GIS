@@ -93,6 +93,7 @@ p.caption, figcaption
   display flex
   flex-direction column
   padding-bottom 0em
+  overflow hidden
 
 .main
   flex-grow 1
@@ -150,9 +151,6 @@ footer
   padding-top 1em
   font-weight 300
   margin-bottom 4em
-  display flex
-  flex-direction row
-  justify-content: space-between
   strong
     font-weight 600
   p
@@ -377,14 +375,12 @@ a.link-button, button.bp3-button
       display flex
       flex-direction: column
       justify-content: space-around
-      margin-right 2em
-      &:last-child
-        margin-right 0em
   p
     text-align left
 
   video
     width 300px
+    max-width 100%
     border-radius 6px
 
 .figure-panel
@@ -395,6 +391,9 @@ a.link-button, button.bp3-button
 
 figure
   break-inside: avoid
+  max-width: 100%
+  img, video
+    max-width 100%
   &.code-figure
     width 16em
     pre
@@ -427,7 +426,7 @@ figure
     margin-bottom 0
     margin-top 0.5em
   .buttons
-    width 24em
+    max-width 24em
     margin 1em auto
     text-align center
     *
@@ -468,14 +467,25 @@ div.mountain-underlay
   .callout.two-col, .manifesto
     flex-direction row
 
+  .callout.two-col>*
+    margin-right 2em
+    &:last-child
+      margin-right 0em
+
   nav .spacer
-    width 1em
+    width 0em
 
   header
     a.page-title-link
       grid-column 2
     .header-image
       grid-row 1 / span 2
+
+  footer
+    display flex
+    flex-direction row
+    justify-content: space-between
+
 
 @media screen and (min-width 1100px)
   .section-content
