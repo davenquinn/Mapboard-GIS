@@ -21,8 +21,9 @@ const Figure = function (props) {
   const { src, children, className, width, ...rest } = props;
   const style = { width };
   let baseElement = h(Image, { width, src });
-  if (src.endsWith(".m4v") || src.endsWith(".mp4")) {
-    baseElement = h(Video, { width, autoPlay: true, loop: true, ...rest, src });
+  if (src.endsWith(".m4v") || src.endsWith(".mp4")) 
+    const type = props.type ?? "video/mp4"
+    baseElement = h(Video, { width, autoPlay: true, loop: true, ...rest, type, src });
   }
   return h("figure", { className, style }, [
     baseElement,
