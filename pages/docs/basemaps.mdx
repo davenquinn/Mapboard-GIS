@@ -16,8 +16,21 @@ to contextualize mapping.
 Additionally, `mbtiles`-formatted basemaps and streaming imagery can be added,
 allowing a wide range of map imagery to be used in the application.
 
-:::note
-Caching tiles from Mapbox's servers will be supported a later version of the app.
+## Caching Mapbox tilesets
+
+<Figure src="/docs/basemaps/offline-tilesets.jpg" width={280} className="right">
+  Cached basemap management interface
+</Figure>
+
+As of version `2.3.0`, **Mapboard GIS** can cache tilesets from Mapbox's servers.
+The _Manage offline tilesets_ panel can be invoked from the _Tile layers_ selection
+page. Pressing the _+_ button at the top of this panel starts the process of downloading
+an offline tileset. Previously created tilesets are listed in this panel and can be deleted
+with contextual actions. Tilesets are shared between projects and limited to Mapbox-provided
+basemap layers.
+
+:::warning
+The user interface for this feature is very basic and will be improved in a future release.
 :::
 
 ## Creating basemaps
