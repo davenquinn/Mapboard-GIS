@@ -63,6 +63,7 @@ const appData = [
     compass: true,
     analysis: "~",
     context: "~",
+    cloud: true,
     cacheBasemaps: true,
     mbtiles: true,
     recentUpdates: true,
@@ -91,14 +92,19 @@ const appData = [
     gisExport: true,
   },
   {
-    name: "GMDE Mobile",
+    name: "GMDE Lite",
     drawLines: true,
-    snapping: true,
+    snapping: "~",
+    pointEditing: "~",
     gisExport: true,
+    photos: true,
     points: true,
+    compass: true,
     analysis: true,
     recentUpdates: true,
     mbtiles: true,
+    // Per Richard, GMDE Lite has some extra features that we may want to include:
+    //“Augmented Reality Rangefinder”, “Automated contact mapping from Orientation”,
   },
 ];
 
@@ -156,6 +162,7 @@ function ComparisonsTable() {
       h(Row, { item: "photos" }, "Outcrop photos"),
       h(Row, { item: "points" }, "Point observations"),
       h(Row, { item: "compass" }, "Structural compass"),
+      h(HeaderRow, "Data analysis"),
       h(Row, { item: "analysis" }, "Structural analysis"),
       h(HeaderRow, "Community"),
       h(Row, { item: "context" }, "Geological context"),
