@@ -114,7 +114,7 @@ const BasePage = function (props) {
             <strong>Mapboard GIS</strong>
           </p>
           <p>
-            2018—2021, <a href="https://davenquinn.com">Daven Quinn</a>
+            2018—2023, <a href="https://davenquinn.com">Daven Quinn</a>
           </p>
           <RevisionInfo />
         </div>
