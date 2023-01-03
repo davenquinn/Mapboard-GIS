@@ -4,6 +4,10 @@
   "description": "Documentation for the Mapboard GIS project",
   "main": "pages/index.mdx",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davenquinn/Mapboard-GIS.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
@@ -12,36 +16,27 @@
   "author": "Daven Quinn",
   "license": "ISC",
   "devDependencies": {
-    "@mdx-js/mdx": "^1.6.22",
     "@types/node": "^14.14.34",
-    "coffeescript": "^2.5.1",
-    "react-refresh": "^0.9.0",
-    "stylus": "^0.54.8",
+    "stylus": "^0.59.0",
+    "stylus-loader": "^7.1.0",
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@macrostrat/hyper": "^1.2.11",
+    "@macrostrat/hyper": "^2",
     "@macrostrat/revision-info-webpack": "^1.0.0",
-    "@macrostrat/ui-components": "^0.4.6",
-    "@mdx-js/loader": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "@next/mdx": "^10.0.5",
+    "@macrostrat/ui-components": "^1",
+    "@mdx-js/react": "^2.2.1",
+    "@next/mdx": "^13.1.1",
     "@types/gtag.js": "^0.0.4",
-    "@zeit/next-stylus": "^1.0.1",
-    "babel-plugin-static-fs": "^3.0.0",
-    "new-github-issue-url": "^0.2.1",
-    "next": "^10.0.5",
-    "posthtml-markdown": "^0.1.0",
-    "prism-react-renderer": "^1.2.0",
-    "react": "^16.14.0",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
+    "new-github-issue-url": "^1.0.0",
+    "next": "^12.3",
+    "next-stylus": "^0.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "remark-admonitions": "^1.2.1",
-    "remark-slug": "^6.0.0",
-    "remark-toc": "^7.2.0",
-    "require-from-string": "^2.0.2",
-    "use-dark-mode": "^2.3.1"
+    "remark-slug": "^7.0.1",
+    "remark-toc": "^8.0.1"
   },
   "prettier": {}
 }
