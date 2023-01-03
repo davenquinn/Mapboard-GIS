@@ -10,8 +10,6 @@ import { aboutLinks, userGuideLinks } from "./page-map";
 import { analyticsHeaderScripts } from "./analytics/server";
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
-import "./main.styl";
-
 const allLinks = unnestLinks([...aboutLinks, ...userGuideLinks]);
 
 function PageIssueLink() {
