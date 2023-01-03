@@ -1,7 +1,7 @@
 ---
 version: 3.1.0
 date: Unreleased
-pre: true
+major: true
 ---
 
 This is the first public release of the `3.x` series of **Mapboard GIS**.

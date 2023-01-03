@@ -11,15 +11,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "prepare:changelog": "node scripts/parse-version-history.mjs"
   },
   "author": "Daven Quinn",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.14.34",
+    "compare-versions": "^6.0.0-rc.1",
+    "markdown-yaml-metadata-parser": "^3.0.0",
     "prettier": "^2.8.1",
     "stylus": "^0.59.0",
     "stylus-loader": "^7.1.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
@@ -45,5 +49,6 @@
     "remark-toc": "^8.0.1",
     "typographic-base": "^1.0.4",
     "unist-util-visit": "^4.1.1"
-  }
+  },
+  "prettier": {}
 }
