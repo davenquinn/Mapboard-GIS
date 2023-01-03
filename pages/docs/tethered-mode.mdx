@@ -4,9 +4,7 @@ import { PageLinkButton } from "~/buttons";
 
 # Tethering to PostGIS
 
-<Figure src="/docs/tethered-mode.jpg" className="full">
-  Working with large datasets in PostGIS
-</Figure>
+<Figure src="/docs/tethered-mode.jpg" className="full">Working with large datasets in PostGIS</Figure>
 
 In _Tethered mode_, **Mapboard GIS** can turn over all spatial processing
 functionality to a centralized [**PostGIS**](https://postgis.net/) database.
@@ -17,10 +15,8 @@ system that can be used within most modern GIS applications.
   src="/charts/mapboard-postgis.png"
   width={400}
   className="center no-border"
->
-  With its <a href="">server extensions</a>, <strong>Mapboard GIS</strong> can
-  connect to a <strong>PostGIS</strong> database alongside desktop GIS software.
-</Figure>
+>With its <a href="">server extensions</a>, <strong>Mapboard GIS</strong> can
+connect to a <strong>PostGIS</strong> database alongside desktop GIS software.</Figure>
 
 Offloading spatial operations to a server-side database has several advantages:
 
@@ -74,14 +70,11 @@ the Mapboard server extensions are bundled by default.
   src="/docs/postgis-geologic-map.png"
   width={300}
   className="right no-border"
->
-  Command-line output of the <strong>PostGIS Geologic Map</strong> topology
-  solver (<code>geologic-map serve</code>)
-</Figure>
+>Command-line output of the <strong>PostGIS Geologic Map</strong> topology
+solver (<code>geologic-map serve</code>)</Figure>
 
-<PageLinkButton href="https://github.com/davenquinn/PostGIS-Geologic-Map">
-  <strong>PostGIS Geologic Map</strong> project
-</PageLinkButton>
+<PageLinkButton href="https://github.com/davenquinn/PostGIS-Geologic-Map"
+>**PostGIS Geologic Map** project</PageLinkButton>
 
 **PostGIS Geologic Map** adds to the `map_digitizer` schema that tracks core map
 edits with a `map_topology` schema that organizes the solved topological relationships
@@ -161,15 +154,16 @@ On **MacOS** this is done in the **Sharing** panel of **System Preferences**. Al
 the command `ipconfig getifaddr en0`
 (on Mac and Linux platforms). Windows users, you're on your own for now, sorry!
 
-<Figure src="/docs/macos-sharing-panel.png">
-  The local network address for my machine is <code>Daven-Quinn.local</code>.
+<Figure
+  src="/docs/macos-sharing-panel.png"
+>The local network address for my machine is <code>Daven-Quinn.local</code>.
   This is an alias for IP address <code>192.168.1.100</code>, which changes as
-  my local router allocates IP addresses.
-</Figure>
+  my local router allocates IP addresses.</Figure>
 
-<Figure src="/docs/mapboard-server-connect.jpg" width={300} className="right">
-  Entering the server information into the <em>Project edit</em> panel
-</Figure>
+<Figure src="/docs/mapboard-server-connect.jpg"
+  width={300}
+  className="right"
+>Entering the server information into the <em>Project edit</em> panel</Figure>
 
 Once you have the proper connection string (e.g., `Daven-Quinn.local:3006`), you can connect in **Mapboard GIS** at the project
 creation/editing interface. When the project is loaded, the app will begin talking to the server at that address to load linework and

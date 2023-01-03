@@ -33,9 +33,11 @@ advocated by the [SQLite project](https://www.sqlite.org/appfileformat.html).
 The file must have the extension `.mapboard-project` to be recognized as a
 Mapboard project.
 
-<Figure src="/docs/sqlite-browser-database.png" width={400} className="right">
-  The <code>linework</code> table open in <strong>DB Browser for SQLite</strong>
-</Figure>
+<Figure
+  src="/docs/sqlite-browser-database.png"
+  width={400}
+  className="right"
+>The <code>linework</code> table open in <strong>DB Browser for SQLite</strong></Figure>
 
 The `.mapboard-project` format can be read by a variety of software for working with SQLite
 databases, including graphical applications such as [DB Browser for SQLite](https://sqlitebrowser.org/) (_recommended_)
@@ -43,9 +45,10 @@ and [**SQLite Studio**](https://sqlitestudio.pl/). The [**Spatialite GUI** appli
 can open the spatial tables in the app. The file format can also be read using the
 [`sqlite3` command-line application](https://sqlite.org/cli.html) and libraries for all major programming languages.
 
-<Figure src="/docs/qgis-example.png" width={400} className="right">
-  The <code>linework</code> table open in <strong>QGIS</strong>
-</Figure>
+<Figure src="/docs/qgis-example.png"
+  width={400}
+  className="right"
+>The <code>linework</code> table open in <strong>QGIS</strong></Figure>
 
 The project file structure is anchored by several key tables:
 `linework`, `linework_type`, `polygon`, and `polygon_type`.
