@@ -6,11 +6,7 @@ import remarkDirective from "remark-directive";
 import remarkFootnotes from "remark-footnotes";
 import withMDX_ from "@next/mdx";
 import { readFileSync } from "fs";
-import {
-  remarkAdmonitions,
-  remarkSmallCaps,
-  remarkUnwrapTags,
-} from "./_config/index.mjs";
+import { remarkAdmonitions, remarkSmallCaps } from "./_config/index.mjs";
 import base from "typographic-base";
 import remarkHypher from "remark-hypher";
 
@@ -28,7 +24,6 @@ const withMDX = withMDX_({
       remarkDirective,
       remarkAdmonitions,
       remarkFootnotes,
-      remarkUnwrapTags,
       // Typographic transformations
       remarkSmallCaps,
       [remarkTextr, { locale: "en-US", plugins: [base] }],
