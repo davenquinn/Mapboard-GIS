@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.14.34",
+    "prettier": "^2.8.1",
     "stylus": "^0.59.0",
     "stylus-loader": "^7.1.0",
     "typescript": "^4.2.3"
@@ -29,6 +30,7 @@
     "@next/mdx": "^13.1.1",
     "@types/gtag.js": "^0.0.4",
     "hastscript": "^7.1.0",
+    "hypher": "^0.2.5",
     "new-github-issue-url": "^1.0.0",
     "next": "^12.3",
     "next-stylus": "^0.0.2",
@@ -36,8 +38,12 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "remark-directive": "^2.0.1",
+    "remark-footnotes": "^4.0.1",
+    "remark-hypher": "^0.0.1",
     "remark-slug": "^7.0.1",
+    "remark-textr": "^5.0.1",
     "remark-toc": "^8.0.1",
+    "typographic-base": "^1.0.4",
     "unist-util-visit": "^4.1.1"
   },
   "prettier": {}

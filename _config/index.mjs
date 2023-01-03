@@ -28,3 +28,21 @@ export function remarkAdmonitions() {
     });
   };
 }
+
+const CAPS_RE = /([A-Z!"#$%&'()*+,./:;<=>?@\^_`{|}~\-]{2,}\b)/g;
+
+export function remarkSmallCaps() {
+  return (tree) => {
+    visit(tree, (node) => {
+      if (node.type !== "textDirective") return;
+      if (node.value.match(CAPS_RE)) {
+        const processedText = node.value.replace(
+          CAPS_RE,
+          `<span class="all-caps">$1</span>`
+        );
+        node.type = `html`;
+        node.value = processedText;
+      }
+    });
+  };
+}

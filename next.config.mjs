@@ -3,16 +3,37 @@ import RevisionInfoWebpack from "@macrostrat/revision-info-webpack";
 import slug from "remark-slug";
 import toc from "remark-toc";
 import remarkDirective from "remark-directive";
+import remarkFootnotes from "remark-footnotes";
 import withMDX_ from "@next/mdx";
 import { readFileSync } from "fs";
-import { remarkAdmonitions } from "./_config/index.mjs";
+import {
+  remarkAdmonitions,
+  remarkSmallCaps,
+  remarkUnwrapTags,
+} from "./_config/index.mjs";
+import base from "typographic-base";
+import remarkHypher from "remark-hypher";
+
+// A plugin to do some basic typographic transformations
+import remarkTextr from "remark-textr";
 
 const pkgFile = new URL("./package.json", import.meta.url);
 const pkg = JSON.parse(readFileSync(pkgFile));
 
 const withMDX = withMDX_({
   options: {
-    remarkPlugins: [toc, slug, remarkAdmonitions, remarkDirective],
+    remarkPlugins: [
+      toc,
+      slug,
+      remarkDirective,
+      remarkAdmonitions,
+      remarkFootnotes,
+      remarkUnwrapTags,
+      // Typographic transformations
+      remarkSmallCaps,
+      [remarkTextr, { locale: "en-US", plugins: [base] }],
+      remarkHypher,
+    ],
     rehypePlugins: [],
   },
 });
