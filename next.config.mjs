@@ -1,17 +1,18 @@
 import withStylus from "next-stylus";
-import admonitions from "remark-admonitions";
 import RevisionInfoWebpack from "@macrostrat/revision-info-webpack";
 import slug from "remark-slug";
 import toc from "remark-toc";
+import remarkDirective from "remark-directive";
 import withMDX_ from "@next/mdx";
 import { readFileSync } from "fs";
+import { remarkAdmonitions } from "./_config/index.mjs";
 
 const pkgFile = new URL("./package.json", import.meta.url);
 const pkg = JSON.parse(readFileSync(pkgFile));
 
 const withMDX = withMDX_({
   options: {
-    remarkPlugins: [admonitions, toc, slug],
+    remarkPlugins: [toc, slug, remarkAdmonitions, remarkDirective],
     rehypePlugins: [],
   },
 });
