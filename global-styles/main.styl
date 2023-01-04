@@ -30,6 +30,7 @@ $purple-color=lighten(#5A13CA,40%)
 
 @require "./admonitions"
 @require "./comparisons-table"
+@require "./version-history"
 
 *
   box-sizing: border-box
@@ -79,6 +80,9 @@ p.caption, figcaption
   font-size 0.8em
   color var(--secondary-color)
   font-style italic
+
+ul
+  padding-left: 1.2em
 
 .underlay
   position fixed
@@ -232,7 +236,21 @@ header
 a.link-button svg
   margin-bottom -0.1em
 
+minimal-link-button()
+  border-color transparent
+  &.active
+    border 1.5px solid var(--accent-color)
+
+.link-button.minimal
+  minimal-link-button()
+
 .section-nav
+  a.link-button, span.nav-label
+    text-align left
+    padding 0.2em 0.5em
+    &.backlink
+      margin-bottom: 0.5em
+      text-align center
   ul
     list-style: none
     padding-left 0
@@ -250,9 +268,7 @@ a.link-button svg
           a
             font-weight bold
         a.link-button
-          border-color transparent
-          &.active
-            border 1.5px solid var(--accent-color)
+          minimal-link-button()
         padding 0.25em
         padding-top 0
         margin 0
@@ -260,9 +276,11 @@ a.link-button svg
     margin-bottom 0.5em
     margin-right 0.5em
     display inline-block
-    a.link-button
-      text-align left
-      padding 0.2em 0.5em
+  span.nav-label
+    color: var(--accent-color)
+    font-weight 400
+    font-style italic
+    cursor: default
 
   .nav-next-prev
     display: inline-flex
@@ -276,7 +294,7 @@ a.link-button svg
 
  .section-nav, .bottom-links
   line-height 1
-  a.link-button
+  a.link-button, span.nav-label
     border-width 1.5px
     font-size 14px
     display block
@@ -355,7 +373,7 @@ a.link-button, button.bp3-button
   &.active
     background-color: var(--accent-active) !important
   &:hover
-    background-color:var(--accent-background);
+    background-color: var(--accent-background);
   strong
     font-weight 600
 

@@ -1,15 +1,13 @@
-import React, { Children } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import classNames from "classnames";
 import h from "@macrostrat/hyper";
 import {
   NextLinkButton,
   PrevLinkButton,
   PrevButton,
   NextButton,
-} from "./buttons";
+} from "../buttons";
 import { Links } from "./page-map";
+import { NavLink, ActiveLink } from "./links";
 
 function unnestLinks(links: Links): Links {
   let newLinks: Links = [];
@@ -21,39 +19,11 @@ function unnestLinks(links: Links): Links {
       newLinks.push(...(link.children ?? []));
     }
   }
-  return newLinks;
+  return newLinks.filter((d) => {
+    // Check if is react node
+    return d.hasOwnProperty("href");
+  });
 }
-
-// Class to make an activeLink
-const ActiveLink = function ({ children, exact = true, ...props }: any) {
-  const router = useRouter();
-  const child = Children.only(children);
-  const pathname = router.asPath;
-  let className = child.props.className || "";
-  const isActive = exact
-    ? pathname === props.href
-    : pathname.startsWith(props.href);
-  className = classNames(child.props.className, { active: isActive });
-  return h(Link, props, React.cloneElement(child, { className }));
-};
-
-const NavLinkItem = ({ href, label, exact }: any) => {
-  return h("li", [
-    h(ActiveLink, { href, exact }, [h("a.link-button", null, label)]),
-  ]);
-};
-
-const NavLink = ({ children, ...rest }: any) => {
-  if (children != null) {
-    return h("ul", [
-      h(NavLinkItem, { ...rest, exact: true, key: "a" }),
-      children.map((d, i) =>
-        h(NavLinkItem, { ...d, label: d.shortLabel ?? d.label, key: i })
-      ),
-    ]);
-  }
-  return h(NavLinkItem, rest);
-};
 
 function NextPrev(props: { links: Links }) {
   const links = unnestLinks(props.links);
@@ -86,8 +56,8 @@ const Nav = function (props) {
   return h("nav", { className }, [
     h("ul", [
       links.map(function (obj) {
-        if (obj.href != null) {
-          obj.key = `nav-link-${obj.href}`;
+        if (obj.label != null) {
+          obj.key = `nav-link-${obj.label}`;
           return h(NavLink, { exact: exactLinks, ...obj });
         }
         return obj;
@@ -98,7 +68,7 @@ const Nav = function (props) {
 };
 
 const BottomNav = function (props: { links: Links }) {
-  const links = unnestLinks(props.links);
+  const links = unnestLinks(props.links).filter((d) => d.href != null);
   const { asPath: pathname } = useRouter() || {};
   if (pathname == null) {
     return null;

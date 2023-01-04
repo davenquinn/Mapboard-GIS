@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import h from "@macrostrat/hyper";
-import { DarkModeButton, GetAppButton } from "./buttons";
-import { getVersionData } from "loaders/versions";
+import { DarkModeButton, GetAppButton } from "../buttons";
+import { getVersionsBySeries } from "loaders/versions";
+import { compareVersions } from "compare-versions";
+import { ActiveLink } from "./links";
 
 interface LinkSpec {
   href: string;
@@ -62,9 +64,29 @@ const userGuideLinks: Links = [
   { href: "/docs/reporting-bugs", label: "Reporting bugs" },
 ];
 
-const versionHistoryLinks: Links = getVersionData().map((d) => ({
-  href: `/docs/ios/releases/${d.metadata.version}`,
-  label: d.metadata.version,
-}));
+const buildVersionHistoryLinks = () => {
+  const versionHistoryLinks = getVersionsBySeries().map((d) => {
+    const { series, versions } = d;
+    return {
+      series,
+      label: "Series " + series,
+      children: versions.map((v) => {
+        return {
+          href: `/docs/ios/releases/${v.metadata.version}`,
+          label: v.metadata.version,
+        };
+      }),
+    };
+  });
+  return [
+    h(
+      ActiveLink,
+      { href: "/docs/ios/releases" },
+      h("a.backlink.link-button.minimal", "Version history")
+    ),
+    ...versionHistoryLinks,
+  ];
+};
+const versionHistoryLinks = buildVersionHistoryLinks();
 
 export { navLinks, aboutLinks, userGuideLinks, versionHistoryLinks };

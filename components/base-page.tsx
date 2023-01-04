@@ -2,11 +2,11 @@ import h from "@macrostrat/hyper";
 import { Nav, ActiveLink } from "./nav";
 import Link from "next/link";
 import Head from "next/head";
-import { navLinks } from "./page-map";
+import { navLinks } from "./nav/page-map";
 import newGithubIssueUrl from "new-github-issue-url";
 import { useRouter } from "next/router";
 import { unnestLinks } from "./nav";
-import { aboutLinks, userGuideLinks } from "./page-map";
+import { aboutLinks, userGuideLinks } from "./nav/page-map";
 import { analyticsHeaderScripts } from "./analytics/server";
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 

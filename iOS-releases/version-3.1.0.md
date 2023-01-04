@@ -1,20 +1,35 @@
 ---
 version: 3.1.0
-date: Unreleased
+date: 2022-12-29
 major: true
+pre: true
+in-brief: Fixes in preparation for release
 ---
 
-This is the first public release of the `3.x` series of **Mapboard GIS**.
-It is a major rework of the app's internals and spatial editing capabilities,
-in preparation for coming functional enhancements.
+### Small user-interface changes
 
-### Backend updates
+- Fixed demo counter views
+- Fix some small UI bugs with map interface
 
-**Mapboard GIS** is powered by open-source geospatial libraries, and its
-software stack has been greatly enhanced in the `3.0` release.
+### Purchase handling
 
-### Potential pain points
+- Fixed handling of in-app purchases (for **Full version** subscription)
+- Fixed rate limiting of edits in demo mode
 
-Since this is a major overhaul of the app, some functionality was not
-completely ported over for expediency. We anticipate fixing many problems
-and omissions in future minor versions in the `3.x` series.
+### Editing tool fixes
+
+Revamped the _Reshape_ and _New line_ tools for more cohesive snapping
+behavior.
+
+### Layer filtering
+
+- Restored show/hide and filter-by-type capabilities for line and polygon layers.
+- Filtering behavior now prevents lines from being erased and modified when
+  the layer is not shown.
+
+:::caution
+Features are still modified for hidden layers when in _Topological_ or _All_ editing modes.
+This behavior needs to be improved, probably by overriding filtering settings when in
+these edit modes, or removing filtering options altogether in favor of a more advanced
+"layers" system.
+:::

@@ -1,12 +1,5 @@
 ---
 version: 2.2.4
-in-brief:
-  - Completely revamped mapping system based on Mapbox Maps SDK v10
-  - New vector tile rendering pipeline
-  - Upgraded GIS software libraries (Spatialite, GEOS, and Proj)
-    to the latest stable versions
-  - Allow opacity to be set for lines, polygons, and raster overlay
-    layers
 date: 2021-04-19
 ---
 
@@ -14,7 +7,8 @@ date: 2021-04-19
 
 - Improvements and bugfixes for input forms
 - Ability to specify tileset parameters (tile size and scheme)
-- Tilesets should now be specified using `https://example.com/tiles/{z}/{x}/{y}.png` (a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0))
+
+Tilesets should now be specified using a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0), e.g. `https://example.com/tiles/{z}/{x}/{y}.png`
 
 ### Project reprojection
 

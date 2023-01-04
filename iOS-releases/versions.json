@@ -1,11 +1,30 @@
 [
   {
-    "content": "\nThis is the first public release of the `3.x` series of **Mapboard GIS**.\nIt is a major rework of the app's internals and spatial editing capabilities,\nin preparation for coming functional enhancements.\n\n### Backend updates\n\n**Mapboard GIS** is powered by open-source geospatial libraries, and its\nsoftware stack has been greatly enhanced in the `3.0` release.\n\n### Potential pain points\n\nSince this is a major overhaul of the app, some functionality was not\ncompletely ported over for expediency. We anticipate fixing many problems\nand omissions in future minor versions in the `3.x` series.\n",
+    "content": "\nThis is the first public release of the `3.x` series of **Mapboard GIS**.\nIt is a major rework of the app's internals and spatial editing capabilities,\nin preparation for coming functional enhancements.\n\n### Backend updates\n\n**Mapboard GIS** is powered by open-source geospatial libraries, and its\nsoftware stack has been greatly enhanced in the `3.0` release.\n\n### Potential pain points\n\nSince this is a major overhaul of the app, some functionality was not\ncompletely ported over for expediency. We anticipate fixing many problems\nand omissions in future minor versions in the `3.x` series.\n\n### Small user-interface changes\n",
     "metadata": {
-      "version": "3.1.0",
+      "version": "3.2.0",
       "date": "Unreleased",
       "major": true,
+      "inBrief": [
+        "Completely revamped mapping system based on Mapbox Maps SDK v10",
+        "New vector tile rendering pipeline",
+        "Upgraded GIS software libraries (Spatialite, GEOS, and Proj) to the latest stable versions",
+        "Allow opacity to be set for lines, polygons, and raster overlay layers"
+      ],
+      "series": "3",
       "dateText": "Unreleased"
+    }
+  },
+  {
+    "content": "\n### Small user-interface changes\n\n- Fixed demo counter views\n- Fix some small UI bugs with map interface\n\n### Purchase handling\n\n- Fixed handling of in-app purchases (for **Full version** subscription)\n- Fixed rate limiting of edits in demo mode\n\n### Editing tool fixes\n\nRevamped the _Reshape_ and _New line_ tools for more cohesive snapping\nbehavior.\n\n### Layer filtering\n\n- Restored show/hide and filter-by-type capabilities for line and polygon layers.\n- Filtering behavior now prevents lines from being erased and modified when\n  the layer is not shown.\n\n:::caution\nFeatures are still modified for hidden layers when in _Topological_ or _All_ editing modes.\nThis behavior needs to be improved, probably by overriding filtering settings when in\nthese edit modes, or removing filtering options altogether in favor of a more advanced\n\"layers\" system.\n:::\n",
+    "metadata": {
+      "version": "3.1.0",
+      "date": "2022-12-29T00:00:00.000Z",
+      "major": true,
+      "pre": true,
+      "inBrief": "Fixes in preparation for release",
+      "series": "3",
+      "dateText": "December 28, 2022"
     }
   },
   {
@@ -14,6 +33,7 @@
       "version": "3.0.0",
       "date": "Unreleased",
       "pre": true,
+      "series": "3",
       "dateText": "Unreleased"
     }
   },
@@ -22,24 +42,20 @@
     "metadata": {
       "version": "2.3.0",
       "date": "2021-11-28T00:00:00.000Z",
-      "in-brief": [
+      "inBrief": [
         "Basic system for offline tile layers",
         "Fixes for minor display bugs"
       ],
+      "series": "2",
       "dateText": "November 27, 2021"
     }
   },
   {
-    "content": "\n### Better raster-tile layer support\n\n- Improvements and bugfixes for input forms\n- Ability to specify tileset parameters (tile size and scheme)\n- Tilesets should now be specified using `https://example.com/tiles/{z}/{x}/{y}.png` (a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0))\n\n### Project reprojection\n\n**Spatialite** projects can be reprojected from the **Edit project** form by specifying a new SRID. All features will be rewritten, so use this capability with caution!\n\n### Planetary use\n\nBetter support for planetary (non-Earth) use by providing a pathway to add custom coordinate systems.\nCoordinate systems must be added to the `spatial_ref_sys` table in an external SQLite browser.\n\nAdd an optional `spheroid_radius` project configuration setting to adapt map scale reporting to different planetary bodies.\nThis configuration must be added directly to the project file, as such:\n\n```\nINSERT INTO mapboard_config\nVALUES ('spheriod_radius', 3396190);\n```",
+    "content": "\n### Better raster-tile layer support\n\n- Improvements and bugfixes for input forms\n- Ability to specify tileset parameters (tile size and scheme)\n\nTilesets should now be specified using a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0), e.g. `https://example.com/tiles/{z}/{x}/{y}.png`\n\n### Project reprojection\n\n**Spatialite** projects can be reprojected from the **Edit project** form by specifying a new SRID. All features will be rewritten, so use this capability with caution!\n\n### Planetary use\n\nBetter support for planetary (non-Earth) use by providing a pathway to add custom coordinate systems.\nCoordinate systems must be added to the `spatial_ref_sys` table in an external SQLite browser.\n\nAdd an optional `spheroid_radius` project configuration setting to adapt map scale reporting to different planetary bodies.\nThis configuration must be added directly to the project file, as such:\n\n```\nINSERT INTO mapboard_config\nVALUES ('spheriod_radius', 3396190);\n```\n",
     "metadata": {
       "version": "2.2.4",
-      "in-brief": [
-        "Completely revamped mapping system based on Mapbox Maps SDK v10",
-        "New vector tile rendering pipeline",
-        "Upgraded GIS software libraries (Spatialite, GEOS, and Proj) to the latest stable versions",
-        "Allow opacity to be set for lines, polygons, and raster overlay layers"
-      ],
       "date": "2021-04-19T00:00:00.000Z",
+      "series": "2",
       "dateText": "April 18, 2021"
     }
   },
@@ -48,14 +64,18 @@
     "metadata": {
       "version": "2.2.3",
       "date": "2021-03-21T00:00:00.000Z",
+      "inBrief": "Initial public App Store release! 🎉",
+      "series": "2",
       "dateText": "March 20, 2021"
     }
   },
   {
-    "content": "\n- Fixed a bunch of prerelease bugs\n- Make line certainty control dash pattern\n- Add experimental geological symbols\n- `.mapboard-project` files are now bare SQLite databases rather than packages.\n  This allows direct opening in GIS software and database browsers.\n- Many small UI fixes\n- Deduplicated some frameworks\n",
+    "content": "\n- Fixed prerelease bugs\n- Make line certainty control dash pattern\n- Add experimental geological symbols\n- `.mapboard-project` files are now bare SQLite databases rather than packages.\n  This allows direct opening in GIS software and database browsers.\n- Many small UI fixes\n- Deduplicated some frameworks\n",
     "metadata": {
       "version": "2.2.0",
       "date": "2021-03-19T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
       "dateText": "March 18, 2021"
     }
   },
@@ -64,6 +84,8 @@
     "metadata": {
       "version": "2.1.0",
       "date": "2020-11-27T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
       "dateText": "November 26, 2020"
     }
   },
@@ -72,6 +94,8 @@
     "metadata": {
       "version": "2.0.1",
       "date": "2020-10-29T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
       "dateText": "October 28, 2020"
     }
   },
@@ -80,6 +104,8 @@
     "metadata": {
       "version": "2.0.0",
       "date": "2020-10-20T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
       "dateText": "October 19, 2020"
     }
   },
@@ -88,6 +114,8 @@
     "metadata": {
       "version": "1.0.0",
       "date": "2018–2020",
+      "pre": true,
+      "series": "1",
       "dateText": "2018–2020"
     }
   }

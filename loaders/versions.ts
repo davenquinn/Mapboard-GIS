@@ -1,6 +1,7 @@
 import { remark } from "remark";
 import html from "remark-html";
 import versionData from "../iOS-releases/versions.json";
+import { compareVersions } from "compare-versions";
 import { remarkUpgradeHeadings, textPipeline } from "_config/index.mjs";
 
 export async function processToHTML(version) {
@@ -19,4 +20,22 @@ export function getVersionData() {
 export async function getVersion(version: string) {
   const vData = versionData.find((d) => d.metadata.version === version);
   return await processToHTML(vData);
+}
+
+export function getVersionsBySeries() {
+  let versionHistoryLinks: any[] = Object.values(
+    versionData.reduce((acc, d) => {
+      const series = d.metadata.series;
+      acc[series] ??= {
+        series,
+        versions: [],
+      };
+      acc[series].versions.push(d);
+      return acc;
+    }, {})
+  );
+  versionHistoryLinks.sort((a, b) => {
+    return compareVersions(b.series, a.series);
+  });
+  return versionHistoryLinks;
 }

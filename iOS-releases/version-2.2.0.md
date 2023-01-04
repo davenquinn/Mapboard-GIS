@@ -1,9 +1,10 @@
 ---
 version: 2.2.0
 date: 2021-03-19
+pre: true
 ---
 
-- Fixed a bunch of prerelease bugs
+- Fixed prerelease bugs
 - Make line certainty control dash pattern
 - Add experimental geological symbols
 - `.mapboard-project` files are now bare SQLite databases rather than packages.

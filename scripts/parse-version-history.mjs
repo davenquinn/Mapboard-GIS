@@ -10,12 +10,29 @@ let versions = glob.sync("iOS-releases/version-*.md");
 // Parse each file
 let parsedVersions = versions.map((version) => {
   const file = readFileSync(version, "utf8");
-  return parser(file);
+  let obj = parser(file);
+  // Camelize metadata keys
+  let metadata = {};
+  for (const key in obj.metadata) {
+    metadata[camelize(key)] = obj.metadata[key];
+  }
+  return { ...obj, metadata };
 });
 
 parsedVersions.sort((a, b) => {
   return compareVersions(b.metadata.version, a.metadata.version);
 });
+
+function getMajorVersion(version) {
+  return version.split(".")[0];
+}
+
+function camelize(text) {
+  const a = text
+    .toLowerCase()
+    .replace(/[-_\s.]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ""));
+  return a.substring(0, 1).toLowerCase() + a.substring(1);
+}
 
 for (const version of parsedVersions) {
   // Add date text to metadata
@@ -31,6 +48,7 @@ for (const version of parsedVersions) {
         day: "numeric",
       });
     }
+    version.metadata.series = getMajorVersion(version.metadata.version);
     version.metadata.dateText = dateText;
   }
 }

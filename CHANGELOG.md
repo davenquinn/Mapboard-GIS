@@ -8,7 +8,7 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [**Version `3.1.0`**](/iOS-releases/version-3.1.0.md) — *Unreleased*
+## [**Version `3.2.0`**](/iOS-releases/version-3.2.0.md) — *Unreleased*
 
 *This is a major release.* 🎉
 
@@ -27,6 +27,42 @@ software stack has been greatly enhanced in the `3.0` release.
 Since this is a major overhaul of the app, some functionality was not
 completely ported over for expediency. We anticipate fixing many problems
 and omissions in future minor versions in the `3.x` series.
+
+### Small user-interface changes
+
+
+## [**Version `3.1.0`**](/iOS-releases/version-3.1.0.md) — *December 28, 2022*
+
+*This is a pre-release.*
+
+
+### Small user-interface changes
+
+- Fixed demo counter views
+- Fix some small UI bugs with map interface
+
+### Purchase handling
+
+- Fixed handling of in-app purchases (for **Full version** subscription)
+- Fixed rate limiting of edits in demo mode
+
+### Editing tool fixes
+
+Revamped the _Reshape_ and _New line_ tools for more cohesive snapping
+behavior.
+
+### Layer filtering
+
+- Restored show/hide and filter-by-type capabilities for line and polygon layers.
+- Filtering behavior now prevents lines from being erased and modified when
+  the layer is not shown.
+
+:::caution
+Features are still modified for hidden layers when in _Topological_ or _All_ editing modes.
+This behavior needs to be improved, probably by overriding filtering settings when in
+these edit modes, or removing filtering options altogether in favor of a more advanced
+"layers" system.
+:::
 
 
 ## [**Version `3.0.0`**](/iOS-releases/version-3.0.0.md) — *Unreleased*
@@ -61,7 +97,8 @@ to be used effectively in the field.
 
 - Improvements and bugfixes for input forms
 - Ability to specify tileset parameters (tile size and scheme)
-- Tilesets should now be specified using `https://example.com/tiles/{z}/{x}/{y}.png` (a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0))
+
+Tilesets should now be specified using a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0), e.g. `https://example.com/tiles/{z}/{x}/{y}.png`
 
 ### Project reprojection
 
@@ -80,6 +117,7 @@ INSERT INTO mapboard_config
 VALUES ('spheriod_radius', 3396190);
 ```
 
+
 ## [**Version `2.2.3`**](/iOS-releases/version-2.2.3.md) — *March 20, 2021*
 
 
@@ -94,8 +132,10 @@ for more information!
 
 ## [**Version `2.2.0`**](/iOS-releases/version-2.2.0.md) — *March 18, 2021*
 
+*This is a pre-release.*
 
-- Fixed a bunch of prerelease bugs
+
+- Fixed prerelease bugs
 - Make line certainty control dash pattern
 - Add experimental geological symbols
 - `.mapboard-project` files are now bare SQLite databases rather than packages.
@@ -105,6 +145,8 @@ for more information!
 
 
 ## [**Version `2.1.0`**](/iOS-releases/version-2.1.0.md) — *November 26, 2020*
+
+*This is a pre-release.*
 
 
 ### Changed
@@ -119,6 +161,8 @@ for more information!
 
 ## [**Version `2.0.1`**](/iOS-releases/version-2.0.1.md) — *October 28, 2020*
 
+*This is a pre-release.*
+
 
 ### Fixes
 
@@ -128,6 +172,8 @@ for more information!
 
 
 ## [**Version `2.0.0`**](/iOS-releases/version-2.0.0.md) — *October 19, 2020*
+
+*This is a pre-release.*
 
 
 ### Added
@@ -141,6 +187,8 @@ for more information!
 
 
 ## [**Version `1.0.0`**](/iOS-releases/version-1.0.0.md) — *2018–2020*
+
+*This is a pre-release.*
 
 
 The 1.0 series of Mapboard GIS was the initial release for internal use. It supported

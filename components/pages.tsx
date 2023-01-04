@@ -7,7 +7,11 @@
 import BasePage from "./base-page";
 import h from "@macrostrat/hyper";
 import { Nav, BottomNav } from "./nav";
-import { aboutLinks, userGuideLinks, versionHistoryLinks } from "./page-map";
+import {
+  aboutLinks,
+  userGuideLinks,
+  versionHistoryLinks,
+} from "./nav/page-map";
 
 const NavPage = ({ children, links }) =>
   h(BasePage, { className: "section-page" }, [
