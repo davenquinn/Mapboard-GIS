@@ -15,10 +15,10 @@ const allLinks = unnestLinks([...aboutLinks, ...userGuideLinks]);
 function PageIssueLink() {
   const router = useRouter();
   //@ts-ignore
-  const activeLink = allLinks.find((d) => d?.href == router.pathname);
+  const activeLink = allLinks.find((d) => d?.href == router.asPath);
 
   //@ts-ignore
-  const pageName = activeLink?.label ?? router.pathname;
+  const pageName = activeLink?.label ?? router.asPath;
 
   const href = newGithubIssueUrl({
     user: "davenquinn",

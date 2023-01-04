@@ -28,10 +28,11 @@ function unnestLinks(links: Links): Links {
 const ActiveLink = function ({ children, exact = true, ...props }: any) {
   const router = useRouter();
   const child = Children.only(children);
+  const pathname = router.asPath;
   let className = child.props.className || "";
   const isActive = exact
-    ? router.pathname === props.href
-    : router.pathname.startsWith(props.href);
+    ? pathname === props.href
+    : pathname.startsWith(props.href);
   className = classNames(child.props.className, { active: isActive });
   return h(Link, props, React.cloneElement(child, { className }));
 };
@@ -56,7 +57,7 @@ const NavLink = ({ children, ...rest }: any) => {
 
 function NextPrev(props: { links: Links }) {
   const links = unnestLinks(props.links);
-  const { pathname } = useRouter() || {};
+  const { asPath: pathname } = useRouter() || {};
   if (pathname == null) {
     return null;
   }
@@ -98,7 +99,7 @@ const Nav = function (props) {
 
 const BottomNav = function (props: { links: Links }) {
   const links = unnestLinks(props.links);
-  const { pathname } = useRouter() || {};
+  const { asPath: pathname } = useRouter() || {};
   if (pathname == null) {
     return null;
   }

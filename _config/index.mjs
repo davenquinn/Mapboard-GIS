@@ -1,5 +1,10 @@
 import { visit } from "unist-util-visit";
 import { h } from "hastscript";
+import remarkDirective from "remark-directive";
+import remarkFootnotes from "remark-footnotes";
+import base from "typographic-base";
+import remarkTextr from "remark-textr";
+import remarkHypher from "remark-hypher";
 
 export function remarkAdmonitions() {
   return (tree) => {
@@ -46,3 +51,26 @@ export function remarkSmallCaps() {
     });
   };
 }
+
+export function remarkUpgradeHeadings() {
+  return (tree) => {
+    // Shift all headings up one level
+    visit(tree, (node) => {
+      if (node.type === "heading") {
+        node.depth = node.depth - 1;
+      }
+    });
+  };
+}
+
+/* A pipeline to transform and format Markdown in preparation
+for rendering. */
+export const textPipeline = [
+  remarkDirective,
+  remarkAdmonitions,
+  remarkFootnotes,
+  // Typographic transformations
+  remarkSmallCaps,
+  [remarkTextr, { locale: "en-US", plugins: [base] }],
+  remarkHypher,
+];

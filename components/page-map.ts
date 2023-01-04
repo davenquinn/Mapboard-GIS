@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import h from "@macrostrat/hyper";
 import { DarkModeButton, GetAppButton } from "./buttons";
+import { getVersionData } from "loaders/versions";
 
 interface LinkSpec {
   href: string;
@@ -28,7 +29,6 @@ const aboutLinks: Links = [
   { href: "/about/interop", label: "Openness + interoperability" },
   { href: "/about/features", label: "Features + comparisons" },
   { href: "/about/gallery", label: "Gallery" },
-  { href: "/about/changelog", label: "Version history" },
   { href: "/about/roadmap", label: "Roadmap" },
 
   //{ href: '/about/get-involved', label: "Get involved" }
@@ -58,7 +58,13 @@ const userGuideLinks: Links = [
   { href: "/docs/topology", label: "Topology" },
   { href: "/docs/basemaps", label: "Basemaps" },
   { href: "/docs/tethered-mode", label: "Tethered mode" },
+  { href: "/docs/ios/releases", label: "Version history" },
   { href: "/docs/reporting-bugs", label: "Reporting bugs" },
 ];
 
-export { navLinks, aboutLinks, userGuideLinks };
+const versionHistoryLinks: Links = getVersionData().map((d) => ({
+  href: `/docs/ios/releases/${d.metadata.version}`,
+  label: d.metadata.version,
+}));
+
+export { navLinks, aboutLinks, userGuideLinks, versionHistoryLinks };
