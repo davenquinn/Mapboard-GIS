@@ -11,7 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
-    "build": "next build",
+    "build": "mkdir -p public/media && next build",
     "prepare:changelog": "node scripts/parse-version-history.mjs"
   },
   "author": "Daven Quinn",
