@@ -4,9 +4,8 @@ import { PageLinkButton } from "~/buttons";
 
 # Project creation options
 
-<Figure src="/docs/projects/new-project.jpg" width={300} className="right">
-  The project-creation interface
-</Figure>
+<Figure src="/docs/projects/new-project.jpg" width={300} className="right"
+>The project-creation interface</Figure>
 
 The new project interface allows several categories of new information to be
 captured to set up a new mapping project. The top _Project details_ section
@@ -48,23 +47,17 @@ is the standard for many regional and local applications.
   src="/docs/projects/postgis-backend-panel.png"
   width={300}
   className="right"
->
-  Setting a server connection for the PostGIS backend
-</Figure>
+>Setting a server connection for the PostGIS backend</Figure>
 
 With the **PostGIS** backend, the application talks to a remote server (usually
 on a local network, although in principle internet locations can also be used),
 where all spatial operations are handled. This enables faster processing,
 data security, and collaborative mapping.
 
-<PageLinkButton href="/docs/projects/new-project">
-  <strong>Tethered mode</strong> docs
-</PageLinkButton>
+<PageLinkButton href="/docs/projects/new-project">**Tethered mode** docs</PageLinkButton>
 
-<Figure src="/docs/postgis-mode-no-sidebar.jpg">
-  Streaming large mapping datasets from a <strong>PostGIS</strong> server in
-  tethered mode.
-</Figure>
+<Figure src="/docs/postgis-mode-no-sidebar.jpg">Streaming large mapping datasets from a **PostGIS** server in
+  tethered mode.</Figure>
 
 :::note
 In PostGIS mode, spatial reference information and feature classes are managed on the
@@ -77,18 +70,15 @@ server, so they are not configured within the app.
   src="/docs/projects/image-backend-panel.png"
   width={300}
   className="right"
->
-  Selecting an image for non-georeferenced feature drawing
-</Figure>
+>Selecting an image for non-georeferenced feature drawing</Figure>
 
 The **Image** backend is a stripped-down version of
 **Spatialite** mode that supports digitization atop a static image in
 pixel coordinates. This can help support processes such as annotating field
 images for later feature extraction from 3D models.
 
-<Figure src="/docs/image-mode.jpg" width={400} className="center">
-  Editing fluvial bounding surfaces in <strong>Image</strong> mode.
-</Figure>
+<Figure src="/docs/image-mode.jpg" width={400} className="center">Editing fluvial
+  bounding surfaces in **Image** mode.</Figure>
 
 :::note
 Some presently unwieldy aspects of the image mode, such as the restriction to

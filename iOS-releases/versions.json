@@ -1,0 +1,123 @@
+[
+  {
+    "content": "\n![The upgraded topology engine in action](/media/docs/v3-editing/topology.mp4)\n\nThis is the first public release of the **Mapboard GIS** `3.x` series.\nIt is a major rework of the app's internals and spatial editing capabilities,\nin preparation for coming functional enhancements.\n\n### New editing tools\n\n![Drawing and reshaping lines](/media/docs/v3-editing/editing-tools.mp4)\n\n- Line snapping has been improved to also snap\n  current linework endpoints to nearby created\n  and reshaped lines\n- A new **Reshape** tool allows rapid iteration\n  of linework\n- **Topological erasing** allows trimming of\n  dangling edges\n- A greatly improved **Undo** tool allows full recovery from any line or polygon change.\n\n![Reshape and undo](/media/docs/v3-editing/reshape-undo.mp4)\n\n![Topological erase mode](/media/docs/v3-editing/topological-erase.mp4)\n\n### An improved topology system\n\nThe onboard topology engine has been improved for stability, performance, and effectiveness.\nAlthough it is still somewhat brittle, it now allows rapid and high-quality iterative solving in many cases.\n\n### An updated map canvas\n\nThe mapping user interface has been greatly improved to transition\nfrom Mapbox's legacy iOS SDK to the newer\n[Mapbox Maps SDK for iOS](https://docs.mapbox.com/ios/maps/guides/).\nThis required significant retooling of the app's backend data flows\nand structures, including with an internal vector tile\n\n### Upgraded spatial stack\n\nThe stack of spatial software that powers **Mapboard GIS** has been greatly\nenhanced in the `3.0` release. This includes updated versions of `proj`, `geos`,\n`spatialite`, `rttopo`, and other supporting open-source geospatial libraries.\nWe've also greatly enhanced the compilation pipeline for these libraries to be\nless brittle and enable more direct utilization of their functionality.\n\n:::caution\n\n### Missing `v2` functionality\n\nThis is a major overhaul of the app, and some features have not yet\nbeen completely reimplemented using new patterns. We anticipate fixing many problems\nand omissions in future minor versions in the `3.x` series.\n\nKey missing pieces:\n\n- Planetary projections are harder with `libproj` versions greater than 4, and have not been validated in the current version\n- Server connections with PostGIS need major upgrades and currently don't work.\n  :::\n",
+    "metadata": {
+      "version": "3.2.0",
+      "date": "2023-01-05T00:00:00.000Z",
+      "major": true,
+      "inBrief": [
+        "Modernized mapping stack",
+        "Stabilized and upgraded GIS software stack",
+        "New reshape and topological editing tools for lines",
+        "Faster and more robust topological operations",
+        "Opacity of polygons and raster overlay layers can be varied"
+      ],
+      "series": "3",
+      "dateText": "January 4, 2023"
+    }
+  },
+  {
+    "content": "\n### Small user-interface changes\n\n- Fixed demo counter views\n- Fix some small UI bugs with map interface\n\n### Purchase handling\n\n- Fixed handling of in-app purchases (for **Full version** subscription)\n- Fixed rate limiting of edits in demo mode\n\n### Editing tool fixes\n\nRevamped the _Reshape_ and _New line_ tools for more cohesive snapping\nbehavior.\n\n### Layer filtering\n\n- Restored show/hide and filter-by-type capabilities for line and polygon layers.\n- Filtering behavior now prevents lines from being erased and modified when\n  the layer is not shown.\n\n:::caution\nFeatures are still modified for hidden layers when in _Topological_ or _All_ editing modes.\nThis behavior needs to be improved, probably by overriding filtering settings when in\nthese edit modes, or removing filtering options altogether in favor of a more advanced\n\"layers\" system.\n:::\n",
+    "metadata": {
+      "version": "3.1.0",
+      "date": "2022-12-29T00:00:00.000Z",
+      "major": true,
+      "pre": true,
+      "inBrief": "Fixes in preparation for release",
+      "series": "3",
+      "dateText": "December 28, 2022"
+    }
+  },
+  {
+    "content": "\n- Completely revamped mapping system based on Mapbox Maps SDK v10\n- Fixes to editing tools and map views\n- New vector tile rendering pipeline\n- Upgraded GIS software libraries\n",
+    "metadata": {
+      "version": "3.0.0",
+      "date": "Unreleased",
+      "pre": true,
+      "series": "3",
+      "dateText": "Unreleased"
+    }
+  },
+  {
+    "content": "\n### Offline access to Mapbox tile layers\n\nAdded a user interface for creating and managing Mapbox GL offline tile packs.\nThis currently has a very basic user interface, but it allows Mapbox-provided basemaps\nto be used effectively in the field.\n\n### Bugfixes\n\n- Fixed a bug with the control panel for creating tile layers from external URLs\n- Fixed some minor display bugs",
+    "metadata": {
+      "version": "2.3.0",
+      "date": "2021-11-28T00:00:00.000Z",
+      "inBrief": [
+        "Basic system for offline tile layers",
+        "Fixes for minor display bugs"
+      ],
+      "series": "2",
+      "dateText": "November 27, 2021"
+    }
+  },
+  {
+    "content": "\n### Better raster-tile layer support\n\n- Improvements and bugfixes for input forms\n- Ability to specify tileset parameters (tile size and scheme)\n\nTilesets should now be specified using a [TileJSON `tiles` spec](https://github.com/mapbox/tilejson-spec/tree/master/2.2.0), e.g. `https://example.com/tiles/{z}/{x}/{y}.png`\n\n### Project reprojection\n\n**Spatialite** projects can be reprojected from the **Edit project** form by specifying a new SRID. All features will be rewritten, so use this capability with caution!\n\n### Planetary use\n\nBetter support for planetary (non-Earth) use by providing a pathway to add custom coordinate systems.\nCoordinate systems must be added to the `spatial_ref_sys` table in an external SQLite browser.\n\nAdd an optional `spheroid_radius` project configuration setting to adapt map scale reporting to different planetary bodies.\nThis configuration must be added directly to the project file, as such:\n\n```\nINSERT INTO mapboard_config\nVALUES ('spheriod_radius', 3396190);\n```\n",
+    "metadata": {
+      "version": "2.2.4",
+      "date": "2021-04-19T00:00:00.000Z",
+      "series": "2",
+      "dateText": "April 18, 2021"
+    }
+  },
+  {
+    "content": "\n### Initial public App Store release! 🎉\n\nSee the [release announcement](https://davenquinn.com/blog/2021/3/mapboard-gis-released)\nfor more information!\n\n- Added some links\n- Small optimizations\n",
+    "metadata": {
+      "version": "2.2.3",
+      "date": "2021-03-21T00:00:00.000Z",
+      "inBrief": "Initial public App Store release! 🎉",
+      "series": "2",
+      "dateText": "March 20, 2021"
+    }
+  },
+  {
+    "content": "\n- Fixed prerelease bugs\n- Make line certainty control dash pattern\n- Add experimental geological symbols\n- `.mapboard-project` files are now bare SQLite databases rather than packages.\n  This allows direct opening in GIS software and database browsers.\n- Many small UI fixes\n- Deduplicated some frameworks\n",
+    "metadata": {
+      "version": "2.2.0",
+      "date": "2021-03-19T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
+      "dateText": "March 18, 2021"
+    }
+  },
+  {
+    "content": "\n### Changed\n\n- Added the ability to show vertices and endpoints of the line layer (to diagnose topology problems)\n- Added topology polygon layer that uses the same display interfaces as\n  the line and polygon layers. This takes advances made for the onboard Spatialite\n  backend and generalizes them to work with the PostGIS backend as well.\n  Using this functionality requires shifting to the Version 2 series of\n  the `mapboard-server` project.\n",
+    "metadata": {
+      "version": "2.1.0",
+      "date": "2020-11-27T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
+      "dateText": "November 26, 2020"
+    }
+  },
+  {
+    "content": "\n### Fixes\n\n- Fixed showing and hiding of map layers and data types\n- More functional topology control panel, now accessible\n  directly from the polygons panel.\n",
+    "metadata": {
+      "version": "2.0.1",
+      "date": "2020-10-29T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
+      "dateText": "October 28, 2020"
+    }
+  },
+  {
+    "content": "\n### Added\n\n- New topology mode for Spatialite backend\n\n### Changed\n\n- User interface rewritten in SwiftUI\n- Moved to **Mapbox GL** for mapping backend\n",
+    "metadata": {
+      "version": "2.0.0",
+      "date": "2020-10-20T00:00:00.000Z",
+      "pre": true,
+      "series": "2",
+      "dateText": "October 19, 2020"
+    }
+  },
+  {
+    "content": "\nThe 1.0 series of Mapboard GIS was the initial release for internal use. It supported\nbasic field mapping functionality, such as `mbtiles` basemaps and the\nonboard Spatialite GIS backend.\n",
+    "metadata": {
+      "version": "1.0.0",
+      "date": "2018–2020",
+      "pre": true,
+      "series": "1",
+      "dateText": "2018–2020"
+    }
+  }
+]

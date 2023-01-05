@@ -2,33 +2,16 @@ import withStylus from "next-stylus";
 import RevisionInfoWebpack from "@macrostrat/revision-info-webpack";
 import slug from "remark-slug";
 import toc from "remark-toc";
-import remarkDirective from "remark-directive";
-import remarkFootnotes from "remark-footnotes";
 import withMDX_ from "@next/mdx";
 import { readFileSync } from "fs";
-import { remarkAdmonitions, remarkSmallCaps } from "./_config/index.mjs";
-import base from "typographic-base";
-import remarkHypher from "remark-hypher";
-
-// A plugin to do some basic typographic transformations
-import remarkTextr from "remark-textr";
+import { textPipeline } from "./_config/index.mjs";
 
 const pkgFile = new URL("./package.json", import.meta.url);
 const pkg = JSON.parse(readFileSync(pkgFile));
 
 const withMDX = withMDX_({
   options: {
-    remarkPlugins: [
-      toc,
-      slug,
-      remarkDirective,
-      remarkAdmonitions,
-      remarkFootnotes,
-      // Typographic transformations
-      remarkSmallCaps,
-      [remarkTextr, { locale: "en-US", plugins: [base] }],
-      remarkHypher,
-    ],
+    remarkPlugins: [toc, slug, ...textPipeline],
     rehypePlugins: [],
   },
 });
@@ -44,6 +27,15 @@ let baseCfg = {
       ? "//sfo2.digitaloceanspaces.com/mapboard-gis-assets"
       : "/media",
     ...RevisionInfoWebpack(pkg, GITHUB_LINK),
+  },
+  redirects: async () => {
+    return [
+      {
+        source: "/about/changelog",
+        destination: "/docs/ios/releases",
+        permanent: true,
+      },
+    ];
   },
 };
 

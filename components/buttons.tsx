@@ -75,3 +75,16 @@ export const TestFlightButton = () =>
 
 export const NextButton = ({ label, ...rest }) => h(NextLinkButton, rest);
 export const PrevButton = ({ label, ...rest }) => h(PrevLinkButton, rest);
+
+export const NewFeature = ({ version }) =>
+  h("span.new-feature.tag", [
+    `New in `,
+    [
+      h(
+        Link,
+        { href: `/docs/ios/releases/${version}` },
+        h("a", ["v", h("span.code", version)])
+      ),
+      " 🎉",
+    ],
+  ]);

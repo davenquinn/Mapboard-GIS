@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import h from "@macrostrat/hyper";
-import { DarkModeButton, GetAppButton } from "./buttons";
+import { DarkModeButton, GetAppButton } from "../buttons";
+import { getVersionsBySeries } from "loaders/versions";
+import { compareVersions } from "compare-versions";
+import { ActiveLink } from "./links";
 
 interface LinkSpec {
   href: string;
@@ -28,7 +31,6 @@ const aboutLinks: Links = [
   { href: "/about/interop", label: "Openness + interoperability" },
   { href: "/about/features", label: "Features + comparisons" },
   { href: "/about/gallery", label: "Gallery" },
-  { href: "/about/changelog", label: "Version history" },
   { href: "/about/roadmap", label: "Roadmap" },
 
   //{ href: '/about/get-involved', label: "Get involved" }
@@ -58,7 +60,33 @@ const userGuideLinks: Links = [
   { href: "/docs/topology", label: "Topology" },
   { href: "/docs/basemaps", label: "Basemaps" },
   { href: "/docs/tethered-mode", label: "Tethered mode" },
+  { href: "/docs/ios/releases", label: "Version history" },
   { href: "/docs/reporting-bugs", label: "Reporting bugs" },
 ];
 
-export { navLinks, aboutLinks, userGuideLinks };
+const buildVersionHistoryLinks = () => {
+  const versionHistoryLinks = getVersionsBySeries().map((d) => {
+    const { series, versions } = d;
+    return {
+      series,
+      label: "Series " + series,
+      children: versions.map((v) => {
+        return {
+          href: `/docs/ios/releases/${v.metadata.version}`,
+          label: v.metadata.version,
+        };
+      }),
+    };
+  });
+  return [
+    h(
+      ActiveLink,
+      { href: "/docs/ios/releases" },
+      h("a.backlink.link-button.minimal", "Version history")
+    ),
+    ...versionHistoryLinks,
+  ];
+};
+const versionHistoryLinks = buildVersionHistoryLinks();
+
+export { navLinks, aboutLinks, userGuideLinks, versionHistoryLinks };

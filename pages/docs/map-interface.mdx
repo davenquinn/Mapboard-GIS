@@ -1,6 +1,6 @@
 import { UserGuidePage } from "../../components/pages";
 import { Figure, Video } from "../../components/media";
-import { PageLinkButton } from "~/buttons";
+import { PageLinkButton, NewFeature } from "~/buttons";
 
 # Map interface
 
@@ -9,12 +9,14 @@ a project, the map is always available, and interactions with it
 follow the active status of the _Mode switcher_. All tool settings
 and options are adjusted in the _Sidebar_.
 
+<Figure src="/docs/v3-editing/editing-tools.mp4" width={500}
+>Advanced feature editing tools (drawing, snapping, and reshaping)
+used to rapidly capture and refine spatial datasets</Figure>
+
 ## Editing options
 
-<Figure src="/docs/map-interface.jpg">
-  A map interface annotated with functional groupings for the{" "}
-  <strong>Edit</strong> panel
-</Figure>
+<Figure src="/docs/map-interface.jpg">A map interface annotated 
+  with functional groupings for the **Edit** panel</Figure>
 
 The edit panel contains settings for the active tools used for drawing,
 erasing, and modifying map data. During map editing, this panel will
@@ -27,13 +29,11 @@ editing mode and feature layer (_Lines_ or _Polygons_) is active.
   src="/docs/map-interface/view-options.png"
   width={300}
   className="right"
->
-  The view control panel
-</Figure>
+>The view control panel</Figure>
 
-<Figure src="/docs/map-interface/show-points.jpg" width={300} className="right">
-  Linework showing constituents points
-</Figure>
+<Figure
+  src="/docs/map-interface/show-points.jpg" width={300} className="right"
+>Linework showing constituents points</Figure>
 
 In move mode, map editing is disabled, and _View options_ are
 the only controls available. These allow showing and hiding
@@ -44,15 +44,13 @@ The view controls also control an introspection layer for constituent
 points of geometries, which is especially handy for debugging topology
 errors.
 
-### _Draw mode_ options
+### The *Draw* tool
 
 <Figure
   src="/docs/map-interface/drawing-options.png"
   width={300}
   className="right"
->
-  Drawing options
-</Figure>
+>Drawing options</Figure>
 
 Draw mode allows drawing with a stylus (or a finger, if enabled in
 the [application settings](/docs/getting-started)).
@@ -61,38 +59,44 @@ the [application settings](/docs/getting-started)).
   src="/docs/map-interface/line-certainty.png"
   width={300}
   className="right"
->
-  <em>Certainty</em> controls the dash pattern for line features
-</Figure>
+><em>Certainty</em> controls the dash pattern for line features</Figure>
 
 The drawing panel controls selection of the active feature class as well as
 certainty.
 For the _Lines_ layer, a panel also controls feature snapping; this is replaced
 by controls for overlapping features for the _Polygons_ layer.
 
-<PageLinkButton href="/docs/data-types">
-  <strong>Data types</strong> docs
-</PageLinkButton>
+<PageLinkButton href="/docs/data-types"><strong>Data types</strong> docs</PageLinkButton>
 
-### _Erase mode_ options
+### The *Erase* tool
+
+<Figure autoPlay loop src="/docs/v3-editing/topological-erase.mp4" type="video/mp4" width={300}>Topological erasing in action</Figure>
 
 <Figure
   src="/docs/map-interface/eraser-options.png"
   width={300}
   className="right"
->
-  Erase mode options
-</Figure>
+>Erase mode options</Figure>
 
 In erase mode, a bounding area is used to clip
-and/or delete intersecting features.
-The primary option available in _Erase_ mode is whether only the
-active feature type should be impacted by erasing, or all types.
+and/or delete intersecting features. Erasing can
+affect only the active feature type, or all types.
 
-:::caution
-In the _tethered mode_ backed by PostGIS, a _Topological erase_
-tool is also available. This tool extends the eraser's area to the
-next "node" of the topology. **This feature is experimental and should be used with caution!**
+A _Topological erase_ tool, which extends
+the eraser's effects to the nearest intersection with other
+linework, allows quick elimination of dangling edges. <NewFeature version="3.2.0" /> 
+
+
+### The *Reshape* tool
+
+The **Reshape** edit mode splices new linework
+where it crosses current features. This algorithm is fairly complex internally,
+and has received extensive optimization to ensure
+speed, elegance, and efficiency. <NewFeature version="3.2.0" />
+
+:::note
+For now, the reshape tool is only available in for editing lines. Similar results for
+polygons can be achieved by using the _Erase_ and _Draw_ tools together.
 :::
 
 ### Selection actions
@@ -116,9 +120,7 @@ Many of these operations are experimental and subject to change.
   src="/docs/map-interface/sidebar-settings.png"
   width={280}
   className="right"
->
-  The settings sidebar panel
-</Figure>
+>The settings sidebar panel</Figure>
 
 The **Settings panel** provides access to a range of project
 configuration not directly related to editing operations.
@@ -133,9 +135,7 @@ The bottom provides debugging operations.
 The **Tile layers** panel provides tools to add, switch, and modify the basemap
 layers that anchor the map.
 
-<PageLinkButton href="/docs/basemaps">
-  <strong>Basemaps</strong> docs
-</PageLinkButton>
+<PageLinkButton href="/docs/basemaps">**Basemaps** docs</PageLinkButton>
 
 ### Editor settings
 
@@ -159,26 +159,11 @@ relegated to this panel.
 
 The **Topology** settings panel provides a way to manage the polygon-closing behavior of the map.
 
-<PageLinkButton href="/docs/topology">
-  <strong>Topology</strong> docs
-</PageLinkButton>
+<PageLinkButton href="/docs/topology">**Topology** docs</PageLinkButton>
 
 ## Experimental features
 
-The map interface contains several experimental features that are potentially
-extremely useful for quick, high-fidelity mapping.
-
-### Reshaping linework
-
-<Figure src="/docs/reshaping.mp4" width={400} className="right">
-  Reshaping linework to fix inaccurate GIS point-clicking
-</Figure>
-
-The **Reshape** edit mode is currently only available using the PostGIS tethered backend.
-It functions similarly to the basic drawing tool, but it attempts to splice new linework
-where it crosses current features. Although this algorithm is fairly complex internally,
-the tool is an elegant and time-saving feature. It will migrate to the Spatialite backend
-once it reaches stability.
+A few experimental features are being developed to improve the map interface.
 
 ### Geologic symbols
 
@@ -186,9 +171,7 @@ once it reaches stability.
   src="/docs/map-interface/experimental-geologic-symbols.png"
   width={300}
   className="right"
->
-  A fantastical fold-and-thrust belt that showcases geological line symbols.
-</Figure>
+>A fantastical fold-and-thrust belt that showcases geological line symbols.</Figure>
 
 The ability to use context-specific map symbology is one of the key strengths of
 paper-based geological mapping. **Mapboard GIS** is experimenting with support for linework
