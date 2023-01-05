@@ -1,0 +1,11 @@
+#!/bin/bash
+
+next build
+if [ "$VERCEL" = "1" ]; then
+  # Run production-specific hacks if in vercel environment
+  # Remove development symlink to media directory and replace it with an empty directory
+  # It's possible that we could do something a bit more intelligent before the build,
+  # but this works for now.
+  rm -rf /vercel/output/static/media
+  mkdir -p /vercel/output/static/media
+fi

@@ -11,7 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
-    "build": "next build && mkdir -p /vercel/output/static/media",
+    "build": "scripts/vercel-deploy",
     "prepare:changelog": "node scripts/parse-version-history.mjs"
   },
   "author": "Daven Quinn",
