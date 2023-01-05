@@ -4,7 +4,7 @@ import slug from "remark-slug";
 import toc from "remark-toc";
 import withMDX_ from "@next/mdx";
 import { readFileSync } from "fs";
-import { textPipeline } from "./config/index.mjs";
+import { textPipeline, mediaPath } from "./config/index.mjs";
 
 const pkgFile = new URL("./package.json", import.meta.url);
 const pkg = JSON.parse(readFileSync(pkgFile));
@@ -18,14 +18,10 @@ const withMDX = withMDX_({
 
 const GITHUB_LINK = pkg.repository.url.replace(/\.git$/, "");
 
-const isProd = process.env.NODE_ENV === "production";
-
 let baseCfg = {
   pageExtensions: ["mdx", "ts", "tsx"],
   env: {
-    MEDIA_PATH: isProd
-      ? "//sfo2.digitaloceanspaces.com/mapboard-gis-assets"
-      : "/media",
+    NEXT_PUBLIC_MEDIA_PATH: mediaPath,
     ...RevisionInfoWebpack(pkg, GITHUB_LINK),
   },
   redirects: async () => {

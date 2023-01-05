@@ -109,9 +109,14 @@ function remarkVideos() {
   return transformer;
 }
 
+const isProd = process.env.NODE_ENV === "production";
+export const mediaPath = isProd
+  ? "//sfo2.digitaloceanspaces.com/mapboard-gis-assets"
+  : "/media";
+
 const updateSrc = function (src) {
   if (!(src.indexOf("://") > 0 || src.indexOf("//") === 0)) {
-    src = process.env.MEDIA_PATH + src;
+    src = mediaPath + src;
   }
   return src;
 };

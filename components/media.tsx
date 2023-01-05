@@ -2,7 +2,7 @@ import h from "@macrostrat/hyper";
 
 const updateSrc = function (src) {
   if (!(src.indexOf("://") > 0 || src.indexOf("//") === 0)) {
-    src = process.env.MEDIA_PATH + src;
+    src = process.env.NEXT_PUBLIC_MEDIA_PATH + src;
   }
   return src;
 };
