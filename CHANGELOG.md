@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ![The upgraded topology engine in action](/docs/v3-editing/topology.mp4)
 
-This is the first public release of the **Mapboard GIS** `3.x` series.
+This is the first public release of **Mapboard GIS** _Version 3_.
 It is a major rework of the app's internals and spatial editing capabilities,
 in preparation for coming functional enhancements.
 
@@ -52,7 +52,7 @@ and structures, including with an internal vector tile
 ### Upgraded spatial stack
 
 The stack of spatial software that powers **Mapboard GIS** has been greatly
-enhanced in the `3.0` release. This includes updated versions of `proj`, `geos`,
+enhanced in _Version 3_. This includes updated versions of `proj`, `geos`,
 `spatialite`, `rttopo`, and other supporting open-source geospatial libraries.
 We've also greatly enhanced the compilation pipeline for these libraries to be
 less brittle and enable more direct utilization of their functionality.
