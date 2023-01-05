@@ -1,14 +1,13 @@
 ---
 version: 3.2.0
-date: Unreleased
+date: 2023-01-04
 major: true
 in-brief:
-  - Completely revamped mapping system based on Mapbox Maps SDK v10
-  - New vector tile rendering pipeline
-  - Upgraded GIS software libraries (Spatialite, GEOS, and Proj)
-    to the latest stable versions
-  - Allow opacity to be set for lines, polygons, and raster overlay
-    layers
+  - Completely rebuilt mapping display system (Mapbox Maps SDK v10)
+  - Stabilized and upgraded the GIS software stack
+  - New reshape and topological editing tools for lines
+  - Faster and more robust topological operations
+  - Allow setting opacity on lines, polygons, and raster overlay layers
 ---
 
 This is the first public release of the `3.x` series of **Mapboard GIS**.

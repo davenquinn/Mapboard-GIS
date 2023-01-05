@@ -3,16 +3,17 @@
     "content": "\nThis is the first public release of the `3.x` series of **Mapboard GIS**.\nIt is a major rework of the app's internals and spatial editing capabilities,\nin preparation for coming functional enhancements.\n\n### Backend updates\n\n**Mapboard GIS** is powered by open-source geospatial libraries, and its\nsoftware stack has been greatly enhanced in the `3.0` release.\n\n### Potential pain points\n\nSince this is a major overhaul of the app, some functionality was not\ncompletely ported over for expediency. We anticipate fixing many problems\nand omissions in future minor versions in the `3.x` series.\n\n### Small user-interface changes\n",
     "metadata": {
       "version": "3.2.0",
-      "date": "Unreleased",
+      "date": "2023-01-04T00:00:00.000Z",
       "major": true,
       "inBrief": [
-        "Completely revamped mapping system based on Mapbox Maps SDK v10",
-        "New vector tile rendering pipeline",
-        "Upgraded GIS software libraries (Spatialite, GEOS, and Proj) to the latest stable versions",
-        "Allow opacity to be set for lines, polygons, and raster overlay layers"
+        "Completely rebuilt mapping display system (Mapbox Maps SDK v10)",
+        "Stabilized and upgraded the GIS software stack",
+        "New reshape and topological editing tools for lines",
+        "Faster and more robust topological operations",
+        "Allow setting opacity on lines, polygons, and raster overlay layers"
       ],
       "series": "3",
-      "dateText": "Unreleased"
+      "dateText": "January 3, 2023"
     }
   },
   {
