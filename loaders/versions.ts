@@ -1,16 +1,11 @@
-import { remark } from "remark";
-import html from "remark-html";
 import versionData from "../iOS-releases/versions.json";
 import { compareVersions } from "compare-versions";
-import { remarkUpgradeHeadings, textPipeline } from "_config/index.mjs";
+import { markdownToHtml } from "_config/index.mjs";
 
 export async function processToHTML(version) {
   const { content } = version;
-  const newContent = await remark()
-    .use([remarkUpgradeHeadings, ...textPipeline, html])
-    .process(content);
-
-  return { ...version, content: newContent.toString() };
+  let text = await markdownToHtml(content);
+  return { ...version, content: text };
 }
 
 export function getVersionData() {
