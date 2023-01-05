@@ -68,7 +68,10 @@ const Nav = function (props) {
 };
 
 const BottomNav = function (props: { links: Links }) {
-  const links = unnestLinks(props.links).filter((d) => d.href != null);
+  const links = unnestLinks(props.links).filter(
+    // @ts-ignore
+    (d) => d.hasOwnProperty("href") && d.href != null
+  );
   const { asPath: pathname } = useRouter() || {};
   if (pathname == null) {
     return null;

@@ -4,7 +4,7 @@ import slug from "remark-slug";
 import toc from "remark-toc";
 import withMDX_ from "@next/mdx";
 import { readFileSync } from "fs";
-import { textPipeline } from "./_config/index.mjs";
+import { textPipeline } from "./config/index.mjs";
 
 const pkgFile = new URL("./package.json", import.meta.url);
 const pkg = JSON.parse(readFileSync(pkgFile));

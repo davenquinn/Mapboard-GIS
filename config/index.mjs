@@ -109,6 +109,22 @@ function remarkVideos() {
   return transformer;
 }
 
+const updateSrc = function (src) {
+  if (!(src.indexOf("://") > 0 || src.indexOf("//") === 0)) {
+    src = process.env.MEDIA_PATH + src;
+  }
+  return src;
+};
+
+function remarkPrefixImageLinks() {
+  return (tree) => {
+    visit(tree, (node) => {
+      if (node.type !== "image") return;
+      node.url = updateSrc(node.url);
+    });
+  };
+}
+
 /* A pipeline to transform and format Markdown in preparation
 for rendering. */
 export const textPipeline = [
@@ -126,6 +142,7 @@ export const textPipeline = [
 /* A pipeline to transform Markdown to HTML. */
 const htmlProcessor = unified().use([
   remarkParse,
+  remarkPrefixImageLinks,
   ...textPipeline,
   remarkRehype,
   rehypeFormat,

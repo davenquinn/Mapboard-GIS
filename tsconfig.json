@@ -18,6 +18,6 @@
       "~/*": ["components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "_config/index.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "config/index.mjs"],
   "exclude": ["node_modules"]
 }

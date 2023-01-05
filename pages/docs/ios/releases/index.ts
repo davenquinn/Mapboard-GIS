@@ -4,7 +4,8 @@ import h from "@macrostrat/hyper";
 import { NextLinkButton } from "~/buttons";
 import { remark } from "remark";
 import html from "remark-html";
-import { textPipeline } from "_config/index.mjs";
+//@ts-ignore
+import { textPipeline } from "~/../config/index.mjs";
 import { getVersionsBySeries } from "loaders/versions";
 import { ReleaseTags } from "~/versions";
 

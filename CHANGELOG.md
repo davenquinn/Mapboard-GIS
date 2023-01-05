@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 *This is a major release.* 🎉
 
 
-![The upgraded topology engine in action](/media/docs/v3-editing/topology.mp4)
+![The upgraded topology engine in action](/docs/v3-editing/topology.mp4)
 
 This is the first public release of the **Mapboard GIS** `3.x` series.
 It is a major rework of the app's internals and spatial editing capabilities,
@@ -21,7 +21,7 @@ in preparation for coming functional enhancements.
 
 ### New editing tools
 
-![Drawing and reshaping lines](/media/docs/v3-editing/editing-tools.mp4)
+![Drawing and reshaping lines](/docs/v3-editing/editing-tools.mp4)
 
 - Line snapping has been improved to also snap
   current linework endpoints to nearby created
@@ -32,9 +32,9 @@ in preparation for coming functional enhancements.
   dangling edges
 - A greatly improved **Undo** tool allows full recovery from any line or polygon change.
 
-![Reshape and undo](/media/docs/v3-editing/reshape-undo.mp4)
+![Reshape and undo](/docs/v3-editing/reshape-undo.mp4)
 
-![Topological erase mode](/media/docs/v3-editing/topological-erase.mp4)
+![Topological erase mode](/docs/v3-editing/topological-erase.mp4)
 
 ### An improved topology system
 

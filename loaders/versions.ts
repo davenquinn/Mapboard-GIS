@@ -1,6 +1,7 @@
 import versionData from "../iOS-releases/versions.json";
 import { compareVersions } from "compare-versions";
-import { markdownToHtml } from "_config/index.mjs";
+//@ts-ignore
+import { markdownToHtml } from "../config/index.mjs";
 
 export async function processToHTML(version) {
   const { content } = version;
