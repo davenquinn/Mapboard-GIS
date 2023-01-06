@@ -25,71 +25,51 @@ maps at any scale.
 
 # Features
 
-<div className="callout-panel">
-
-<div className="callout two-col">
-
-<div>
-
-## Pen-based mapping
-
-**Mapboard GIS** hides its sophisiticated spatial engine behind simple
-tools for drawing, erasing, and reshaping features.
-Quicker editing allows mapping time to be spent refining interpretations
-instead of fighting with technical tools.
-
+<div className="callout two-col right">
+  <div>
+  <h2>Pen-based mapping</h2>
+  **Mapboard GIS** hides its sophisiticated spatial engine behind simple
+  tools for drawing, erasing, and reshaping features.
+  Quicker editing allows mapping time to be spent refining interpretations
+  instead of fighting with technical tools.
+  </div>
+  <Video
+    autoPlay
+    loop
+    playsInline
+    muted
+    src="/mapboard-intro.mp4"
+    type="video/mp4"
+  />
 </div>
 
-<Video
-  autoPlay
-  loop
-  playsInline
-  muted
-  src="/mapboard-intro.mp4"
-  type="video/mp4"
-/>
-
+<div className="callout two-col left">
+  <div>
+  <h2>Topology-aware</h2>
+  In current digital mapping workflows, contacts are fully digitized prior to
+  "closing" linework to form unit polygons. The iterative topological
+  solver within **Mapboard GIS** painlessly keeps the structure of the map consistent.
+  </div>
+  <Video autoPlay loop src="/mapboard-topology.mp4" type="video/mp4" />
 </div>
 
-<div className="callout two-col">
-
-<Video autoPlay loop src="/mapboard-topology.mp4" type="video/mp4" />
-
-<div>
-
-## Topology-aware
-
-In current digital mapping workflows, contacts are fully digitized prior to
-"closing" linework to form unit polygons. The iterative topological
-solver within **Mapboard GIS** painlessly keeps the structure of the map consistent.
-
-</div>
-
-</div>
-
-<div className="callout two-col">
-
-<div>
-
-## Tether to desktop GIS
-
-Field mapping is important, but **Mapboard GIS** is even more powerful alongside a networked computer.
-Its _tethered mode_, backed by a PostGIS spatial database,
-allows work across massive datasets.
-The [**PostGIS Geologic Map** topology solver](https://github.com/davenquinn/PostGIS-Geologic-Map)
-can maintain a consistent map during editing, even during collaborative mapping!
-
-</div>
-
-<Video
-  autoPlay
-  loop
-  playsInline
-  muted
-  src="/tethered-mode.mp4"
-  type="video/mp4"
-/>{" "}
-
+<div className="callout two-col right">
+  <div>
+  <h2>Tether to desktop GIS</h2>
+  Field mapping is important, but **Mapboard GIS** is even more powerful alongside a networked computer.
+  Its _tethered mode_, backed by a PostGIS spatial database,
+  allows work across massive datasets.
+  The [**PostGIS Geologic Map** topology solver](https://github.com/davenquinn/PostGIS-Geologic-Map)
+  can maintain a consistent map during editing, even during collaborative mapping!
+  </div>
+  <Video
+    autoPlay
+    loop
+    playsInline
+    muted
+    src="/tethered-mode.mp4"
+    type="video/mp4"
+  />
 </div>
 
 <div className="callout">
@@ -115,8 +95,6 @@ age, providing an elegant alternative to its namesake field equipment.
 field notebooks, Brünton compasses, and navigational devices. We try not to
 reinvent the wheel — but going forward, we hope to integrate with other tools
 for seamless data-collection experiences.
-
-</div>
 
 </div>
 

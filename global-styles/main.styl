@@ -6,8 +6,8 @@ $accent=darken(#a328b4,40%)
 $gradient-dest=rgb(52,45,79)
 $gradient-light=lighten($gradient-dest,75%)
 $gradient-dark=darken($gradient-dest,5%)
-$dark-card-base = darken(#32536b,10%)
-$card-base = lighten(#32536b,60%)
+$dark-card-base = darken(#36375f,10%)
+$card-base = lighten(#36375f,60%)
 
 :root
   --header-font: "Montserrat", Helvetica, sans-serif
@@ -104,9 +104,9 @@ ul
 
 .main
   flex-grow 1
-  padding 2em 0 0
   display flex
   flex-direction: column
+  margin-top: 1em
 
 h1,h2,h3,h4,h5,h6
   font-family: var(--header-font)
@@ -138,12 +138,10 @@ h1,h2,h3,h4,h5,h6
 figure
   break-inside: avoid
   max-width: 100%
+  margin: calc(var(--figure-margin) * 0.2) \
+    auto calc(var(--figure-margin) * 0.8)
   &:first-child
     margin-top 0
-  margin:
-    calc(var(--figure-margin) * 0.2)
-    auto
-    calc(var(--figure-margin) * 0.8);
   img, video
     border-radius 6px
     max-width 100%
@@ -156,9 +154,6 @@ figure
     pre
       font-size 0.8em
       line-height 1.2
-
-  &.left, &.right
-    max-width: 50%
 
 figcaption
   text-align center
@@ -181,37 +176,58 @@ footer
     margin-top 0
     text-align: center
 
-header
-  .header-image
-    cursor pointer
-    img.mapboard-logo
-      width 150px
-      height 150px
-  a.page-title-link
-    display block
-    text-decoration: none
-    color: var(--text-color)
-  h1.page-title
-    //font-family: "Helvetica Neue", Helvetica, sans-serif
-    color var(--purple-color)
-    font-weight 400
-    font-size 3.5em
-    margin: 0
-    span.dimmer
-      opacity 0.5
-  nav ul
-    padding-left: 0
-    display: flex
-    flex-flow: row wrap
-    justify-content: center
-    .spacer
-      width: 0
-      margin: 0
-    margin: 0 -0.5em
-    li
-      margin: 0.4em 0.5em
-      list-style: none
+:root
+  --page-title-size: calc(min(9vw, 3.5em))
+  --header-image-size: calc(min(15vw, 6em))
 
+h1.page-title
+  //font-family: "Helvetica Neue", Helvetica, sans-serif
+  color var(--purple-color)
+  font-weight 400
+  font-size: var(--page-title-size)
+  margin: 0
+  white-space: nowrap
+  span.dimmer
+    opacity 0.5
+
+.page-title-link
+  text-align: center
+  display block
+  text-decoration: none
+  overflow: hidden
+  color: var(--text-color)
+  position: relative
+  line-height 1
+
+header
+  display grid
+  grid-gap 1em
+  align-items: center
+  .header-image
+    margin 0 auto
+    cursor pointer
+    height var(--header-image-size)
+    width var(--header-image-size)
+    overflow: hidden
+    img.mapboard-logo
+      width 110%
+      height 110%
+      margin: -5%
+  nav
+    .spacer
+      display none
+    ul
+      margin: 0
+      padding-left: 0
+      display: flex
+      flex-flow: row wrap
+      justify-content: center
+      align-items: space-between
+      gap: 0.5em
+      //margin: 0 -0.5em
+    li
+      //margin: 0.4em 0.5em
+      list-style: none
 
 // Section headers
 
@@ -245,18 +261,45 @@ minimal-link-button()
 .link-button.minimal
   minimal-link-button()
 
+nav .parent-link a.link-button
+  minimal-link-button()
+
 .section-nav
+  margin-top: 1em
+  .nav-inner
+    display: grid
+    grid-template-columns: fit-content 1fr
+    grid-gap: 0.5em
+    .parent-link
+      grid-column: 1 / 1
+      grid-row: 1 / 1
+    ul.nav-main
+      display: none
+    .next-prev
+      display: flex
+      flex-flow: row wrap
+      grid-column: 2 / 2
+      grid-row: 1 / 1
+  a.prev-link-button
+    .label-text
+      display: none
+
   a.link-button, span.nav-label
     text-align left
     padding 0.2em 0.5em
-    &.backlink
-      margin-bottom: 0.5em
-      text-align center
-  ul
+  .nav-inner>*
+    margin-bottom: 0.5em
+
+  ul.nav-main
     list-style: none
     padding-left 0
-    justify-content: right
+    justify-content: left 
+    display flex
+    flex-flow row wrap
     text-align left
+    margin-top: 0
+    display: none
+    gap: 0.5em
     ul
       border 1.5px solid var(--accent-color)
       border-radius 6px
@@ -273,44 +316,44 @@ minimal-link-button()
         padding 0.25em
         padding-top 0
         margin 0
-  li
-    margin-bottom 0.5em
-    margin-right 0.5em
-    display inline-block
   span.nav-label
     color: var(--accent-color)
     font-weight 400
     font-style italic
     cursor: default
 
-  .nav-next-prev
-    display: inline-flex
-    flex-direction: row
-    .spacer
-      flex-grow 1
-    a.link-button
-      width 2.2em
-      border none
-
+  .next-prev a.link-button
+    minimal-link-button()
 
  .section-nav, .bottom-links
-  line-height 1
   a.link-button, span.nav-label
     border-width 1.5px
     font-size 14px
-    display block
 
 .bottom-links
+  margin-top 2em
+
+a.link-button, span.nav-label
+  display: block
+
+.next-prev
   display flex
   flex-direction: row
-  margin-top 2em
+  gap: 0.5em
   .spacer
     flex-grow 1
+
+.next-link-button
+  .label-text
+    margin-right 0.5em
+  
+.icon-left-button
+  .label-text
+    margin-left 0.5em
 
 $grid_margin=1.5em
 
 @require "./larger-screens"
-
 
 card()
   padding 1.2em;
@@ -325,7 +368,6 @@ card()
     margin 0.5em 0 0.7em
     font-family: var(--header-font)
     color var(--text-color)
-    font-weight 400
     font-size 1.5em
     line-height 1em
 
@@ -360,34 +402,28 @@ a.link-button, button.bp3-button
   strong
     font-weight 600
 
-.callout-panel
-  grid-template-columns 50fr 50fr;
-  margin-right -1*$grid_margin 
-
 .callout
-  card()
-  border 2px solid var(--card-border)
-  flex-grow 1
-  font-size 0.9em
-  line-height 1.5em
-  border-radius 10px
-
-  &.two-col
-    grid-column span 2
-    display flex
-    flex-direction: column
-    align-items: center
-    &>*
-      display flex
-      flex-direction: column
-      justify-content: space-around
+  //card()
+  //border 2px solid var(--card-border)
+  //flex-grow 1
+  //font-size 0.9em
+  //line-height 1.5em
+  // margin-bottom 2em
+  // h1, h2, h3
+  //   margin-top 0
   p
     text-align left
+
+  h1,h2,h3
+    margin-top: 0
 
   video
     width 300px
     max-width 100%
     border-radius 6px
+    height: fit-content
+    display block
+    margin: 1em auto
 
 .figure-panel
   column-count 2
@@ -399,19 +435,17 @@ a.link-button, button.bp3-button
 
 
 .manifesto
-  margin 1em
+  margin 1em 1.5em
   font-size 1.5em
-  display flex
-  flex-direction: column
-  align-items: center
   .manifesto-text
     flex-grow 1
-    margin-right 1em
     line-height 1.5em
+    p
+      hyphens: none
   p
     margin 0
-    text-align left
     font-weight 300
+    text-align: center
     font-style italic
   a.manifesto-link
     font-size 1em
@@ -425,6 +459,7 @@ a.link-button, button.bp3-button
     max-width 24em
     margin 1em auto
     text-align center
+    padding-top: 1em
     *
       text-align center
 //@media screen and (max-width 700px)

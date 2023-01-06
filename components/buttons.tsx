@@ -3,6 +3,7 @@ import Link from "next/link";
 import h from "@macrostrat/hyper";
 import dynamic from "next/dynamic";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import classNames from "classnames";
 
 export const DarkModeButton = dynamic(() => {
   if (typeof window == "undefined") return Promise.resolve(null);
@@ -12,32 +13,46 @@ export const DarkModeButton = dynamic(() => {
   });
 });
 
-export const LinkButton = ({ href, label }) =>
-  h(Link, { href }, h("a.link-button", null, label));
+export const LinkButton = ({ href, label, className }) =>
+  h(Link, { href }, h("a.link-button", { className }, label));
 
 export const NextLinkButton = (props) => {
+  const className = classNames("next-link-button", props.className);
   const { href, label, ...rest } = props;
   let children: React.ReactNode = <FaArrowRight />;
   if (label != null) {
-    children = h([label, " ", children]);
+    children = h([h("span.label-text", [label, " "]), children]);
   }
   return h(LinkButton, {
     href,
     ...rest,
+    className,
+    label: children,
+  });
+};
+
+export const IconLeftButton = (props) => {
+  const { href, label, icon, className, ...rest } = props;
+  let children: React.ReactNode = icon;
+  if (label != null) {
+    children = h([icon, h("span.label-text", [label, " "])]);
+  }
+  return h(LinkButton, {
+    href,
+    ...rest,
+    className: classNames("icon-left-button", className),
     label: children,
   });
 };
 
 export const PrevLinkButton = (props) => {
-  const { href, label, ...rest } = props;
-  let children: React.ReactNode = <FaArrowLeft />;
-  if (label != null) {
-    children = h([<FaArrowLeft />, " ", label]);
-  }
-  return h(LinkButton, {
+  const { href, label, icon = h(FaArrowLeft), ...rest } = props;
+  return h(IconLeftButton, {
     href,
     ...rest,
-    label: children,
+    icon,
+    className: "prev-link-button",
+    label,
   });
 };
 
@@ -72,9 +87,6 @@ export const TestFlightButton = () =>
       Join the <em>TestFlight</em> beta
     </>
   );
-
-export const NextButton = ({ label, ...rest }) => h(NextLinkButton, rest);
-export const PrevButton = ({ label, ...rest }) => h(PrevLinkButton, rest);
 
 export const NewFeature = ({ version }) =>
   h("span.new-feature.tag", [
