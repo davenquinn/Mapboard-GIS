@@ -24,6 +24,7 @@ $card-base = lighten(#32536b,60%)
   --background-gradient: linear-gradient(120deg, alpha($gradient-light,0) 0%, $gradient-light 100%)
   --purple-color: #544679
   --figure-margin: 1.5em
+  --line-height: 1.75
 
 
 $accent-light=#a328b4
@@ -68,7 +69,7 @@ body
     background:  darken(rgba(34,29,38,1),30%) // lighten(#161517, 2%) //
   transition: background 0.2s;
   font-family "Merriweather", 'Times New Roman', Times, serif
-  line-height 1.75
+  line-height var(--line-height)
   //background-color: var(--background-color)
   position relative
   margin 0
@@ -322,20 +323,20 @@ card()
 
 button.bp3-button
   background-color transparent
-  line-height 2
   span.bp3-icon
-    transform translateY(2)
+    //transform translateY(2)
     svg
       transform scale(1.3) translateY(1px)
       path
         fill var(--accent-color)
 
 a.link-button, button.bp3-button
+  line-height: calc(var(--line-height) * 0.8)
   cursor pointer
   font-size 17px
   text-align: center
   display:inline-block;
-  padding:0.35em 1.2em;
+  padding: 0.5em 1.2em;
   border:2px solid var(--accent-color);
   color var(--accent-color);
   border-radius:0.3em;
