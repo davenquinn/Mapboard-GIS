@@ -69,7 +69,7 @@ const buildVersionHistoryLinks = () => {
     const { series, versions } = d;
     return {
       series,
-      label: "Series " + series,
+      label: "Version " + series,
       children: versions.map((v) => {
         return {
           href: `/docs/ios/releases/${v.metadata.version}`,

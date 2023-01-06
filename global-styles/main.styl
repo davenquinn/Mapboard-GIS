@@ -40,9 +40,12 @@ a
   color: var(--accent-color)
 
 // Typography
-p, ul, ol, li, figure, figcaption, blockquote
+p, ul, ol, li, blockquote
   text-align: justify
   hyphens: auto
+
+figcaption
+  hyphens: none
 
 code, pre 
   font-family: var(--mono-font)
@@ -132,25 +135,14 @@ h1,h2,h3,h4,h5,h6
 
   h1:first-child
     line-height 1
-  figure
-    margin 0
-    margin-bottom margin !important
-    &.center
-      margin 0 auto 1.5em
-      figcaption
-        text-align center
-    &.right
-      float right
-      margin-left: margin
-      clear right
-    &.left
-      float left
-      margin-right margin
-      clear left
-    img, video
-      border-radius 6px
-    &.no-border img, video
-      border none
+
+figure
+  margin 0
+  margin-bottom margin !important
+  img, video
+    border-radius 6px
+  &.no-border img, video
+    border none
 
 // Changlog images and videos
 .version .content figure
@@ -163,14 +155,15 @@ h1,h2,h3,h4,h5,h6
 footer 
   color var(--secondary-color)
   font-size 0.9em
-  padding-top 1em
+  padding-top 4em
   font-weight 300
-  margin-bottom 4em
+  margin-bottom 2em
   strong
     font-weight 600
   p
     margin-bottom 0
     margin-top 0
+    text-align: center
 
 header
   display grid
@@ -312,7 +305,7 @@ minimal-link-button()
   .spacer
     flex-grow 1
 
-@media screen and (min-width 700px)
+@media screen and (min-width 840px)
   .section-page .main
     display flex
     flex-direction row
@@ -430,6 +423,11 @@ figure
       line-height 1.2
     // pre
     //   width 10em
+  // By default, we align all figures to the center
+  margin: 0 auto var(--figure-margin)
+  figcaption
+    text-align center
+
 
 .manifesto
   margin 1em
@@ -486,9 +484,27 @@ div.mountain-underlay
     width 100%
     //filter: brightness(1.5) saturate(0.8)
 
-
+:root
+  --figure-margin: 1.5em
 
 // Larger screen changes
+@media screen and (min-width 640px)
+  figure
+    &.right
+      float right
+      margin-right: 0
+      margin-left: var(--figure-margin)
+      clear right
+    &.left
+      float left
+      margin-left: 0
+      margin-right var(--figure-margin)
+      clear left
+
+  .version-history .version
+    display: flex
+    flex-direction: row
+
 @media screen and (min-width 700px)
   .callout-panel
     display: grid
@@ -514,6 +530,9 @@ div.mountain-underlay
     display flex
     flex-direction row
     justify-content: space-between
+    p
+      text-align: justify
+
 
 
 @media screen and (min-width 1100px)
