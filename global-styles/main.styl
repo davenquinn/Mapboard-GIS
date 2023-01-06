@@ -265,7 +265,7 @@ nav .parent-link a.link-button
   minimal-link-button()
 
 .section-nav
-  margin-top: 1em
+  margin-bottom: 1em
   .nav-inner
     display: grid
     grid-template-columns: fit-content 1fr
@@ -296,6 +296,7 @@ nav .parent-link a.link-button
     justify-content: left 
     display flex
     flex-flow row wrap
+    align-items: center
     text-align left
     margin-top: 0
     display: none
@@ -303,14 +304,17 @@ nav .parent-link a.link-button
     ul
       border 1.5px solid var(--accent-color)
       border-radius 6px
-      margin-bottom 0.5em
-      margin-right 0.5em
-      display inline-block
+      list-style: none
+      display: flex
+      flex-flow: row wrap
+      align-items: baseline
+      padding-left 0
       li
         &:first-child
           padding-top 0.25em
           a
             font-weight bold
+        padding-left: 0
         a.link-button
           minimal-link-button()
         padding 0.25em
@@ -421,7 +425,6 @@ a.link-button, button.bp3-button
     width 300px
     max-width 100%
     border-radius 6px
-    height: fit-content
     display block
     margin: 1em auto
 
