@@ -40,6 +40,7 @@ function getParentLink(href) {
 function findParentLink(href, links = allLinks) {
   // Find the nearest parent link
   const parentLink = getParentLink(href);
+  // @ts-ignore
   const link = links.find((d) => d.href == parentLink);
   if (link == null) {
     return findParentLink(parentLink, links);
