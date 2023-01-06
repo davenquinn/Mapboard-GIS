@@ -40,13 +40,9 @@ a
   color: var(--accent-color)
 
 // Typography
-p
+p, ul, ol, li, figure, figcaption, blockquote
   text-align: justify
-  hyphens: manual
-  text-rendering: optimizeLegibility
-  font-variant-ligatures: common-ligatures
-  font-kerning: normal
-  font-feature-settings: "kern", "liga"
+  hyphens: auto
 
 code, pre 
   font-family: var(--mono-font)
@@ -69,7 +65,7 @@ body
     background:  darken(rgba(34,29,38,1),30%) // lighten(#161517, 2%) //
   transition: background 0.2s;
   font-family "Merriweather", 'Times New Roman', Times, serif
-  line-height 2
+  line-height 1.75
   //background-color: var(--background-color)
   position relative
   margin 0
