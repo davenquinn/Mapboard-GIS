@@ -51,7 +51,7 @@ export default function Changelog({ series }) {
 
 function Series({ series }) {
   return h("div.series", [
-    h("h2", "Series " + series.series),
+    h("h2", "Version " + series.series),
     h(
       "div.versions",
       series.versions.map((d) => h(Version, { version: d }))

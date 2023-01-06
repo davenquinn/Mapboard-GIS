@@ -6,8 +6,8 @@ $accent=darken(#a328b4,40%)
 $gradient-dest=rgb(52,45,79)
 $gradient-light=lighten($gradient-dest,75%)
 $gradient-dark=darken($gradient-dest,5%)
-$dark-card-base = darken(#32536b,10%)
-$card-base = lighten(#32536b,60%)
+$dark-card-base = darken(#36375f,10%)
+$card-base = lighten(#36375f,60%)
 
 :root
   --header-font: "Montserrat", Helvetica, sans-serif
@@ -24,6 +24,7 @@ $card-base = lighten(#32536b,60%)
   --background-gradient: linear-gradient(120deg, alpha($gradient-light,0) 0%, $gradient-light 100%)
   --purple-color: #544679
   --figure-margin: 1.5em
+  --line-height: 1.75
 
 
 $accent-light=#a328b4
@@ -40,13 +41,9 @@ a
   color: var(--accent-color)
 
 // Typography
-p
+p, ul, ol, li, blockquote
   text-align: justify
-  hyphens: manual
-  text-rendering: optimizeLegibility
-  font-variant-ligatures: common-ligatures
-  font-kerning: normal
-  font-feature-settings: "kern", "liga"
+  hyphens: auto
 
 code, pre 
   font-family: var(--mono-font)
@@ -69,7 +66,7 @@ body
     background:  darken(rgba(34,29,38,1),30%) // lighten(#161517, 2%) //
   transition: background 0.2s;
   font-family "Merriweather", 'Times New Roman', Times, serif
-  line-height 2
+  line-height var(--line-height)
   //background-color: var(--background-color)
   position relative
   margin 0
@@ -97,7 +94,7 @@ ul
 
 .wrap
   padding 2em
-  max-width 52em
+  max-width 640px
   margin 0 auto
   min-height 100vh
   display flex
@@ -107,13 +104,14 @@ ul
 
 .main
   flex-grow 1
-  padding 2em 0 0
   display flex
   flex-direction: column
+  margin-top: 1em
 
 h1,h2,h3,h4,h5,h6
   font-family: var(--header-font)
   color var(--header-color)
+  font-weight: 600
 
 .extra-space
   margin 1em
@@ -128,6 +126,7 @@ h1,h2,h3,h4,h5,h6
 
 
 .section-content
+  position relative
   h1,h2
     clear: both
 
@@ -135,95 +134,104 @@ h1,h2,h3,h4,h5,h6
 
   h1:first-child
     line-height 1
-  figure
-    margin 0
-    margin-bottom margin !important
-    &.center
-      margin 0 auto 1.5em
-      figcaption
-        text-align center
-    &.right
-      float right
-      margin-left: margin
-      clear right
-    &.left
-      float left
-      margin-right margin
-      clear left
-    img, video
-      border-radius 6px
-    &.no-border img, video
-      border none
+
+figure
+  break-inside: avoid
+  max-width: 100%
+  margin: calc(var(--figure-margin) * 0.2) \
+    auto calc(var(--figure-margin) * 0.8)
+  &:first-child
+    margin-top 0
+  img, video
+    border-radius 6px
+    max-width 100%
+
+  &.no-border img, video
+    border none
+
+  &.code-figure
+    width 16em
+    pre
+      font-size 0.8em
+      line-height 1.2
+
+figcaption
+  text-align center
+  hyphens: none
 
 // Changlog images and videos
 .version .content figure
-  float: right
-  margin-left: var(--figure-margin)
-  clear: right
-  margin-bottom: var(--figure-margin)
   max-width: 300px
 
 footer 
   color var(--secondary-color)
   font-size 0.9em
-  padding-top 1em
+  padding-top 4em
   font-weight 300
-  margin-bottom 4em
+  margin-bottom 2em
   strong
     font-weight 600
   p
     margin-bottom 0
     margin-top 0
+    text-align: center
+
+:root
+  --page-title-size: calc(min(9vw, 3.5em))
+  --header-image-size: calc(min(15vw, 6em))
+
+h1.page-title
+  //font-family: "Helvetica Neue", Helvetica, sans-serif
+  color var(--purple-color)
+  font-weight 400
+  font-size: var(--page-title-size)
+  margin: 0
+  white-space: nowrap
+  span.dimmer
+    opacity 0.5
+
+.page-title-link
+  text-align: center
+  display block
+  text-decoration: none
+  overflow: hidden
+  color: var(--text-color)
+  position: relative
+  line-height 1
 
 header
   display grid
-  grid-template-columns: min-content auto
-  flex-direction row
-  align-items center
+  grid-gap 1em
+  align-items: center
   .header-image
-    grid-column 1
+    margin 0 auto
     cursor pointer
+    height var(--header-image-size)
+    width var(--header-image-size)
+    overflow: hidden
     img.mapboard-logo
-      width 150px
-      height 150px
-      margin -10px
-      margin-bottom -20px
-    margin-right 2em
-  a.page-title-link
-    display block
-    grid-column 1 / span 2
-
-  h1.page-title
-    //font-family: "Helvetica Neue", Helvetica, sans-serif
-    color var(--purple-color)
-    margin 0em 0 0.2em
-    font-weight 400
-    font-size 3.5em
-    line-height 1
-    span.dimmer
-      opacity 0.5
-  nav ul
-    grid-column 2
-    display flex
-    flex-flow: row wrap
-    justify-content: left
-    padding-left 0
-    margin-top 0
-    margin-bottom -1em
+      width 110%
+      height 110%
+      margin: -5%
+  nav
+    .spacer
+      display none
+    ul
+      margin: 0
+      padding-left: 0
+      display: flex
+      flex-flow: row wrap
+      justify-content: center
+      align-items: space-between
+      gap: 0.5em
+      //margin: 0 -0.5em
     li
-      margin-right 1em
-      margin-bottom 1em
+      //margin: 0.4em 0.5em
       list-style: none
-  a.page-title-link
-    text-decoration: none
-    color: var(--text-color)
 
 // Section headers
 
 .section-main
-  flex 1
-  display flex
-  flex-direction: column
   .section-content
     flex 1
     position relative
@@ -253,18 +261,45 @@ minimal-link-button()
 .link-button.minimal
   minimal-link-button()
 
+nav .parent-link a.link-button
+  minimal-link-button()
+
 .section-nav
+  margin-top: 1em
+  .nav-inner
+    display: grid
+    grid-template-columns: fit-content 1fr
+    grid-gap: 0.5em
+    .parent-link
+      grid-column: 1 / 1
+      grid-row: 1 / 1
+    ul.nav-main
+      display: none
+    .next-prev
+      display: flex
+      flex-flow: row wrap
+      grid-column: 2 / 2
+      grid-row: 1 / 1
+  a.prev-link-button
+    .label-text
+      display: none
+
   a.link-button, span.nav-label
     text-align left
     padding 0.2em 0.5em
-    &.backlink
-      margin-bottom: 0.5em
-      text-align center
-  ul
+  .nav-inner>*
+    margin-bottom: 0.5em
+
+  ul.nav-main
     list-style: none
     padding-left 0
-    justify-content: right
+    justify-content: left 
+    display flex
+    flex-flow row wrap
     text-align left
+    margin-top: 0
+    display: none
+    gap: 0.5em
     ul
       border 1.5px solid var(--accent-color)
       border-radius 6px
@@ -281,62 +316,44 @@ minimal-link-button()
         padding 0.25em
         padding-top 0
         margin 0
-  li
-    margin-bottom 0.5em
-    margin-right 0.5em
-    display inline-block
   span.nav-label
     color: var(--accent-color)
     font-weight 400
     font-style italic
     cursor: default
 
-  .nav-next-prev
-    display: inline-flex
-    flex-direction: row
-    .spacer
-      flex-grow 1
-    a.link-button
-      width 2.2em
-      border none
-
+  .next-prev a.link-button
+    minimal-link-button()
 
  .section-nav, .bottom-links
-  line-height 1
   a.link-button, span.nav-label
     border-width 1.5px
     font-size 14px
-    display block
 
 .bottom-links
+  margin-top 2em
+
+a.link-button, span.nav-label
+  display: block
+
+.next-prev
   display flex
   flex-direction: row
-  margin-top 2em
+  gap: 0.5em
   .spacer
     flex-grow 1
 
-@media screen and (min-width 700px)
-  .section-page .main
-    display flex
-    flex-direction row
-    position relative
-  .section-nav
-    margin-right 2em
-    margin-top 4em
-    width 130px
-    min-width 130px
-    &>ul
-      position sticky
-      top 3em
-      text-align right
-      ul, li
-        display block
-        width 100%
-        margin-right 0
-      a.link-button
-        width 100%
+.next-link-button
+  .label-text
+    margin-right 0.5em
+  
+.icon-left-button
+  .label-text
+    margin-left 0.5em
 
 $grid_margin=1.5em
+
+@require "./larger-screens"
 
 card()
   padding 1.2em;
@@ -351,26 +368,25 @@ card()
     margin 0.5em 0 0.7em
     font-family: var(--header-font)
     color var(--text-color)
-    font-weight 400
     font-size 1.5em
     line-height 1em
 
 button.bp3-button
   background-color transparent
-  line-height 2
   span.bp3-icon
-    transform translateY(2)
+    //transform translateY(2)
     svg
       transform scale(1.3) translateY(1px)
       path
         fill var(--accent-color)
 
 a.link-button, button.bp3-button
+  line-height: calc(var(--line-height) * 0.8)
   cursor pointer
   font-size 17px
   text-align: center
   display:inline-block;
-  padding:0.35em 1.2em;
+  padding: 0.5em 1.2em;
   border:2px solid var(--accent-color);
   color var(--accent-color);
   border-radius:0.3em;
@@ -386,68 +402,50 @@ a.link-button, button.bp3-button
   strong
     font-weight 600
 
-.callout-panel
-  grid-template-columns 50fr 50fr;
-  margin-right -1*$grid_margin 
-
 .callout
-  card()
-  border 2px solid var(--card-border)
-  flex-grow 1
-  font-size 0.9em
-  line-height 1.5em
-  border-radius 10px
-
-  &.two-col
-    grid-column span 2
-    display flex
-    flex-direction: column
-    align-items: center
-    &>*
-      display flex
-      flex-direction: column
-      justify-content: space-around
+  //card()
+  //border 2px solid var(--card-border)
+  //flex-grow 1
+  //font-size 0.9em
+  //line-height 1.5em
+  // margin-bottom 2em
+  // h1, h2, h3
+  //   margin-top 0
   p
     text-align left
+
+  h1,h2,h3
+    margin-top: 0
 
   video
     width 300px
     max-width 100%
     border-radius 6px
+    height: fit-content
+    display block
+    margin: 1em auto
 
 .figure-panel
   column-count 2
   column-gap 1em
+  margin: 0 auto
+  width: fit-content
   //display: grid
   //grid-template-columns: min-content auto
 
-figure
-  break-inside: avoid
-  max-width: 100%
-  img, video
-    max-width 100%
-  &.code-figure
-    width 16em
-    pre
-      font-size 0.8em
-      line-height 1.2
-    // pre
-    //   width 10em
 
 .manifesto
-  margin 1em
+  margin 1em 1.5em
   font-size 1.5em
-  display flex
-  flex-direction: column
-  align-items: center
   .manifesto-text
     flex-grow 1
-    margin-right 1em
     line-height 1.5em
+    p
+      hyphens: none
   p
     margin 0
-    text-align left
     font-weight 300
+    text-align: center
     font-style italic
   a.manifesto-link
     font-size 1em
@@ -461,6 +459,7 @@ figure
     max-width 24em
     margin 1em auto
     text-align center
+    padding-top: 1em
     *
       text-align center
 //@media screen and (max-width 700px)
@@ -489,37 +488,6 @@ div.mountain-underlay
     width 100%
     //filter: brightness(1.5) saturate(0.8)
 
+:root
+  --figure-margin: 1.5em
 
-
-// Larger screen changes
-@media screen and (min-width 700px)
-  .callout-panel
-    display: grid
-
-  .callout.two-col, .manifesto
-    flex-direction row
-
-  .callout.two-col>*
-    margin-right 2em
-    &:last-child
-      margin-right 0em
-
-  nav .spacer
-    width 0em
-
-  header
-    a.page-title-link
-      grid-column 2
-    .header-image
-      grid-row 1 / span 2
-
-  footer
-    display flex
-    flex-direction row
-    justify-content: space-between
-
-
-@media screen and (min-width 1100px)
-  // Pull figures to the right
-  .section-content figure.right, .version .content figure
-    margin-right -8em

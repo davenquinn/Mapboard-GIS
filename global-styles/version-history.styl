@@ -1,23 +1,27 @@
 .version-history
   .version
     margin-bottom: 2em
-    display: flex
-    flex-direction: row
+
   .version-meta
     margin-right: 1em
+    width: 0
+    min-width: 12em
     .link-button
       min-width: 12em
+
+  .version-content
+    margin: 0 1em 1em
 
   .version-date
     font-size: 0.9em
     text-align: center
 
   .in-brief
-    margin-top 0
+    margin-top: 0
+    
     font-size: 0.9em
-    line-height: 1.5em
-    li
-      margin-bottom: 0.5em
+    ul, li
+      text-align: left
 
 span.version-name.code
   font-family: var(--mono-font)

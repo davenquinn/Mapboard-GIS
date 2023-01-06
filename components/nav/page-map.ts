@@ -2,13 +2,32 @@ import React from "react";
 import Link from "next/link";
 import h from "@macrostrat/hyper";
 import { DarkModeButton, GetAppButton } from "../buttons";
-import { getVersionsBySeries } from "loaders/versions";
-import { compareVersions } from "compare-versions";
+import { getVersionsBySeries } from "../../loaders/versions";
 import { ActiveLink } from "./links";
+import { FaHome } from "react-icons/fa";
+
+export function unnestLinks(links: Links): Links {
+  let newLinks: Links = [];
+
+  for (const link of links) {
+    newLinks.push(link);
+    // @ts-ignore
+    if (link.hasOwnProperty("children")) {
+      // @ts-ignore
+      newLinks.push(...(link.children ?? []));
+    }
+  }
+  return newLinks.filter((d) => {
+    // Check if is react node
+    // @ts-ignore
+    return d.hasOwnProperty("href");
+  });
+}
 
 interface LinkSpec {
   href: string;
   label: string;
+  icon?: React.ReactNode;
   shortLabel?: string;
   children?: Link[];
 }
@@ -27,9 +46,9 @@ const navLinks: Links = [
 const aboutLinks: Links = [
   { href: "/about", label: "Motivation" },
   // { href: '/about/features', label: "Features"}
-  { href: "/about/pricing", label: "Pricing + evaluation" },
-  { href: "/about/interop", label: "Openness + interoperability" },
-  { href: "/about/features", label: "Features + comparisons" },
+  { href: "/about/features", label: "Features" },
+  { href: "/about/interop", label: "Interoperability" },
+  { href: "/about/pricing", label: "Pricing" },
   { href: "/about/gallery", label: "Gallery" },
   { href: "/about/roadmap", label: "Roadmap" },
 
@@ -60,16 +79,16 @@ const userGuideLinks: Links = [
   { href: "/docs/topology", label: "Topology" },
   { href: "/docs/basemaps", label: "Basemaps" },
   { href: "/docs/tethered-mode", label: "Tethered mode" },
-  { href: "/docs/ios/releases", label: "Version history" },
+  { href: "/docs/ios/releases", label: "Releases" },
   { href: "/docs/reporting-bugs", label: "Reporting bugs" },
 ];
 
 const buildVersionHistoryLinks = () => {
-  const versionHistoryLinks = getVersionsBySeries().map((d) => {
+  return getVersionsBySeries().map((d) => {
     const { series, versions } = d;
     return {
       series,
-      label: "Series " + series,
+      label: "Version " + series,
       children: versions.map((v) => {
         return {
           href: `/docs/ios/releases/${v.metadata.version}`,
@@ -78,15 +97,17 @@ const buildVersionHistoryLinks = () => {
       }),
     };
   });
-  return [
-    h(
-      ActiveLink,
-      { href: "/docs/ios/releases" },
-      h("a.backlink.link-button.minimal", "Version history")
-    ),
-    ...versionHistoryLinks,
-  ];
 };
 const versionHistoryLinks = buildVersionHistoryLinks();
 
-export { navLinks, aboutLinks, userGuideLinks, versionHistoryLinks };
+const homepage = [{ href: "/", label: "Home", icon: h(FaHome) }];
+
+const allLinks = unnestLinks([
+  ...homepage,
+  ...navLinks,
+  ...aboutLinks,
+  ...userGuideLinks,
+  ...versionHistoryLinks,
+]);
+
+export { navLinks, aboutLinks, userGuideLinks, versionHistoryLinks, allLinks };

@@ -56,7 +56,7 @@ const BasePage = function (props) {
       <title>Mapboard GIS</title>
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Source+Code+Pro:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400,600&family=Source+Code+Pro:wght@400;700&display=swap"
         rel="stylesheet"
       />
       {analyticsHeaderScripts()}
@@ -86,13 +86,6 @@ const BasePage = function (props) {
     h("div.underlay"),
     h("div.wrap", [
       <header>
-        <ActiveLink href="/">
-          <a className="page-title-link">
-            <h1 className="page-title">
-              Mapboard <span className="dimmer">GIS</span>
-            </h1>
-          </a>
-        </ActiveLink>
         <div className="header-image">
           <Link href="/">
             <img
@@ -103,7 +96,14 @@ const BasePage = function (props) {
             />
           </Link>
         </div>
-        <Nav links={navLinks} exactLinks={false} />
+        <ActiveLink href="/">
+          <a className="page-title-link">
+            <h1 className="page-title">
+              Mapboard <span className="dimmer">GIS</span>
+            </h1>
+          </a>
+        </ActiveLink>
+        <Nav links={navLinks} exactLinks={false} showParentLink={false} />
       </header>,
       h("div.main", [children]),
       <footer>
