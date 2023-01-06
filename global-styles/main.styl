@@ -45,9 +45,6 @@ p, ul, ol, li, blockquote
   text-align: justify
   hyphens: auto
 
-figcaption
-  hyphens: none
-
 code, pre 
   font-family: var(--mono-font)
   line-height 1.2
@@ -129,6 +126,7 @@ h1,h2,h3,h4,h5,h6
 
 
 .section-content
+  position relative
   h1,h2
     clear: both
 
@@ -138,12 +136,33 @@ h1,h2,h3,h4,h5,h6
     line-height 1
 
 figure
-  margin 0 auto 1em
-  margin-bottom var(--figure-margin)
+  break-inside: avoid
+  max-width: 100%
+  &:first-child
+    margin-top 0
+  margin:
+    calc(var(--figure-margin) * 0.2)
+    auto
+    calc(var(--figure-margin) * 0.8);
   img, video
     border-radius 6px
+    max-width 100%
+
   &.no-border img, video
     border none
+
+  &.code-figure
+    width 16em
+    pre
+      font-size 0.8em
+      line-height 1.2
+
+  &.left, &.right
+    max-width: 50%
+
+figcaption
+  text-align center
+  hyphens: none
 
 // Changlog images and videos
 .version .content figure
@@ -163,47 +182,36 @@ footer
     text-align: center
 
 header
-  display grid
-  grid-template-columns: min-content auto
-  flex-direction row
-  align-items center
   .header-image
-    grid-column 1
     cursor pointer
     img.mapboard-logo
       width 150px
       height 150px
-      margin -10px
-      margin-bottom -20px
-    margin-right 2em
   a.page-title-link
     display block
-    grid-column 1 / span 2
-
+    text-decoration: none
+    color: var(--text-color)
   h1.page-title
     //font-family: "Helvetica Neue", Helvetica, sans-serif
     color var(--purple-color)
-    margin 0em 0 0.2em
     font-weight 400
     font-size 3.5em
-    line-height 1
+    margin: 0
     span.dimmer
       opacity 0.5
   nav ul
-    grid-column 2
-    display flex
+    padding-left: 0
+    display: flex
     flex-flow: row wrap
-    justify-content: left
-    padding-left 0
-    margin-top 0
-    margin-bottom -1em
+    justify-content: center
+    .spacer
+      width: 0
+      margin: 0
+    margin: 0 -0.5em
     li
-      margin-right 1em
-      margin-bottom 1em
+      margin: 0.4em 0.5em
       list-style: none
-  a.page-title-link
-    text-decoration: none
-    color: var(--text-color)
+
 
 // Section headers
 
@@ -388,23 +396,6 @@ a.link-button, button.bp3-button
   width: fit-content
   //display: grid
   //grid-template-columns: min-content auto
-
-figure
-  break-inside: avoid
-  max-width: 100%
-  img, video
-    max-width 100%
-  &.code-figure
-    width 16em
-    pre
-      font-size 0.8em
-      line-height 1.2
-    // pre
-    //   width 10em
-  // By default, we align all figures to the center
-  margin: 0 auto var(--figure-margin)
-  figcaption
-    text-align center
 
 
 .manifesto
