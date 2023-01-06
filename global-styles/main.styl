@@ -96,7 +96,7 @@ ul
 
 .wrap
   padding 2em
-  max-width 52em
+  max-width 640px
   margin 0 auto
   min-height 100vh
   display flex
@@ -137,8 +137,8 @@ h1,h2,h3,h4,h5,h6
     line-height 1
 
 figure
-  margin 0
-  margin-bottom margin !important
+  margin 0 auto 1em
+  margin-bottom var(--figure-margin)
   img, video
     border-radius 6px
   &.no-border img, video
@@ -146,10 +146,6 @@ figure
 
 // Changlog images and videos
 .version .content figure
-  float: right
-  margin-left: var(--figure-margin)
-  clear: right
-  margin-bottom: var(--figure-margin)
   max-width: 300px
 
 footer 
@@ -211,9 +207,6 @@ header
 // Section headers
 
 .section-main
-  flex 1
-  display flex
-  flex-direction: column
   .section-content
     flex 1
     position relative
@@ -305,28 +298,10 @@ minimal-link-button()
   .spacer
     flex-grow 1
 
-@media screen and (min-width 840px)
-  .section-page .main
-    display flex
-    flex-direction row
-    position relative
-  .section-nav
-    margin-right 2em
-    margin-top 4em
-    width 130px
-    min-width 130px
-    &>ul
-      position sticky
-      top 3em
-      text-align right
-      ul, li
-        display block
-        width 100%
-        margin-right 0
-      a.link-button
-        width 100%
-
 $grid_margin=1.5em
+
+@require "./larger-screens"
+
 
 card()
   padding 1.2em;
@@ -487,55 +462,3 @@ div.mountain-underlay
 :root
   --figure-margin: 1.5em
 
-// Larger screen changes
-@media screen and (min-width 640px)
-  figure
-    &.right
-      float right
-      margin-right: 0
-      margin-left: var(--figure-margin)
-      clear right
-    &.left
-      float left
-      margin-left: 0
-      margin-right var(--figure-margin)
-      clear left
-
-  .version-history .version
-    display: flex
-    flex-direction: row
-
-@media screen and (min-width 700px)
-  .callout-panel
-    display: grid
-
-  .callout.two-col, .manifesto
-    flex-direction row
-
-  .callout.two-col>*
-    margin-right 2em
-    &:last-child
-      margin-right 0em
-
-  nav .spacer
-    width 0em
-
-  header
-    a.page-title-link
-      grid-column 2
-    .header-image
-      grid-row 1 / span 2
-
-  footer
-    display flex
-    flex-direction row
-    justify-content: space-between
-    p
-      text-align: justify
-
-
-
-@media screen and (min-width 1100px)
-  // Pull figures to the right
-  .section-content figure.right, .version .content figure
-    margin-right -8em
