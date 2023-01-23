@@ -9,35 +9,40 @@ in-brief:
   - Numerous fixes for UI, overlay management, and editing
 ---
 
-This release builds atop the base strong base established in the recent `v3.2.0`
-update. It has been possible to quickly add a large number of long-awaited features,
-with more to come.
+This release builds atop the strong base established just a few weeks ago with the public release of **Version 3**.
+Here, we shift focus from restructuring the app's internals
+towards adding several long-awaited features.
 
-### Allow user interface rotation
+![Multi-perspective mapping atop 3D terrain](/docs/v3-editing/3d-mapping.mp4)
 
-Since its inception, **Mapboard GIS** has only been usable in portrait mode, due to
-the complexity of building an automatically-rescaling user interface. This limitation has
-finally been removed. The sidebar is now a floating, resizable panel.
+### Mapping atop 3D terrain
 
-### Allow map movement while editing
+![Portrait user interface, experimental globe, and fast multiscale editing of large datasets](/docs/v3-editing/vertical-zoom.mp4)
 
-When editing with a stylus, it is usually desireable to be able to move the map quickly
-in between edits. However, touch types have proven difficult to separate. We've finally removed this limitation,
-allowing easier map movement in all editing modes.
-
-:::info
-If desired, separation between editing and movement modes can be restored in **Project Settings**
-:::
-
-### Enable mapping atop 3D terrain
-
-We have added a new 3D terrain mode, which allows a stunning leap in mapping capabilities.
-This system is based on Mapbox's fantastic new [Maps SDK](https://docs.mapbox.com/ios/maps/guides/). It was
-incredibly simple to add and performs amazingly well — Mapbox engineers deserve huge congratulations
-for this one.
+We have added a new 3D terrain mode, allowing stunning new capabilities for multi-view mapping.
+This system is based on Mapbox's fantastic new [Maps SDK](https://docs.mapbox.com/ios/maps/guides/).
+This functionality was simple to add and performs amazingly well — Mapbox engineers deserve huge congratulations
+for making this possible.
 Right now, the only available DEM is Mapbox's [`terrain-dem-v1` tileset](https://docs.mapbox.com/data/tilesets/reference/mapbox-terrain-dem-v1/), but this may change in the future.
 
-### Improvements for tile overlays
+### User interface rotation
+
+Since its inception, **Mapboard GIS** has only been usable in landscape mode,
+due to the complexity of building an automatically-rescaling user interface.
+This limitation has finally been removed. The sidebar is now a floating panel,
+and the app can be freely rotated.
+
+### Map movement while editing
+
+When editing with a stylus, it is often useful to reposition the map between
+edits. However, touch types have proven difficult to separate. We've finally
+removed this limitation, allowing easier map movement in all editing modes.
+
+:::note
+If desired, separation between _Move_ and edit modes can be restored in **Project Settings**
+:::
+
+### Tile overlay improvements
 
 - A bug with loading map overlays were fixed, leading to
   a more predictable experience when basemaps are loaded.
@@ -62,22 +67,21 @@ We made a ton of small improvements to the user interface:
 - Fix a small error in reported map scale
 - Disable map pitch when 3D mode is disabled
 
-### Editing improvements
+### Editing bug fixes
 
-We fixed many small bugs with editing features,
-enabling more natural editing over larger datasets:
+We fixed many small bugs with editing features:
 
 - Fix snapping behavior for multipart lines
-- Much quicker internal implementation for snapping
 - Improved _Topological erase_ tool to more correctly find
   intersections; partial fix for repetition of lines.
 - Fix reshaping of multipart features
-- Automatically split large features by number of
-  vertices for efficiency
+- Fixes for larger datasets in Spatialite:
+  - Much quicker internal implementation for snapping
+  - Automatically split large features by number of
+    vertices for efficiency
 - Improve continuous update mode for topology (although
-  this is still pretty buggy).
+  this still has a few notable bugs).
+- Improvements to internal threading model
 
-We also made numerous internal simplifications for efficiency,
-improvements to the threading model, and general improvements.
 Now that the hard work of upgrading the fundamentals is done,
 we're excited to be moving forward at a faster clip!
