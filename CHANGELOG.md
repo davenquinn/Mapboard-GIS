@@ -8,6 +8,24 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [**Version `3.3.1`**](/iOS-releases/version-3.3.1.md) — *January 24, 2023*
+
+
+This release includes bugfixes atop [Version `3.3.0`](/docs/ios/releases/3.3.0),
+focused on providing a smoother editing experience for large feature datasets.
+
+### Bug fixes
+
+- Refactor many synchronous database writes, which block the user interface causing stuttering
+- Fix error that prevented access to select panel
+- Make some feature queries much faster through better spatial indexing
+- Improve the sequencing of editing actions and topology updates, cancelling in-progress
+  topology solving when new features are added. "Continuous topology" mode now has minimal
+  negative effects on the editing experience (although it does still take a lot of battery power).
+- Fix bug that prevented editing after device is rotated to portrait mode
+- Reduce unnecessary work upon a "cold start" of the app
+
+
 ## [**Version `3.3.0`**](/iOS-releases/version-3.3.0.md) — *January 22, 2023*
 
 *This is a major release.* 🎉
