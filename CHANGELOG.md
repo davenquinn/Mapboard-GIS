@@ -8,6 +8,13 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [**Version `3.3.2`**](/iOS-releases/version-3.3.2.md) — *January 24, 2023*
+
+
+This release is a quick fix for a major regression that prevented the creation of new
+projects. We also made several tiny bug fixes to map layout.
+
+
 ## [**Version `3.3.1`**](/iOS-releases/version-3.3.1.md) — *January 24, 2023*
 
 

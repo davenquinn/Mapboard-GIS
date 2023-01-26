@@ -1,5 +1,19 @@
 [
   {
+    "content": "\nThis release is a quick fix for a major regression that prevented the creation of new\nprojects. We also made several tiny bug fixes to map layout.\n",
+    "metadata": {
+      "version": "3.3.2",
+      "date": "2023-01-25T00:00:00.000Z",
+      "major": false,
+      "inBrief": [
+        "Fix project creation",
+        "Make some views auto-resizing"
+      ],
+      "series": "3",
+      "dateText": "January 24, 2023"
+    }
+  },
+  {
     "content": "\nThis release includes bugfixes atop [Version `3.3.0`](/docs/ios/releases/3.3.0),\nfocused on providing a smoother editing experience for large feature datasets.\n\n### Bug fixes\n\n- Refactor many synchronous database writes, which block the user interface causing stuttering\n- Fix error that prevented access to select panel\n- Make some feature queries much faster through better spatial indexing\n- Improve the sequencing of editing actions and topology updates, cancelling in-progress\n  topology solving when new features are added. \"Continuous topology\" mode now has minimal\n  negative effects on the editing experience (although it does still take a lot of battery power).\n- Fix bug that prevented editing after device is rotated to portrait mode\n- Reduce unnecessary work upon a \"cold start\" of the app\n",
     "metadata": {
       "version": "3.3.1",
