@@ -7,5 +7,10 @@ in-brief:
   - Make some views auto-resizing
 ---
 
-This release is a quick fix for a major regression that prevented the creation of new
-projects. We also made several tiny bug fixes to map layout.
+This release is a quick fix for several issues:
+
+- A major regression that prevented the creation of new projects
+- Make _3D Terrain_ the default setting to combat the lack of a functional "map idle"
+  event when terrain is off.
+- Fix a bug that prevented creation and editing of data types
+- Several tiny bug fixes to map layout

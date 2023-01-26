@@ -1,6 +1,6 @@
 [
   {
-    "content": "\nThis release is a quick fix for a major regression that prevented the creation of new\nprojects. We also made several tiny bug fixes to map layout.\n",
+    "content": "\nThis release is a quick fix for several issues:\n\n- A major regression that prevented the creation of new projects\n- Make _3D Terrain_ the default setting to combat the lack of a functional \"map idle\"\n  event when terrain is off.\n- Fix a bug that prevented creation and editing of data types\n- Several tiny bug fixes to map layout\n",
     "metadata": {
       "version": "3.3.2",
       "date": "2023-01-25T00:00:00.000Z",

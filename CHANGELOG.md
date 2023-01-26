@@ -11,8 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [**Version `3.3.2`**](/iOS-releases/version-3.3.2.md) — *January 24, 2023*
 
 
-This release is a quick fix for a major regression that prevented the creation of new
-projects. We also made several tiny bug fixes to map layout.
+This release is a quick fix for several issues:
+
+- A major regression that prevented the creation of new projects
+- Make _3D Terrain_ the default setting to combat the lack of a functional "map idle"
+  event when terrain is off.
+- Fix a bug that prevented creation and editing of data types
+- Several tiny bug fixes to map layout
 
 
 ## [**Version `3.3.1`**](/iOS-releases/version-3.3.1.md) — *January 24, 2023*
