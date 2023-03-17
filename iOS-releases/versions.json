@@ -1,5 +1,18 @@
 [
   {
+    "content": "\nUpdate document types for use with external projects.\n",
+    "metadata": {
+      "version": "3.3.3",
+      "date": "2023-03-18T00:00:00.000Z",
+      "major": false,
+      "inBrief": [
+        "Update for use with external projects"
+      ],
+      "series": "3",
+      "dateText": "March 17, 2023"
+    }
+  },
+  {
     "content": "\nThis release is a quick fix for several issues:\n\n- A major regression that prevented the creation of new projects\n- Make _3D Terrain_ the default setting to combat the lack of a functional \"map idle\"\n  event when terrain is off.\n- Fix a bug that prevented creation and editing of data types\n- Several tiny bug fixes to map layout\n",
     "metadata": {
       "version": "3.3.2",
