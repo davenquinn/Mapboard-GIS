@@ -8,10 +8,15 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [**Version `3.3.3`**](/iOS-releases/version-3.3.3.md) — *March 17, 2023*
+## [**Version `3.3.3`**](/iOS-releases/version-3.3.3.md) — *April 11, 2023*
 
 
-Update document types for use with external projects.
+- Greatly improved the layout of UI controls, especially when considering device rotation
+- Return to packaged projects (i.e., `.mapboard-project` file is a directory)
+  in order to hide SQLite temporary files and improve interoperability
+  with projects stored outside of the application directory.
+- Initial steps towards QField compatibility (more on that later).
+- Improved SwiftUI code generally
 
 
 ## [**Version `3.3.2`**](/iOS-releases/version-3.3.2.md) — *January 24, 2023*

@@ -1,15 +1,16 @@
 [
   {
-    "content": "\nUpdate document types for use with external projects.\n",
+    "content": "\n- Greatly improved the layout of UI controls, especially when considering device rotation\n- Return to packaged projects (i.e., `.mapboard-project` file is a directory)\n  in order to hide SQLite temporary files and improve interoperability\n  with projects stored outside of the application directory.\n- Initial steps towards QField compatibility (more on that later).\n- Improved SwiftUI code generally\n",
     "metadata": {
       "version": "3.3.3",
-      "date": "2023-03-18T00:00:00.000Z",
+      "date": "2023-04-12T00:00:00.000Z",
       "major": false,
       "inBrief": [
-        "Update for use with external projects"
+        "Update project file type to use with external projects",
+        "Major fixes to user interface controls"
       ],
       "series": "3",
-      "dateText": "March 17, 2023"
+      "dateText": "April 11, 2023"
     }
   },
   {
