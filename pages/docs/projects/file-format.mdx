@@ -24,7 +24,12 @@ are not used. Instead, all spatial information is stored in a remote
 remains [much the same](https://github.com/davenquinn/mapboard-server/tree/master/db-fixtures/create-tables.sql).
 :::
 
-## Internal design
+## Motivation and cross-compatibility
+
+The author of the Spatialite library is due a lot of thanks for creating and maintaining
+the core technology that drives this application. Check out the
+[Spatialite cookbook](http://www.gaia-gis.it/gaia-sins/spatialite-cookbook/index.html)
+to learn more about the library.
 
 Using a SQLite-based format for data storage, including for subsidiary
 information beyond the core spatial tables, results in a format that is
@@ -45,6 +50,20 @@ and [**SQLite Studio**](https://sqlitestudio.pl/). The [**Spatialite GUI** appli
 can open the spatial tables in the app. The file format can also be read using the
 [`sqlite3` command-line application](https://sqlite.org/cli.html) and libraries for all major programming languages.
 
+## Application package structure
+
+As of version 3.3.2, `.mapboard-project` files are organized as an _application package_
+the "file" is actually a directory containing any number of related files. This is an approach common to many Mac and iOS apps,
+and it ensures that all files associated with a project are kept together. The `.mapboard-project` extension is
+used to identify the directory as a Mapboard project, and the `mapboard.db` file within the package contains
+the SQLite database. 
+
+To open a `.mapboard-project` database in a client application, you must open the `mapboard.db` 
+file contained within it. At the command line and on Windows, application packages will show up as normal
+folders. On Mac, internal files can be accessed by right-clicking on the package and selecting *Show Package Contents*.
+
+## Spatialite database structure
+
 <Figure src="/docs/qgis-example.png"
   width={400}
   className="right"
@@ -57,9 +76,6 @@ The `mapboard_config` table holds project configuration. When files are associat
 [SQLite Archive](https://www.sqlite.org/sqlar.html) format to store them
 within the application database.
 
-The author of the Spatialite library is due a lot of thanks for creating and maintaining
-the core technology that drives this application. Check out the
-[Spatialite cookbook](http://www.gaia-gis.it/gaia-sins/spatialite-cookbook/index.html)
-to learn more about the library.
+
 
 export default UserGuidePage;
