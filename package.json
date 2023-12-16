@@ -1,6 +1,6 @@
 {
   "name": "mapboard-gis-docs",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "Documentation for the Mapboard GIS project",
   "main": "pages/index.mdx",
   "private": true,
