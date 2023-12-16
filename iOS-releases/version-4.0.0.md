@@ -21,7 +21,7 @@ independently.
 - Layer reordering
 
 Going forward, this feature will underpin a handling of more complex types of
-mapp data (e.g., notes, point-based sample data, etc.) atop the current topological map.
+map data (e.g., notes, point-based sample data, etc.) atop the current topological map.
 
 :::caution
 
@@ -55,15 +55,3 @@ While layer-based editing is functional, some features are still in development 
 - Improved server-linked mapping mode
 - Internal handling of point data sources
 - Fixes for several bugs with MBTiles layers
-
-:::caution
-
-## Improvements to be added in future releases
-
-- Edit the map area for an existing map
-- Better handling of map area for offline maps
-- Layer reordering
-- Layer-based topology view
-- Point data management
-
-:::
