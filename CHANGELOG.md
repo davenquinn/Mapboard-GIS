@@ -8,6 +8,14 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [**Version `4.0.1`**](/iOS-releases/version-4.0.1.md) — *February 23, 2024*
+
+
+## Bug fixes and user-interface improvements
+
+- Fix a major bug ([#15](https://github.com/davenquinn/Mapboard-GIS/issues/15)) that caused the app to crash when opening a project
+
+
 ## [**Version `4.0.0`**](/iOS-releases/version-4.0.0.md) — *December 14, 2023*
 
 
