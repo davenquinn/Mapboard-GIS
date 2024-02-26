@@ -8,7 +8,7 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [**Version `4.0.1`**](/iOS-releases/version-4.0.1.md) — *February 23, 2024*
+## [**Version `4.1.0`**](/iOS-releases/version-4.1.0.md) — *February 25, 2024*
 
 
 ## Bug fixes and user-interface improvements

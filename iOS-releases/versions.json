@@ -2,15 +2,15 @@
   {
     "content": "\n## Bug fixes and user-interface improvements\n\n- Fix a major bug ([#15](https://github.com/davenquinn/Mapboard-GIS/issues/15)) that caused the app to crash when opening a project\n",
     "metadata": {
-      "version": "4.0.1",
-      "date": "2024-02-24T00:00:00.000Z",
+      "version": "4.1.0",
+      "date": "2024-02-26T00:00:00.000Z",
       "major": false,
       "inBrief": [
         "Bug fixes and user-interface improvements",
         "Adjust map area for an existing project"
       ],
       "series": "4",
-      "dateText": "February 23, 2024"
+      "dateText": "February 25, 2024"
     }
   },
   {

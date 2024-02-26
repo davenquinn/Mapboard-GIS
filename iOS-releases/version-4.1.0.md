@@ -1,6 +1,6 @@
 ---
-version: 4.0.1
-date: 2024-02-24
+version: 4.1.0
+date: 2024-02-26
 major: false
 in-brief:
   - Bug fixes and user-interface improvements
