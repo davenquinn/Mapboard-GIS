@@ -9,7 +9,7 @@ in-brief:
   - Bug fixes and performance improvements
 ---
 
-## Layer-based editing
+### Layer-based editing
 
 Editing by map layer is extremely useful for capturing overlapping map features
 (for instance, "bedrock geology" and "surficial geology" layers).
@@ -34,19 +34,19 @@ While layer-based editing is functional, some features are still in development 
 
 :::
 
-## New project creation workflow
+### New project creation workflow
 
 - New control to set map area
 - Suggests the best projection (UTM zones or WGS84 lat lon) for your mapping area
 
-## User interface improvements
+### User interface improvements
 
 - New visualizations of "in-progress edits"
 - New controls: **Zoom to map area**, **Reload map**
 - First steps towards reworking Projects page
 - New selection functions: **Change layer**
 
-## Performance and internal fixes
+### Performance and internal fixes
 
 - Fixes to topology engine to not delete straight lines
 - Fixed CPU leak from map event handlers

@@ -1,8 +1,8 @@
 import parser from "markdown-yaml-metadata-parser";
 
+import { compareVersions } from "compare-versions";
 import { readFileSync, writeFileSync } from "fs";
 import glob from "glob";
-import { compareVersions } from "compare-versions";
 
 // Read all files in version directory
 let versions = glob.sync("iOS-releases/version-*.md");
@@ -46,6 +46,7 @@ for (const version of parsedVersions) {
         year: "numeric",
         month: "long",
         day: "numeric",
+        timeZone: "UTC",
       });
     }
     version.metadata.series = getMajorVersion(version.metadata.version);

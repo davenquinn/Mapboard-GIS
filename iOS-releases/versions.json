@@ -1,20 +1,20 @@
 [
   {
-    "content": "\n## Bug fixes and user-interface improvements\n\n- Fix a major bug ([#15](https://github.com/davenquinn/Mapboard-GIS/issues/15)) that caused the app to crash when opening a project\n",
+    "content": "\n### Adjusting map area\n\n- Set the map area for an existing project\n- Switch base layer types for map area selection\n- Show map area as an editable map layer\n- Minor bug fixes and usability improvements\n\n### Bug fixes and internal improvements\n\n- Fix a major bug ([#15](https://github.com/davenquinn/Mapboard-GIS/issues/15)) that caused the app to crash when opening a project\n- Removed potential sources of instability in app startup routines\n- Reduced duplication and global state, potentially improving memory management and performance\n- Refactored app startup code for more efficient and intuitive development\n- Updated to Apple's StoreKit 2 for subscription management\n- Removed warnings and errors from the app's build process\n",
     "metadata": {
       "version": "4.1.0",
       "date": "2024-02-26T00:00:00.000Z",
-      "major": false,
+      "major": true,
       "inBrief": [
-        "Bug fixes and user-interface improvements",
-        "Adjust map area for an existing project"
+        "Adjust map area for an existing project",
+        "Bug fixes and user-interface improvements"
       ],
       "series": "4",
-      "dateText": "February 25, 2024"
+      "dateText": "February 26, 2024"
     }
   },
   {
-    "content": "\n## Layer-based editing\n\nEditing by map layer is extremely useful for capturing overlapping map features\n(for instance, \"bedrock geology\" and \"surficial geology\" layers).\nBut it can be used to separate any features that you want to edit\nindependently.\n\n- Separate layers of mapping that can be independently edited\n- Snapping improvements for individual map layers\n- Layer reordering\n\nGoing forward, this feature will underpin a handling of more complex types of\nmap data (e.g., notes, point-based sample data, etc.) atop the current topological map.\n\n:::caution\n\nWhile layer-based editing is functional, some features are still in development and will be released in subsequent versions:\n\n- Layer-based topology management\n- Layer deletion\n- Layer show/hide\n- Layer-specific line/polygon types\n\n:::\n\n## New project creation workflow\n\n- New control to set map area\n- Suggests the best projection (UTM zones or WGS84 lat lon) for your mapping area\n\n## User interface improvements\n\n- New visualizations of \"in-progress edits\"\n- New controls: **Zoom to map area**, **Reload map**\n- First steps towards reworking Projects page\n- New selection functions: **Change layer**\n\n## Performance and internal fixes\n\n- Fixes to topology engine to not delete straight lines\n- Fixed CPU leak from map event handlers\n- More modern internal map server\n- Slightly more efficient map queries\n- Improved server-linked mapping mode\n- Internal handling of point data sources\n- Fixes for several bugs with MBTiles layers\n",
+    "content": "\n### Layer-based editing\n\nEditing by map layer is extremely useful for capturing overlapping map features\n(for instance, \"bedrock geology\" and \"surficial geology\" layers).\nBut it can be used to separate any features that you want to edit\nindependently.\n\n- Separate layers of mapping that can be independently edited\n- Snapping improvements for individual map layers\n- Layer reordering\n\nGoing forward, this feature will underpin a handling of more complex types of\nmap data (e.g., notes, point-based sample data, etc.) atop the current topological map.\n\n:::caution\n\nWhile layer-based editing is functional, some features are still in development and will be released in subsequent versions:\n\n- Layer-based topology management\n- Layer deletion\n- Layer show/hide\n- Layer-specific line/polygon types\n\n:::\n\n### New project creation workflow\n\n- New control to set map area\n- Suggests the best projection (UTM zones or WGS84 lat lon) for your mapping area\n\n### User interface improvements\n\n- New visualizations of \"in-progress edits\"\n- New controls: **Zoom to map area**, **Reload map**\n- First steps towards reworking Projects page\n- New selection functions: **Change layer**\n\n### Performance and internal fixes\n\n- Fixes to topology engine to not delete straight lines\n- Fixed CPU leak from map event handlers\n- More modern internal map server\n- Slightly more efficient map queries\n- Improved server-linked mapping mode\n- Internal handling of point data sources\n- Fixes for several bugs with MBTiles layers\n",
     "metadata": {
       "version": "4.0.0",
       "date": "2023-12-15T00:00:00.000Z",
@@ -26,7 +26,7 @@
         "Bug fixes and performance improvements"
       ],
       "series": "4",
-      "dateText": "December 14, 2023"
+      "dateText": "December 15, 2023"
     }
   },
   {
@@ -40,7 +40,7 @@
         "Major fixes to user interface controls"
       ],
       "series": "3",
-      "dateText": "April 11, 2023"
+      "dateText": "April 12, 2023"
     }
   },
   {
@@ -54,7 +54,7 @@
         "Make some views auto-resizing"
       ],
       "series": "3",
-      "dateText": "January 24, 2023"
+      "dateText": "January 25, 2023"
     }
   },
   {
@@ -69,7 +69,7 @@
         "Speed up some database queries"
       ],
       "series": "3",
-      "dateText": "January 24, 2023"
+      "dateText": "January 25, 2023"
     }
   },
   {
@@ -85,7 +85,7 @@
         "Numerous fixes for UI, overlay management, and editing"
       ],
       "series": "3",
-      "dateText": "January 22, 2023"
+      "dateText": "January 23, 2023"
     }
   },
   {
@@ -102,7 +102,7 @@
         "Opacity of polygons and raster overlay layers can be varied"
       ],
       "series": "3",
-      "dateText": "January 4, 2023"
+      "dateText": "January 5, 2023"
     }
   },
   {
@@ -114,7 +114,7 @@
       "pre": true,
       "inBrief": "Fixes in preparation for release",
       "series": "3",
-      "dateText": "December 28, 2022"
+      "dateText": "December 29, 2022"
     }
   },
   {
@@ -137,7 +137,7 @@
         "Fixes for minor display bugs"
       ],
       "series": "2",
-      "dateText": "November 27, 2021"
+      "dateText": "November 28, 2021"
     }
   },
   {
@@ -146,7 +146,7 @@
       "version": "2.2.4",
       "date": "2021-04-19T00:00:00.000Z",
       "series": "2",
-      "dateText": "April 18, 2021"
+      "dateText": "April 19, 2021"
     }
   },
   {
@@ -156,7 +156,7 @@
       "date": "2021-03-21T00:00:00.000Z",
       "inBrief": "Initial public App Store release! 🎉",
       "series": "2",
-      "dateText": "March 20, 2021"
+      "dateText": "March 21, 2021"
     }
   },
   {
@@ -166,7 +166,7 @@
       "date": "2021-03-19T00:00:00.000Z",
       "pre": true,
       "series": "2",
-      "dateText": "March 18, 2021"
+      "dateText": "March 19, 2021"
     }
   },
   {
@@ -176,7 +176,7 @@
       "date": "2020-11-27T00:00:00.000Z",
       "pre": true,
       "series": "2",
-      "dateText": "November 26, 2020"
+      "dateText": "November 27, 2020"
     }
   },
   {
@@ -186,7 +186,7 @@
       "date": "2020-10-29T00:00:00.000Z",
       "pre": true,
       "series": "2",
-      "dateText": "October 28, 2020"
+      "dateText": "October 29, 2020"
     }
   },
   {
@@ -196,7 +196,7 @@
       "date": "2020-10-20T00:00:00.000Z",
       "pre": true,
       "series": "2",
-      "dateText": "October 19, 2020"
+      "dateText": "October 20, 2020"
     }
   },
   {

@@ -8,18 +8,32 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [**Version `4.1.0`**](/iOS-releases/version-4.1.0.md) — *February 25, 2024*
+## [**Version `4.1.0`**](/iOS-releases/version-4.1.0.md) — *February 26, 2024*
+
+*This is a major release.* 🎉
 
 
-## Bug fixes and user-interface improvements
+### Adjusting map area
+
+- Set the map area for an existing project
+- Switch base layer types for map area selection
+- Show map area as an editable map layer
+- Minor bug fixes and usability improvements
+
+### Bug fixes and internal improvements
 
 - Fix a major bug ([#15](https://github.com/davenquinn/Mapboard-GIS/issues/15)) that caused the app to crash when opening a project
+- Removed potential sources of instability in app startup routines
+- Reduced duplication and global state, potentially improving memory management and performance
+- Refactored app startup code for more efficient and intuitive development
+- Updated to Apple's StoreKit 2 for subscription management
+- Removed warnings and errors from the app's build process
 
 
-## [**Version `4.0.0`**](/iOS-releases/version-4.0.0.md) — *December 14, 2023*
+## [**Version `4.0.0`**](/iOS-releases/version-4.0.0.md) — *December 15, 2023*
 
 
-## Layer-based editing
+### Layer-based editing
 
 Editing by map layer is extremely useful for capturing overlapping map features
 (for instance, "bedrock geology" and "surficial geology" layers).
@@ -44,19 +58,19 @@ While layer-based editing is functional, some features are still in development 
 
 :::
 
-## New project creation workflow
+### New project creation workflow
 
 - New control to set map area
 - Suggests the best projection (UTM zones or WGS84 lat lon) for your mapping area
 
-## User interface improvements
+### User interface improvements
 
 - New visualizations of "in-progress edits"
 - New controls: **Zoom to map area**, **Reload map**
 - First steps towards reworking Projects page
 - New selection functions: **Change layer**
 
-## Performance and internal fixes
+### Performance and internal fixes
 
 - Fixes to topology engine to not delete straight lines
 - Fixed CPU leak from map event handlers
@@ -67,7 +81,7 @@ While layer-based editing is functional, some features are still in development 
 - Fixes for several bugs with MBTiles layers
 
 
-## [**Version `3.3.3`**](/iOS-releases/version-3.3.3.md) — *April 11, 2023*
+## [**Version `3.3.3`**](/iOS-releases/version-3.3.3.md) — *April 12, 2023*
 
 
 - Greatly improved the layout of UI controls, especially when considering device rotation
@@ -78,7 +92,7 @@ While layer-based editing is functional, some features are still in development 
 - Improved SwiftUI code generally
 
 
-## [**Version `3.3.2`**](/iOS-releases/version-3.3.2.md) — *January 24, 2023*
+## [**Version `3.3.2`**](/iOS-releases/version-3.3.2.md) — *January 25, 2023*
 
 
 This release is a quick fix for several issues:
@@ -90,7 +104,7 @@ This release is a quick fix for several issues:
 - Several tiny bug fixes to map layout
 
 
-## [**Version `3.3.1`**](/iOS-releases/version-3.3.1.md) — *January 24, 2023*
+## [**Version `3.3.1`**](/iOS-releases/version-3.3.1.md) — *January 25, 2023*
 
 
 This release includes bugfixes atop [Version `3.3.0`](/docs/ios/releases/3.3.0),
@@ -108,7 +122,7 @@ focused on providing a smoother editing experience for large feature datasets.
 - Reduce unnecessary work upon a "cold start" of the app
 
 
-## [**Version `3.3.0`**](/iOS-releases/version-3.3.0.md) — *January 22, 2023*
+## [**Version `3.3.0`**](/iOS-releases/version-3.3.0.md) — *January 23, 2023*
 
 *This is a major release.* 🎉
 
@@ -191,7 +205,7 @@ Now that the hard work of upgrading the fundamentals is done,
 we're excited to be moving forward at a faster clip!
 
 
-## [**Version `3.2.0`**](/iOS-releases/version-3.2.0.md) — *January 4, 2023*
+## [**Version `3.2.0`**](/iOS-releases/version-3.2.0.md) — *January 5, 2023*
 
 *This is a major release.* 🎉
 
@@ -255,7 +269,7 @@ Key missing pieces:
   :::
 
 
-## [**Version `3.1.0`**](/iOS-releases/version-3.1.0.md) — *December 28, 2022*
+## [**Version `3.1.0`**](/iOS-releases/version-3.1.0.md) — *December 29, 2022*
 
 *This is a pre-release.*
 
@@ -300,7 +314,7 @@ these edit modes, or removing filtering options altogether in favor of a more ad
 - Upgraded GIS software libraries
 
 
-## [**Version `2.3.0`**](/iOS-releases/version-2.3.0.md) — *November 27, 2021*
+## [**Version `2.3.0`**](/iOS-releases/version-2.3.0.md) — *November 28, 2021*
 
 
 ### Offline access to Mapbox tile layers
@@ -314,7 +328,7 @@ to be used effectively in the field.
 - Fixed a bug with the control panel for creating tile layers from external URLs
 - Fixed some minor display bugs
 
-## [**Version `2.2.4`**](/iOS-releases/version-2.2.4.md) — *April 18, 2021*
+## [**Version `2.2.4`**](/iOS-releases/version-2.2.4.md) — *April 19, 2021*
 
 
 ### Better raster-tile layer support
@@ -342,7 +356,7 @@ VALUES ('spheriod_radius', 3396190);
 ```
 
 
-## [**Version `2.2.3`**](/iOS-releases/version-2.2.3.md) — *March 20, 2021*
+## [**Version `2.2.3`**](/iOS-releases/version-2.2.3.md) — *March 21, 2021*
 
 
 ### Initial public App Store release! 🎉
@@ -354,7 +368,7 @@ for more information!
 - Small optimizations
 
 
-## [**Version `2.2.0`**](/iOS-releases/version-2.2.0.md) — *March 18, 2021*
+## [**Version `2.2.0`**](/iOS-releases/version-2.2.0.md) — *March 19, 2021*
 
 *This is a pre-release.*
 
@@ -368,7 +382,7 @@ for more information!
 - Deduplicated some frameworks
 
 
-## [**Version `2.1.0`**](/iOS-releases/version-2.1.0.md) — *November 26, 2020*
+## [**Version `2.1.0`**](/iOS-releases/version-2.1.0.md) — *November 27, 2020*
 
 *This is a pre-release.*
 
@@ -383,7 +397,7 @@ for more information!
   the `mapboard-server` project.
 
 
-## [**Version `2.0.1`**](/iOS-releases/version-2.0.1.md) — *October 28, 2020*
+## [**Version `2.0.1`**](/iOS-releases/version-2.0.1.md) — *October 29, 2020*
 
 *This is a pre-release.*
 
@@ -395,7 +409,7 @@ for more information!
   directly from the polygons panel.
 
 
-## [**Version `2.0.0`**](/iOS-releases/version-2.0.0.md) — *October 19, 2020*
+## [**Version `2.0.0`**](/iOS-releases/version-2.0.0.md) — *October 20, 2020*
 
 *This is a pre-release.*
 
