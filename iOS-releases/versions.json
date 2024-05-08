@@ -1,5 +1,19 @@
 [
   {
+    "content": "\n- A new system for working with remote (PostGIS) projects housed in the\n  [Mapboard Platform](https://github.com/Mapboard/mapboard-platform) application.\n- User interface improvements for more standardized components and navigation patterns.\n- Streamlined offline purchase handling\n- Much quicker topology processing\n- More effective prioritization of editing operations over topology maintenance tasks\n- More control over how map layers are displayed\n",
+    "metadata": {
+      "version": "4.2.0",
+      "date": "2024-05-08T00:00:00.000Z",
+      "major": true,
+      "inBrief": [
+        "Improve server layer handling",
+        "Bugfixes and performance improvements"
+      ],
+      "series": "4",
+      "dateText": "May 8, 2024"
+    }
+  },
+  {
     "content": "\n### Adjusting map area\n\n- Set the map area for an existing project\n- Switch base layer types for map area selection\n- Show map area as an editable map layer\n- Minor bug fixes and usability improvements\n\n### Bug fixes and internal improvements\n\n- Fix a major bug ([#15](https://github.com/davenquinn/Mapboard-GIS/issues/15)) that caused the app to crash when opening a project\n- Removed potential sources of instability in app startup routines\n- Reduced duplication and global state, potentially improving memory management and performance\n- Refactored app startup code for more efficient and intuitive development\n- Updated to Apple's StoreKit 2 for subscription management\n- Removed warnings and errors from the app's build process\n",
     "metadata": {
       "version": "4.1.0",

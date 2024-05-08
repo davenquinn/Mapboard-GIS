@@ -8,6 +8,20 @@ It is automatically generated from release notes in the
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [**Version `4.2.0`**](/iOS-releases/version-4.2.0.md) — *May 8, 2024*
+
+*This is a major release.* 🎉
+
+
+- A new system for working with remote (PostGIS) projects housed in the
+  [Mapboard Platform](https://github.com/Mapboard/mapboard-platform) application.
+- User interface improvements for more standardized components and navigation patterns.
+- Streamlined offline purchase handling
+- Much quicker topology processing
+- More effective prioritization of editing operations over topology maintenance tasks
+- More control over how map layers are displayed
+
+
 ## [**Version `4.1.0`**](/iOS-releases/version-4.1.0.md) — *February 26, 2024*
 
 *This is a major release.* 🎉
