@@ -1,5 +1,18 @@
 [
   {
+    "content": "\n- Fix a high-impact bug in creating new projects\n- Fix testing suite\n",
+    "metadata": {
+      "version": "4.2.1",
+      "date": "2024-06-26T00:00:00.000Z",
+      "major": false,
+      "inBrief": [
+        "Fix a bug in project creation"
+      ],
+      "series": "4",
+      "dateText": "June 26, 2024"
+    }
+  },
+  {
     "content": "\n- A new system for working with remote (PostGIS) projects housed in the\n  [Mapboard Platform](https://github.com/Mapboard/mapboard-platform) application.\n- User interface improvements for more standardized components and navigation patterns.\n- Streamlined offline purchase handling\n- Much quicker topology processing\n- More effective prioritization of editing operations over topology maintenance tasks\n- More control over how map layers are displayed\n",
     "metadata": {
       "version": "4.2.0",
